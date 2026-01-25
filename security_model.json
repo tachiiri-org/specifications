@@ -1,0 +1,131 @@
+{
+  "authentication": {
+    "user_auth": {
+      "mechanism": "Auth0 OIDC/JWT Access Token",
+      "verification_location": "internal-gateway (PEP#1)",
+      "token_transport": "Authorization: Bearer <access_token>",
+      "verification_requirements": {
+        "issuer": "auth0_issuer_url",
+        "audience": "api_audience_identifier",
+        "algorithms": [
+          "RS256"
+        ],
+        "clock_skew_seconds": 60,
+        "required_claims": [
+          "iss",
+          "sub",
+          "aud",
+          "exp",
+          "iat"
+        ]
+      }
+    },
+    "service_auth": {
+      "mechanism": "internal_token",
+      "verification_location": "each_service (PEP#2) + optional in gateway for debug",
+      "token_transport": "X-Internal-Token: <token>",
+      "token_properties": {
+        "type": "signed",
+        "recommended_alg": "HMAC-SHA256",
+        "rotation": "supported",
+        "ttl_seconds": 60,
+        "binds_to": [
+          "request_id",
+          "actor_hash",
+          "issued_at"
+        ]
+      }
+    }
+  },
+  "authorization": {
+    "pdp": {
+      "primary_source": "Auth0 claims (scopes/roles) + tenant entitlements",
+      "extensible": true,
+      "notes": "PDPは複数方式に拡張可能だが、強制点(PEP)の仕様を優先して固定する"
+    },
+    "pep": {
+      "gateway": {
+        "enforces": [
+          "JWT validity (iss/aud/exp)",
+          "coarse-grained access control by rpc_method scope mapping",
+          "rate limiting (coarse)",
+          "tenant header normalization (if present)"
+        ],
+        "rejects": {
+          "401": [
+            "missing_or_invalid_bearer_token"
+          ],
+          "403": [
+            "insufficient_scope_or_role",
+            "tenant_mismatch"
+          ]
+        }
+      },
+      "service": {
+        "enforces": [
+          "X-Internal-Token required and valid",
+          "actor headers required and valid",
+          "domain-specific authorization (resource ownership checks, provider constraints)"
+        ],
+        "rejects": {
+          "401": [
+            "missing_or_invalid_internal_token"
+          ],
+          "403": [
+            "resource_not_owned",
+            "feature_not_enabled",
+            "domain_policy_denied"
+          ]
+        }
+      }
+    }
+  },
+  "tenant": {
+    "enabled": true,
+    "tenant_id_source_priority": [
+      "actor.tenant_id (canonical)",
+      "X-Tenant-Id (optional input; must match actor.tenant_id)"
+    ],
+    "default_tenant_behavior": {
+      "mode": "single_tenant",
+      "default_tenant_id": "default"
+    },
+    "validation": {
+      "mismatch_policy": "deny_403"
+    }
+  },
+  "entitlements": {
+    "enabled": true,
+    "concept": "tenant feature flags / plan-gated capabilities",
+    "storage": "future (D1 recommended)",
+    "evaluation_points": [
+      "gateway for coarse endpoint gating",
+      "service for domain-level gating"
+    ],
+    "feature_keys_examples": [
+      "feature.github.enabled",
+      "feature.google_drive.enabled",
+      "feature.cloudflare_r2.enabled",
+      "feature.r2.bulk_transfer"
+    ],
+    "deny_behavior": {
+      "default": "403",
+      "optional_security_through_ambiguity": "404_for_hidden_features"
+    }
+  },
+  "resource_ownership_model": {
+    "enabled": true,
+    "owner_types": [
+      "tenant",
+      "user",
+      "organization",
+      "public"
+    ],
+    "canonical_fields": [
+      "owner_type",
+      "owner_id"
+    ],
+    "default_rule": "all_persisted_resources_must_have_owner_type_and_owner_id",
+    "cross_service_access": "via_api_or_events_only (no_shared_db)"
+  }
+}
