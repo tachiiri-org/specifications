@@ -1,0 +1,12 @@
+{
+  "routing_migration": {
+    "phase_1": "gateway routes to three services by prefix with backend fallback",
+    "phase_2": "remove backend fallback after parity tests",
+    "phase_3": "stabilize shared protocol headers and observability"
+  },
+  "security_rollout": {
+    "phase_1": "gateway enforces JWT + tenant normalization",
+    "phase_2": "services enforce internal token + actor required",
+    "phase_3": "fine-grained authorization per domain"
+  }
+}

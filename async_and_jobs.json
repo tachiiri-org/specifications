@@ -1,0 +1,15 @@
+{
+  "enabled": false,
+  "phase": "defer_until_use_case",
+  "recommended_pattern_when_needed": {
+    "api": "submit -> 202 Accepted + job_id",
+    "execution": "queue/cron/do worker",
+    "idempotency": "required",
+    "observability": "job_id correlated with request_id/trace_id"
+  },
+  "likely_future_use_cases": [
+    "bulk transfer",
+    "import/export",
+    "retryable upstream operations"
+  ]
+}

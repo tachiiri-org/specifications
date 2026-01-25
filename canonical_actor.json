@@ -1,0 +1,33 @@
+{
+  "representation": "headers + internal normalized structure",
+  "schema": {
+    "sub": "string",
+    "provider": "auth0|github|google|internal",
+    "tenant_id": "string",
+    "roles": [
+      "string"
+    ],
+    "scopes": [
+      "string"
+    ],
+    "org_ids": [
+      "string"
+    ],
+    "email": "string_optional",
+    "display_name": "string_optional"
+  },
+  "transport": {
+    "gateway_to_service": {
+      "method": "headers",
+      "headers": {
+        "X-Actor-Sub": "actor.sub",
+        "X-Actor-Provider": "actor.provider",
+        "X-Actor-Tenant-Id": "actor.tenant_id",
+        "X-Actor-Roles": "comma_separated",
+        "X-Actor-Scopes": "space_or_comma_separated",
+        "X-Request-Id": "request_id"
+      },
+      "sanitization": "gateway sanitizes inbound actor headers; services trust only internal-propagated actor headers"
+    }
+  }
+}
