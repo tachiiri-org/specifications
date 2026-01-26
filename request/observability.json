@@ -1,0 +1,47 @@
+{
+  "scope": "Request-level observability and control metadata",
+  "version": 1,
+  "request_id": {
+    "header": "X-Request-Id",
+    "generated_by": "gateway",
+    "propagation": "downstream",
+    "echo_to_response": true
+  },
+  "tracing": {
+    "traceparent": {
+      "supported": true,
+      "propagation": "passthrough",
+      "generate_if_missing": false
+    }
+  },
+  "rate_limit": {
+    "enabled": true,
+    "keys": [
+      "actor_id",
+      "tenant_id"
+    ],
+    "default_policy": {
+      "requests_per_minute": 600
+    }
+  },
+  "idempotency": {
+    "supported": true,
+    "header": "Idempotency-Key",
+    "applies_to_methods": [
+      "POST",
+      "PUT",
+      "PATCH"
+    ],
+    "scope": "per_actor"
+  },
+  "logging": {
+    "required_fields": [
+      "request_id",
+      "operation_id",
+      "actor_id",
+      "tenant_id",
+      "status",
+      "latency_ms"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "internet_facing": false,
+  "untrusted_by_default": true,
+  "trusted_headers": {
+    "consumed_by_gateway": [
+      "authorization",
+      "content-type"
+    ],
+    "passthrough": [
+      "traceparent",
+      "user-agent"
+    ]
+  }
+}

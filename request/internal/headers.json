@@ -1,0 +1,14 @@
+{
+  "canonicalization": {
+    "case_insensitive": true,
+    "normalize_to": "lowercase"
+  },
+  "hop_headers_policy": {
+    "applies_to": "dmz_to_gateway",
+    "strip_inbound_patterns": [
+      "x-actor*",
+      "x-request-id"
+    ],
+    "notes": "inbound x-actor* and x-request-id are untrusted; gateway regenerates and overwrites for downstream calls"
+  }
+}
