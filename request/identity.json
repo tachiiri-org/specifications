@@ -1,0 +1,77 @@
+{
+  "representation": "single signed actor header + internal normalized structure",
+  "schema": {
+    "version": 1,
+    "actor_id": "string (recommended: `${provider}:${sub}`)",
+    "sub": "string",
+    "provider": "auth0|github|google|internal",
+    "tenant_id": "string",
+    "roles": "string[]",
+    "scopes": "string[]",
+    "org_ids": "string[]",
+    "email": "string_optional",
+    "display_name": "string_optional",
+    "issued_at": "number (unix epoch seconds)"
+  },
+  "transport": {
+    "dmz_to_gateway": {
+      "rule": "treat any inbound X-Actor* headers as untrusted and remove them before processing",
+      "drop_headers": [
+        "X-Actor*",
+        "X-Request-Id"
+      ]
+    },
+    "gateway_to_service": {
+      "method": "headers",
+      "headers": {
+        "X-Actor": "base64url(utf8(JSON.stringify(actor)))",
+        "X-Actor-Sig": "base64url(HMAC_SHA256(INTERNAL_SHARED_SECRET, X-Actor + '.' + X-Request-Id))",
+        "X-Request-Id": "uuidv7_or_uuidv4",
+        "traceparent": "optional (W3C Trace Context)"
+      }
+    }
+  },
+  "verification": {
+    "on_service": {
+      "required": [
+        "X-Actor",
+        "X-Actor-Sig",
+        "X-Request-Id"
+      ],
+      "verify": "expected_sig = HMAC_SHA256(secret, X-Actor + '.' + X-Request-Id); constant_time_compare(expected_sig, X-Actor-Sig)",
+      "on_fail": {
+        "action": "reject",
+        "status": 401,
+        "log_event": "actor_signature_invalid"
+      },
+      "on_success": {
+        "decode": "actor = JSON.parse(utf8(base64url_decode(X-Actor)))",
+        "use": "services MUST use only decoded actor; MUST NOT accept any X-Actor-* individual headers"
+      }
+    },
+    "sanitization": {
+      "gateway": "gateway always overwrites actor-related headers for downstream calls",
+      "services": "services may optionally also drop any inbound X-Actor-* individual headers defensively"
+    }
+  }
+},
+"notes": {
+  "deprecation": {
+    "legacy_headers": [
+      "X-Actor-Sub",
+      "X-Actor-Provider",
+      "X-Actor-Tenant-Id",
+      "X-Actor-Roles",
+      "X-Actor-Scopes"
+    ],
+    "policy": "deprecated; do not generate for new services; remove after migration"
+  },
+  "parsing": {
+    "array_fields": "roles/scopes/org_ids are encoded inside X-Actor JSON; no delimiter-based parsing"
+  },
+  "security": {
+    "secret_storage": "INTERNAL_SHARED_SECRET stored as environment secret in gateway and services",
+    "rotation": "support key rotation by allowing multiple active secrets (kid) if needed later"
+  }
+}
+}

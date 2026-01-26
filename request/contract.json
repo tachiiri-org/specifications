@@ -1,0 +1,82 @@
+{
+  "scope": "Gateway API routing and request/response contracts",
+  "version": 1,
+  "operations": {
+    "list_google_drive_files": {
+      "method": "GET",
+      "path": "/v1/google-drive/files",
+      "auth": {
+        "required": true,
+        "required_scopes": [
+          "drive.read"
+        ]
+      },
+      "request": {
+        "query": {
+          "parent_id": "string_optional",
+          "page_size": "number_optional"
+        }
+      },
+      "response": {
+        "200": {
+          "body": {
+            "files": "array",
+            "next_page_token": "string_optional"
+          }
+        }
+      },
+      "errors": [
+        "unauthorized",
+        "forbidden",
+        "upstream_error"
+      ]
+    },
+    "put_r2_object": {
+      "method": "PUT",
+      "path": "/v1/r2/object",
+      "auth": {
+        "required": true,
+        "required_roles": [
+          "admin"
+        ]
+      },
+      "request": {
+        "body": {
+          "key": "string",
+          "content_type": "string",
+          "data": "base64"
+        }
+      },
+      "response": {
+        "200": {
+          "body": {
+            "etag": "string"
+          }
+        }
+      },
+      "errors": [
+        "unauthorized",
+        "forbidden",
+        "conflict"
+      ]
+    }
+  },
+  "error_model": {
+    "unauthorized": {
+      "status": 401,
+      "code": "unauthorized"
+    },
+    "forbidden": {
+      "status": 403,
+      "code": "forbidden"
+    },
+    "upstream_error": {
+      "status": 502,
+      "code": "upstream_error"
+    },
+    "conflict": {
+      "status": 409,
+      "code": "conflict"
+    }
+  }
+}

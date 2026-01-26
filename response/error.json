@@ -1,0 +1,70 @@
+{
+  "response_shape": {
+    "content_type": "application/json; charset=utf-8",
+    "body": {
+      "error_code": "string",
+      "message": "string",
+      "request_id": "string",
+      "details": "unknown_optional"
+    },
+    "response_headers": {
+      "x-request-id": "request_id"
+    }
+  },
+  "implemented_errors": {
+    "misconfigured": {
+      "status": 500,
+      "when": "required env vars missing for auth or internal configuration"
+    },
+    "unauthorized": {
+      "status": 401,
+      "when": "missing bearer token or token verification failed"
+    },
+    "forbidden": {
+      "status": 403,
+      "when": "invalid internal token"
+    },
+    "not_found": {
+      "status": 404,
+      "when": "no route matched"
+    },
+    "rpc_method_not_found": {
+      "status": 404,
+      "when": "route matched but rpc method is not supported by gateway"
+    },
+    "rate_limited": {
+      "status": 429,
+      "when": "rate limiting exceeded"
+    },
+    "upstream_unreachable": {
+      "status": 502,
+      "when": "upstream fetch threw or upstream unavailable"
+    },
+    "upstream_error": {
+      "status": "passthrough",
+      "when": "upstream responded non-2xx; gateway preserves upstream status and attaches details"
+    },
+    "internal_error": {
+      "status": 500,
+      "when": "unexpected error not mapped to GatewayError"
+    }
+  },
+  "reserved_protocol_errors": {
+    "unsupported_media_type": {
+      "status": 415,
+      "when": "content-type not allowed for endpoints that require JSON"
+    },
+    "invalid_json": {
+      "status": 400,
+      "when": "request body cannot be parsed as JSON when JSON is required"
+    },
+    "payload_too_large": {
+      "status": 413,
+      "when": "request body exceeds max_body_size_bytes"
+    },
+    "method_not_allowed": {
+      "status": 405,
+      "when": "method not in supported_methods (protocol-level) or route-level mismatch"
+    }
+  }
+}
