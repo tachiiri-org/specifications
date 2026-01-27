@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "allow_origins": [
+    "https://<YOUR_APP_ORIGIN>"
+  ],
+  "allow_methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "allow_headers": [
+    "content-type",
+    "traceparent"
+  ],
+  "allow_credentials": true,
+  "expose_headers": [
+    "x-request-id"
+  ],
+  "max_age_seconds": 600,
+  "vary": [
+    "origin"
+  ]
+}

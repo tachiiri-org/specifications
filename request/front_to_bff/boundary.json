@@ -1,0 +1,60 @@
+{
+  "internet_facing": true,
+  "untrusted_by_default": true,
+  "allowed_clients": [
+    "browser"
+  ],
+  "authn_input": {
+    "kind": "cookie_session",
+    "cookie_names": [
+      "__Host-session"
+    ]
+  },
+  "csrf": {
+    "strategy": "origin_check",
+    "require_on_methods": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "allowed_origins": [
+      "https://<YOUR_APP_ORIGIN>"
+    ],
+    "treat_missing_origin_as": "deny"
+  },
+  "trusted_headers": {
+    "consumed_by_receiver": [
+      "accept",
+      "content-type",
+      "origin",
+      "cookie"
+    ],
+    "passthrough_allowlist": [
+      "traceparent",
+      "user-agent"
+    ],
+    "drop": [
+      "authorization",
+      "x-forwarded-for",
+      "x-real-ip",
+      "cf-connecting-ip",
+      "cf-ray",
+      "x-request-id",
+      "forwarded"
+    ]
+  },
+  "cookie_policy": {
+    "secure": true,
+    "http_only": true,
+    "same_site": "lax",
+    "host_prefix_required": true,
+    "path": "/"
+  },
+  "error_behavior": {
+    "shape_ref": "response/error.json",
+    "response_headers": {
+      "x-request-id": "request_id"
+    }
+  }
+}

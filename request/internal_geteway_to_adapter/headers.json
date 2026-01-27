@@ -1,0 +1,65 @@
+{
+  "untrusted_by_default": true,
+  "consume": {
+    "allowlist": [
+      "content-type",
+      "traceparent",
+      "x-internal-assertion",
+      "x-adapter-target",
+      "x-idempotency-key"
+    ]
+  },
+  "drop": [
+    "authorization",
+    "cookie",
+    "origin",
+    "referer",
+    "user-agent",
+    "x-forwarded-for",
+    "x-real-ip",
+    "cf-connecting-ip",
+    "cf-ray",
+    "x-request-id",
+    "forwarded"
+  ],
+  "hop_by_hop_drop": [
+    "connection",
+    "keep-alive",
+    "proxy-authenticate",
+    "proxy-authorization",
+    "te",
+    "trailer",
+    "transfer-encoding",
+    "upgrade"
+  ],
+  "normalize": {
+    "lowercase_header_names": true
+  },
+  "generate_on_receiver": {
+    "x-request-id": {
+      "required": true,
+      "overwrite_if_present": false
+    }
+  },
+  "passthrough_to_downstream": {
+    "allowlist": [
+      "traceparent"
+    ]
+  },
+  "response_headers": {
+    "set": {
+      "x-request-id": "from_generated_request_id"
+    }
+  },
+  "external_egress": {
+    "forward_header_allowlist_to_upstream": [
+      "content-type",
+      "traceparent"
+    ],
+    "forbid_forwarding_sensitive_headers": [
+      "authorization",
+      "cookie",
+      "x-internal-assertion"
+    ]
+  }
+}
