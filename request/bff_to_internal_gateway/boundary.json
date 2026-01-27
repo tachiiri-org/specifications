@@ -1,0 +1,33 @@
+{
+  "internet_facing": false,
+  "service_binding_only": true,
+  "untrusted_by_default": true,
+  "allowed_clients": [
+    "bff"
+  ],
+  "trusted_headers": {
+    "consumed_by_receiver": [
+      "content-type",
+      "x-internal-assertion",
+      "x-contract-version"
+    ],
+    "passthrough_allowlist": [
+      "traceparent"
+    ],
+    "drop": [
+      "authorization",
+      "cookie",
+      "origin",
+      "referer",
+      "user-agent",
+      "x-forwarded-for",
+      "x-real-ip",
+      "cf-connecting-ip",
+      "cf-ray"
+    ]
+  },
+  "authn_input": {
+    "kind": "internal_assertion",
+    "header": "x-internal-assertion"
+  }
+}

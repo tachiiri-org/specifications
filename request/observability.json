@@ -3,8 +3,9 @@
   "version": 1,
   "request_id": {
     "header": "X-Request-Id",
-    "generated_by": "gateway",
+    "generated_by": "first_internet_facing_component_if_missing",
     "propagation": "downstream",
+    "overwrite_if_present": false,
     "echo_to_response": true
   },
   "tracing": {
@@ -27,12 +28,13 @@
   "idempotency": {
     "supported": true,
     "header": "Idempotency-Key",
-    "applies_to_methods": [
+    "capability": "services may enforce idempotency requirements",
+    "default_applies_to_methods": [
       "POST",
       "PUT",
       "PATCH"
     ],
-    "scope": "per_actor"
+    "note": "For operation-centric adapter routes, whether Idempotency-Key is required must be declared per operation (e.g., in adapter/<service>/operations.json) rather than inferred from HTTP method alone."
   },
   "logging": {
     "required_fields": [
@@ -42,6 +44,12 @@
       "tenant_id",
       "status",
       "latency_ms"
+    ],
+    "optional_fields": [
+      "service",
+      "resource",
+      "property",
+      "operation"
     ]
   }
 }

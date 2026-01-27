@@ -1,5 +1,5 @@
 {
-  "representation": "single signed actor header + internal normalized structure",
+  "representation": "Browser session (front_to_bff) + signed actor header (internal calls) with normalized structure",
   "schema": {
     "version": 1,
     "actor_id": "string (recommended: `${provider}:${sub}`)",
@@ -11,28 +11,52 @@
     "org_ids": "string[]",
     "email": "string_optional",
     "display_name": "string_optional",
-    "issued_at": "number (unix epoch seconds)"
+    "issued_at": "number (unix epoch seconds)",
+    "expires_at": "number_optional (unix epoch seconds)"
   },
   "transport": {
-    "dmz_to_gateway": {
-      "rule": "treat any inbound X-Actor* headers as untrusted and remove them before processing",
-      "drop_headers": [
-        "X-Actor*",
-        "X-Request-Id"
-      ]
+    "front_to_bff": {
+      "method": "cookie_session",
+      "session_cookie_name": "__Host-session",
+      "cookie_attributes": {
+        "secure": true,
+        "http_only": true,
+        "same_site": "lax",
+        "path": "/"
+      },
+      "csrf": {
+        "strategy": "origin_check",
+        "require_on_methods": [
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE"
+        ],
+        "treat_missing_origin_as": "deny"
+      },
+      "rule": "treat any inbound X-Actor* and X-Request-Id as untrusted; bff generates X-Request-Id if missing and never trusts inbound X-Actor*"
     },
-    "gateway_to_service": {
+    "bff_to_internal_gateway": {
       "method": "headers",
       "headers": {
         "X-Actor": "base64url(utf8(JSON.stringify(actor)))",
         "X-Actor-Sig": "base64url(HMAC_SHA256(INTERNAL_SHARED_SECRET, X-Actor + '.' + X-Request-Id))",
-        "X-Request-Id": "uuidv7_or_uuidv4",
+        "X-Request-Id": "propagate if present; generate only if missing",
+        "traceparent": "optional (W3C Trace Context)"
+      }
+    },
+    "internal_gateway_to_adapter": {
+      "method": "headers",
+      "headers": {
+        "X-Actor": "base64url(utf8(JSON.stringify(actor)))",
+        "X-Actor-Sig": "base64url(HMAC_SHA256(INTERNAL_SHARED_SECRET, X-Actor + '.' + X-Request-Id))",
+        "X-Request-Id": "propagate if present; generate only if missing",
         "traceparent": "optional (W3C Trace Context)"
       }
     }
   },
   "verification": {
-    "on_service": {
+    "on_receiver": {
       "required": [
         "X-Actor",
         "X-Actor-Sig",
@@ -46,32 +70,32 @@
       },
       "on_success": {
         "decode": "actor = JSON.parse(utf8(base64url_decode(X-Actor)))",
-        "use": "services MUST use only decoded actor; MUST NOT accept any X-Actor-* individual headers"
+        "use": "receivers MUST use only decoded actor; MUST NOT accept any X-Actor-* individual headers"
       }
     },
     "sanitization": {
-      "gateway": "gateway always overwrites actor-related headers for downstream calls",
-      "services": "services may optionally also drop any inbound X-Actor-* individual headers defensively"
+      "bff": "bff always drops any inbound X-Actor* headers; bff generates/propagates X-Request-Id",
+      "internal_gateway": "internal_gateway always overwrites actor-related headers for downstream calls; MUST NOT overwrite X-Request-Id if present",
+      "adapters": "adapters may also drop any inbound X-Actor-* individual headers defensively"
+    }
+  },
+  "notes": {
+    "deprecation": {
+      "legacy_headers": [
+        "X-Actor-Sub",
+        "X-Actor-Provider",
+        "X-Actor-Tenant-Id",
+        "X-Actor-Roles",
+        "X-Actor-Scopes"
+      ],
+      "policy": "deprecated; do not generate for new services; remove after migration"
+    },
+    "parsing": {
+      "array_fields": "roles/scopes/org_ids are encoded inside X-Actor JSON; no delimiter-based parsing"
+    },
+    "security": {
+      "secret_storage": "INTERNAL_SHARED_SECRET stored as environment secret in internal_gateway and adapters (and any internal services that verify signatures)",
+      "rotation": "support key rotation by allowing multiple active secrets (kid) if needed later"
     }
   }
-},
-"notes": {
-  "deprecation": {
-    "legacy_headers": [
-      "X-Actor-Sub",
-      "X-Actor-Provider",
-      "X-Actor-Tenant-Id",
-      "X-Actor-Roles",
-      "X-Actor-Scopes"
-    ],
-    "policy": "deprecated; do not generate for new services; remove after migration"
-  },
-  "parsing": {
-    "array_fields": "roles/scopes/org_ids are encoded inside X-Actor JSON; no delimiter-based parsing"
-  },
-  "security": {
-    "secret_storage": "INTERNAL_SHARED_SECRET stored as environment secret in gateway and services",
-    "rotation": "support key rotation by allowing multiple active secrets (kid) if needed later"
-  }
-}
 }

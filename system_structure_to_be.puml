@@ -1,65 +1,43 @@
 @startuml system_structure
 
 
-package IdP{
   [Auth0] as auth0
   [Google IdP] as google
   google --- auth0
 
-}
-package cloudflare{
-  package dmz{
-    [ddd-master-editor-frontend] as ddd_master_editor
-    
-    auth0 -- ddd_master_editor
-  }
-  package intra{
-    [internal-gateway] as internal_gateway
-    [cloudflare-r2-service] as cloudflare_r2_service
-    [google-drive-service] as google_drive_service
-    [github-service] as github_service
+  [ddd-master-editor-frontend] as ddd_master_editor_pages
+  [xxx-xxx-xxx-frontend] as xxx_xxx_xxx_pages
+  [external-gateway] as external_gateway
+  
+  auth0 -- ddd_master_editor_pages
+  auth0 -- xxx_xxx_xxx_pages
+  [ddd-master-editor-bff] as ddd_master_editor_bff
+  [xxx-xxx-xxx-bff] as xxx_xxx_xxx_bff
+  [internal-gateway] as internal_gateway
+  [cloudflare-r2-service] as cloudflare_r2_service
+  [google-drive-service] as google_drive_service
+  [github-service] as github_service
+  [cloudflare-d1-service] as cloudflare_d1_service
 
-    ddd_master_editor -- internal_gateway
-    internal_gateway -- cloudflare_r2_service
-    internal_gateway -- google_drive_service
-    internal_gateway -- github_service
+  ddd_master_editor_pages -- ddd_master_editor_bff
+  xxx_xxx_xxx_pages -- xxx_xxx_xxx_bff
+  xxx_xxx_xxx_bff -- internal_gateway
+  xxx_xxx_xxx_bff -- external_gateway
+  ddd_master_editor_bff -- external_gateway
+  ddd_master_editor_bff -- internal_gateway
+  internal_gateway -- cloudflare_r2_service
+  internal_gateway -- google_drive_service
+  internal_gateway -- github_service
+  external_gateway -- cloudflare_d1_service
 
-    package cloudflare_sp{
-      [cloudflare r2] as r2
+  [cloudflare r2] as r2
+  [cloudflare d1] as d1
 
-      cloudflare_r2_service -- r2
-    }
-  }
+  cloudflare_r2_service -- r2
+  cloudflare_d1_service -- d1
 
-}
-package sp{
-  '関係
   google_drive_service -- [google drive]
   github_service -- [github]
-}
 
-json note{
-  "cloudflare":{
-    "pages": [
-      "ddd-master-editor-frontend"
-    ],
-    "workers":[
-      "internal-gateway",
-      "cloudflare-r2-service",
-      "google-drive-service",
-      "github-service"      
-    ],
-    "storage":[
-      "cloudflare_r2"
-    ]
-  },
-  "package":{
-    "IdP": "Authentication/Authorization provider",
-    "dmz": "Cloudflare Pages (+ Functions). Connects to intra via service binding -> gateway",
-    "intra": "Cloudflare Workers (not internet-exposed). Accessible only via frontend/gateway",
-    "cloudflare_sp": "Cloudflare-managed SPs (API key auth, shared account)",
-    "Sp": "External services (OAuth, per-user account)"
-  }
-}
 
 @enduml

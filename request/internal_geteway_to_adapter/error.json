@@ -1,0 +1,51 @@
+{
+  "error_shape_ref": "response/error.json",
+  "implemented_errors": {
+    "misconfigured": {
+      "status": 500,
+      "when": "required configuration or secrets are missing/invalid for this service"
+    },
+    "unauthorized": {
+      "status": 401,
+      "when": "internal assertion missing/invalid, or external credential missing/invalid (as applicable)"
+    },
+    "forbidden": {
+      "status": 403,
+      "when": "authenticated but not authorized by policy, scope, or upstream permission model"
+    },
+    "rate_limited": {
+      "status": 429,
+      "when": "rate limiting exceeded (local limiter or upstream throttling mapped)"
+    },
+    "upstream_unreachable": {
+      "status": 502,
+      "when": "upstream fetch threw, timed out, or upstream unavailable"
+    },
+    "upstream_error": {
+      "status": "passthrough",
+      "when": "upstream responded non-2xx; intermediary preserves upstream status and attaches details"
+    },
+    "internal_error": {
+      "status": 500,
+      "when": "unexpected error not mapped to a known error type"
+    }
+  },
+  "reserved_protocol_errors": {
+    "unsupported_media_type": {
+      "status": 415,
+      "when": "content-type not allowed for endpoints that require JSON"
+    },
+    "invalid_json": {
+      "status": 400,
+      "when": "request body cannot be parsed as JSON when JSON is required"
+    },
+    "payload_too_large": {
+      "status": 413,
+      "when": "request body exceeds max_body_size_bytes"
+    },
+    "method_not_allowed": {
+      "status": 405,
+      "when": "method not allowed by this API"
+    }
+  }
+}

@@ -1,6 +1,14 @@
 {
-  "scope": "Gateway API routing and request/response contracts",
+  "scope": "Internet-facing API routing and request/response contracts (front_to_bff and/or external_gateway). Not used for internal adapter operation catalog.",
   "version": 1,
+  "error_catalog_ref": {
+    "shape_ref": "response/error.json",
+    "layer_catalog_refs": {
+      "front_to_bff": "request/front_to_bff/errors.json",
+      "bff_to_internal_gateway": "request/bff_to_internal_gateway/errors.json",
+      "internal_gateway_to_adapter": "request/internal_gateway_to_adapter/errors.json"
+    }
+  },
   "operations": {
     "list_google_drive_files": {
       "method": "GET",
@@ -62,6 +70,7 @@
     }
   },
   "error_model": {
+    "note": "Legacy/temporary mapping for documentation. Runtime status/code mapping must be sourced from the layer-specific error catalogs referenced in error_catalog_ref.",
     "unauthorized": {
       "status": 401,
       "code": "unauthorized"

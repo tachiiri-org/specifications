@@ -1,9 +1,0 @@
-{
-  "require_json_body_for_post": true,
-  "require_content_type_for_body_methods": true,
-  "body_methods": [
-    "POST"
-  ],
-  "json_required_when_content_type_is_json": true,
-  "reject_if_body_exceeds_max_bytes": true
-}
