@@ -1,0 +1,65 @@
+{
+  "scope": "Identity propagation for internal calls from internal-gateway to adapters.",
+  "version": 1,
+  "transport": {
+    "kind": "internal_assertion",
+    "header": "x-internal-assertion"
+  },
+  "assertion_requirements": {
+    "required_headers": [
+      "x-internal-assertion"
+    ],
+    "optional_headers": [
+      "traceparent",
+      "x-idempotency-key"
+    ]
+  },
+  "claims_model": {
+    "schema_version": 1,
+    "actor": {
+      "actor_id": "string (recommended: `${provider}:${sub}`)",
+      "sub": "string",
+      "provider": "auth0|github|google|internal",
+      "tenant_id": "string",
+      "roles": "string[]",
+      "scopes": "string[]",
+      "org_ids": "string[]",
+      "email": "string_optional",
+      "display_name": "string_optional"
+    },
+    "issued_at": "number (unix epoch seconds)",
+    "expires_at": "number_optional (unix epoch seconds)"
+  },
+  "verification": {
+    "on_receiver": {
+      "verify": "verify signature/issuer/audience/expiration; decode claims into normalized actor model",
+      "on_fail": {
+        "action": "reject",
+        "status": 401,
+        "error_code": "unauthorized"
+      },
+      "on_success": {
+        "use": "adapters MUST use only decoded claims; MUST NOT accept any alternative identity headers"
+      }
+    }
+  },
+  "egress": {
+    "forbid_forwarding_to_external_upstreams": [
+      "x-internal-assertion",
+      "cookie",
+      "authorization"
+    ],
+    "note": "Adapters must not forward internal identity to external service providers."
+  },
+  "sanitization": {
+    "drop_inbound_identity_headers": [
+      "x-actor",
+      "x-actor-sig",
+      "x-actor-sub",
+      "x-actor-provider",
+      "x-actor-tenant-id",
+      "x-actor-roles",
+      "x-actor-scopes"
+    ]
+  }
+}
