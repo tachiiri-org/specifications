@@ -49,7 +49,6 @@
     ]
   },
   "errors": {
-    "shape_ref": "response/error.json",
-    "catalog_ref": "response/errors.json"
+    "shape_ref": "response/error.json"
   }
 }

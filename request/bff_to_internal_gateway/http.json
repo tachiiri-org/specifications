@@ -31,7 +31,6 @@
     "request_id_header": "x-request-id"
   },
   "errors": {
-    "shape_ref": "response/error.json",
-    "catalog_ref": "request/bff_to_internal_gateway/errors.json"
+    "shape_ref": "response/error.json"
   }
 }

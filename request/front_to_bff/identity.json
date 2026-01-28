@@ -1,0 +1,41 @@
+{
+  "scope": "Identity at the internet-facing boundary (browser to BFF).",
+  "version": 1,
+  "transport": {
+    "kind": "cookie_session",
+    "session_cookie_name": "__Host-session",
+    "cookie_policy": {
+      "secure": true,
+      "http_only": true,
+      "same_site": "lax",
+      "host_prefix_required": true,
+      "path": "/"
+    }
+  },
+  "csrf": {
+    "strategy": "origin_check",
+    "apply_to_methods": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "allowed_origins": [
+      "https://<YOUR_APP_ORIGIN>"
+    ],
+    "treat_missing_origin_as": "deny"
+  },
+  "trust_model": {
+    "untrusted_by_default": true,
+    "notes": [
+      "BFF MUST treat any inbound identity-related headers as untrusted (including any x-internal-assertion or legacy actor headers).",
+      "BFF is responsible for validating the session cookie and deriving actor context internally."
+    ]
+  },
+  "output_to_downstream": {
+    "mint": "internal_assertion",
+    "notes": [
+      "After validating the browser session, BFF mints an internal assertion for downstream internal calls."
+    ]
+  }
+}

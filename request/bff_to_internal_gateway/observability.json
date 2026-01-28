@@ -1,0 +1,43 @@
+{
+  "scope": "Observability for internal calls from BFF to internal-gateway.",
+  "version": 1,
+  "request_id": {
+    "header": "x-request-id",
+    "generated_by": "receiver_if_missing",
+    "overwrite_if_present": false,
+    "propagation": "downstream",
+    "echo_to_response": true,
+    "notes": [
+      "Matches request/bff_to_internal_gateway/headers.json: generate_on_receiver.x-request-id.required=true and overwrite_if_present=false (per your update).",
+      "Receiver generates only if missing; BFF may or may not supply x-request-id depending on upstream."
+    ]
+  },
+  "tracing": {
+    "traceparent": {
+      "supported": true,
+      "propagation": "passthrough",
+      "generate_if_missing": false,
+      "header": "traceparent",
+      "notes": [
+        "Matches request/bff_to_internal_gateway/headers.json passthrough_to_downstream.allowlist includes traceparent.",
+        "Matches request/bff_to_internal_gateway/http.json observability.trace_header is traceparent."
+      ]
+    }
+  },
+  "logging": {
+    "required_fields": [
+      "request_id",
+      "status",
+      "latency_ms"
+    ],
+    "optional_fields": [
+      "traceparent",
+      "rpc_method",
+      "route"
+    ],
+    "notes": [
+      "Auth context is conveyed via x-internal-assertion (not logged verbatim).",
+      "If a verified actor model is available at this layer, log actor_id/tenant_id as optional fields."
+    ]
+  }
+}
