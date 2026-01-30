@@ -1,0 +1,6 @@
+{
+  "bff": {
+    "kind": "internal_assertion",
+    "header": "x-internal-assertion"
+  }
+}

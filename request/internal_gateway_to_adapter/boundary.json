@@ -19,7 +19,7 @@
     "policy_key": "{service}/{resource}/{property}/{operation}",
     "default_decision": "deny",
     "on_deny_error": {
-      "error_code": "forbidden",
+      "error_code": "policy_denied",
       "status": 403
     }
   },

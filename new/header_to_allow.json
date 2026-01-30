@@ -1,0 +1,22 @@
+{
+  "front": [
+    "accept",
+    "content-type",
+    "origin",
+    "cookie",
+    "traceparent",
+    "user-agent"
+  ],
+  "bff": [
+    "content-type",
+    "traceparent",
+    "x-internal-assertion",
+    "x-contract-version"
+  ],
+  "gateway": [
+    "content-type",
+    "traceparent",
+    "x-internal-assertion",
+    "x-idempotency-key"
+  ]
+}

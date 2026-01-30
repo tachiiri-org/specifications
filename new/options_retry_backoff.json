@@ -1,0 +1,10 @@
+{
+  "retry_on_network_error": true,
+  "max_attempts": 3,
+  "backoff": {
+    "strategy": "exponential",
+    "base_delay_ms": 200,
+    "max_delay_ms": 2000,
+    "jitter": "full"
+  }
+}
