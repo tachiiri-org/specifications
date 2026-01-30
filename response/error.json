@@ -20,9 +20,13 @@
       "status": 401,
       "when": "missing bearer token or token verification failed"
     },
-    "forbidden": {
+    "invalid_internal_assertion": {
       "status": 403,
-      "when": "invalid internal token"
+      "when": "internal assertion was present but failed receiver-side requirements (e.g., audience/issuer/claims constraints) after signature verification"
+    },
+    "policy_denied": {
+      "status": 403,
+      "when": "policy lookup denied access for the requested operation (including default deny)"
     },
     "not_found": {
       "status": 404,
@@ -47,6 +51,14 @@
     "internal_error": {
       "status": 500,
       "when": "unexpected error not mapped to GatewayError"
+    },
+    "idempotency_key_conflict": {
+      "status": 409,
+      "when": "same x-idempotency-key was reused with a different request fingerprint/body_hash"
+    },
+    "idempotency_inflight": {
+      "status": 202,
+      "when": "duplicate request arrived while the original request is still in flight"
     }
   },
   "reserved_protocol_errors": {

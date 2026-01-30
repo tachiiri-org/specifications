@@ -1,0 +1,13 @@
+{
+  "bff": [
+    "authorization",
+    "cookie",
+    "origin",
+    "referer",
+    "user-agent",
+    "x-forwarded-for",
+    "x-real-ip",
+    "cf-connecting-ip",
+    "cf-ray"
+  ]
+}

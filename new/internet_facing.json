@@ -1,0 +1,6 @@
+{
+  "frontend": true,
+  "bff": false,
+  "gateway": false,
+  "adapter": false
+}

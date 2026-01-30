@@ -5,7 +5,6 @@
       "content-type",
       "traceparent",
       "x-internal-assertion",
-      "x-adapter-target",
       "x-idempotency-key"
     ]
   },

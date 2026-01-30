@@ -1,0 +1,87 @@
+{
+  "scope": "Idempotency contract for internal-gateway -> adapter calls.",
+  "version": 1,
+  "owner": "adapter",
+  "header": "x-idempotency-key",
+  "required_for_operations_ref": "request/internal_gateway_to_adapter/http.json#/idempotency/required_for_operations",
+  "fingerprint": {
+    "include": [
+      "claims.tenant_id",
+      "claims.actor.actor_id",
+      "route.service",
+      "route.resource",
+      "route.property",
+      "route.operation",
+      "x-idempotency-key",
+      "body_hash"
+    ],
+    "body_hash": {
+      "algorithm": "sha256",
+      "input": "canonical_json(request_body)",
+      "notes": [
+        "Canonicalization must be stable: UTF-8, sorted object keys, no insignificant whitespace, numbers normalized.",
+        "If request body is empty, body_hash is sha256('')"
+      ]
+    },
+    "conflict_rule": {
+      "same_key_different_fingerprint": {
+        "action": "reject",
+        "status": 409,
+        "error_code": "idempotency_key_conflict"
+      }
+    }
+  },
+  "storage": {
+    "pattern": "durable_object_sqlite_only",
+    "durable_object": {
+      "purpose": "single-flight and short-lived idempotency record store (SQLite-backed) per shard",
+      "key": "idempotency_fingerprint",
+      "record": {
+        "primary_key": "idempotency_fingerprint",
+        "fields": [
+          "status",
+          "created_at",
+          "expires_at",
+          "request_body_hash",
+          "response_status",
+          "response_body_inline_optional",
+          "response_headers_subset_optional"
+        ],
+        "response_body": {
+          "mode": "inline_small_only",
+          "max_inline_bytes": 16384,
+          "on_exceed": "omit_body_and_store_status_only"
+        }
+      },
+      "garbage_collection": {
+        "mode": "lazy_delete",
+        "notes": [
+          "On each request, if an existing record is expired (expires_at < now), delete it and treat as new.",
+          "Optionally perform opportunistic cleanup (delete expired records in small batches) to cap storage."
+        ]
+      }
+    },
+    "ttl": {
+      "days": 1,
+      "eviction": "allow re-use after expiry by treating as new"
+    }
+  },
+  "response_replay": {
+    "on_duplicate_after_success": "return stored response (status/body_inline_if_present/headers_subset_if_present)",
+    "on_duplicate_while_inflight": {
+      "action": "wait_up_to_ms_then_return",
+      "wait_up_to_ms": 2000,
+      "on_timeout": {
+        "status": 202,
+        "error_code": "idempotency_inflight",
+        "message": "request is currently being processed"
+      }
+    }
+  },
+  "logging": {
+    "notes": [
+      "Do not log x-idempotency-key verbatim in high-cardinality logs; prefer presence flag + truncated hash.",
+      "If logging a key reference is required for debugging, log sha256(x-idempotency-key) truncated."
+    ]
+  }
+}
