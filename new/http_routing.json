@@ -1,0 +1,7 @@
+{
+  "api_prefix": "/api",
+  "healthcheck_paths": [
+    "/healthz",
+    "/readyz"
+  ]
+}

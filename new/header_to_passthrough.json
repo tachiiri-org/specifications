@@ -1,5 +1,12 @@
 {
+  "front": [
+    "traceparent",
+    "user-agent"
+  ],
   "bff": [
     "traceparent"
+  ],
+  "gateway": [
+    "transparent"
   ]
 }

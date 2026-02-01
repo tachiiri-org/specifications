@@ -1,0 +1,20 @@
+{
+  "include": [
+    "claims.tenant_id",
+    "claims.actor.actor_id",
+    "route.service",
+    "route.resource",
+    "route.property",
+    "route.operation",
+    "x-idempotency-key",
+    "body_hash"
+  ],
+  "body_hash": {
+    "algorithm": "sha256",
+    "input": "canonical_json(request_body)",
+    "notes": [
+      "Canonicalization must be stable: UTF-8, sorted object keys, no insignificant whitespace, numbers normalized.",
+      "If request body is empty, body_hash is sha256('')"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "bff": {
+    "required_fields": [
+      "request_id",
+      "route",
+      "method",
+      "status",
+      "latency_ms"
+    ],
+    "optional_fields": [
+      "traceparent",
+      "user_agent",
+      "origin"
+    ]
+  },
+  "gateway": {
+    "required_fields": [
+      "request_id",
+      "status",
+      "latency_ms"
+    ],
+    "optional_fields": [
+      "traceparent",
+      "rpc_method",
+      "route"
+    ]
+  },
+  "adapter": {
+    "required_fields": [
+      "request_id",
+      "service",
+      "resource",
+      "property",
+      "operation",
+      "status",
+      "latency_ms"
+    ],
+    "optional_fields": [
+      "traceparent",
+      "idempotency_key_present",
+      "upstream_target",
+      "upstream_status"
+    ]
+  }
+}

@@ -1,4 +1,14 @@
 {
+  "front": [
+    "authorization",
+    "x-forwarded-for",
+    "x-real-ip",
+    "cf-connecting-ip",
+    "cf-ray",
+    "x-request-id",
+    "x-amzn-trace-id",
+    "forwarded"
+  ],
   "bff": [
     "authorization",
     "cookie",
@@ -9,5 +19,18 @@
     "x-real-ip",
     "cf-connecting-ip",
     "cf-ray"
+  ],
+  "gateway": [
+    "authorization",
+    "cookie",
+    "origin",
+    "referer",
+    "user-agent",
+    "x-forwarded-for",
+    "x-real-ip",
+    "cf-connecting-ip",
+    "cf-ray",
+    "x-request-id",
+    "forwarded"
   ]
 }

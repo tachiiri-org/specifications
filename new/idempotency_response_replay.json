@@ -1,0 +1,12 @@
+{
+  "on_duplicate_after_success": "return stored response (status/body_inline_if_present/headers_subset_if_present)",
+  "on_duplicate_while_inflight": {
+    "action": "wait_up_to_ms_then_return",
+    "wait_up_to_ms": 2000,
+    "on_timeout": {
+      "status": 202,
+      "error_code": "idempotency_inflight",
+      "message": "request is currently being processed"
+    }
+  }
+}

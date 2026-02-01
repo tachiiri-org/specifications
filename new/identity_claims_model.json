@@ -1,0 +1,15 @@
+{
+  "actor": {
+    "actor_id": "string (recommended: `${provider}:${sub}`)",
+    "sub": "string",
+    "provider": "auth0|github|google|internal",
+    "tenant_id": "string",
+    "roles": "string[]",
+    "scopes": "string[]",
+    "org_ids": "string[]",
+    "email": "string_optional",
+    "display_name": "string_optional"
+  },
+  "issued_at": "number (unix epoch seconds)",
+  "expires_at": "number_optional (unix epoch seconds)"
+}
