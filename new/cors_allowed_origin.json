@@ -1,1 +1,4 @@
-"ブラウザからのAPI呼び出しはFront/BFFの同一オリジンに限定する。Gateway/内部サービスはブラウザから直接アクセスさせない。"
+{
+  "bff": "service binding only",
+  "gateway": "not allowed"
+}

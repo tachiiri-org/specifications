@@ -1,5 +1,8 @@
-[
-  "origin",
-  "Access-Control-Request-Method",
-  "Access-Control-Request-Headers"
-]
+{
+  "bff": [
+    "origin",
+    "Access-Control-Request-Method",
+    "Access-Control-Request-Headers"
+  ],
+  "gateway": []
+}
