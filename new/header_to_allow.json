@@ -1,6 +1,7 @@
 {
   "front": [
     "accept",
+    "accept-language",
     "content-type",
     "origin",
     "cookie",
@@ -9,14 +10,14 @@
   ],
   "bff": [
     "content-type",
+    "authorization",
     "traceparent",
-    "x-internal-assertion",
     "x-contract-version"
   ],
   "gateway": [
     "content-type",
+    "authorization",
     "traceparent",
-    "x-internal-assertion",
     "x-idempotency-key"
   ]
 }
