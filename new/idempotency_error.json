@@ -1,0 +1,12 @@
+{
+  "too_large_body_to_hash": {
+    "action": "reject",
+    "status": 413,
+    "error_code": "idempotency_body_too_large_to_hash"
+  },
+  "unsupported_content_type": {
+    "action": "reject",
+    "status": 415,
+    "error_code": "idempotency_unsupported_content_type"
+  }
+}

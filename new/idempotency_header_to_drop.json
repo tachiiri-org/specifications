@@ -1,0 +1,20 @@
+{
+  "gateway": [
+    "x-actor",
+    "x-actor-sig",
+    "x-actor-sub",
+    "x-actor-provider",
+    "x-actor-tenant-id",
+    "x-actor-roles",
+    "x-actor-scopes"
+  ],
+  "adapter": [
+    "x-actor",
+    "x-actor-sig",
+    "x-actor-sub",
+    "x-actor-provider",
+    "x-actor-tenant-id",
+    "x-actor-roles",
+    "x-actor-scopes"
+  ]
+}

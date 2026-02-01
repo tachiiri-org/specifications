@@ -1,0 +1,12 @@
+{
+  "name": "idempotency_key_scope",
+  "unique_key_fields": [
+    "claims.tenant_id",
+    "claims.actor.actor_id",
+    "route.service",
+    "route.resource",
+    "route.property",
+    "route.operation",
+    "x-idempotency-key"
+  ]
+}

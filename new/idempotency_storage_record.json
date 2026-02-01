@@ -1,0 +1,35 @@
+{
+  "record": {
+    "fields": [
+      "idempotency_fingerprint",
+      "claims_tenant_id",
+      "claims_actor_id",
+      "route_service",
+      "route_resource",
+      "route_property",
+      "route_operation",
+      "idempotency_key",
+      "request_body_hash",
+      "request_headers_hash_optional",
+      "status",
+      "created_at",
+      "expires_at",
+      "response_status",
+      "response_body_inline_optional",
+      "response_headers_subset_optional"
+    ],
+    "status_enum": [
+      "inflight",
+      "succeeded",
+      "failed"
+    ],
+    "response_body": {
+      "mode": "inline_small_only",
+      "max_inline_bytes": 16384,
+      "on_exceed": "omit_body_and_store_status_only"
+    },
+    "garbage_collection": {
+      "mode": "lazy_delete"
+    }
+  }
+}
