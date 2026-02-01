@@ -18,10 +18,12 @@
     "x-forwarded-for",
     "x-real-ip",
     "cf-connecting-ip",
-    "cf-ray"
+    "cf-ray",
+    "x-request-id",
+    "x-amzn-trace-id",
+    "forwarded"
   ],
   "gateway": [
-    "authorization",
     "cookie",
     "origin",
     "referer",
@@ -30,7 +32,7 @@
     "x-real-ip",
     "cf-connecting-ip",
     "cf-ray",
-    "x-request-id",
+    "x-amzn-trace-id",
     "forwarded"
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "bff": {
+    "inbound": {
+      "kind": "cookie_session",
+      "notes": "ブラウザからの認証はCookieセッションで終端し、外部入力のAuthorizationは破棄する"
+    },
+    "outbound_to_gateway": {
+      "kind": "bearer",
+      "header": "authorization",
+      "notes": "BFFがAuth0発行のaccess tokenを付与してGatewayへ中継する"
+    }
+  },
+  "gateway": {
+    "inbound": {
+      "kind": "bearer",
+      "header": "authorization",
+      "notes": "issuer/audience/scope等の検証を行う"
+    },
+    "outbound_to_adapter": {
+      "kind": "bearer_passthrough",
+      "header": "authorization",
+      "notes": "下流が必要とする場合のみ転送。不要ならここで終端して内部アサーションに変換する"
+    }
+  }
+}
