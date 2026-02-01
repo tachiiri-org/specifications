@@ -2,6 +2,7 @@
   "same_key_different_fingerprint": {
     "action": "reject",
     "status": 409,
-    "error_code": "idempotency_key_conflict"
+    "error_code": "idempotency_key_conflict",
+    "message": "same idempotency key was used with a different request fingerprint"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "lock": {
+    "mode": "per_idempotency_key_scope",
+    "scope_fields": [
+      "claims.tenant_id",
+      "claims.actor.actor_id",
+      "route.service",
+      "route.resource",
+      "route.property",
+      "route.operation",
+      "x-idempotency-key"
+    ],
+    "status_on_lock_conflict": 202
+  }
+}

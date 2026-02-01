@@ -12,9 +12,16 @@
   "body_hash": {
     "algorithm": "sha256",
     "input": "canonical_json(request_body)",
+    "only_for_content_types": [
+      "application/json"
+    ],
+    "on_other_content_types": "hash_raw_bytes",
+    "max_body_bytes_to_hash": 10485760,
     "notes": [
       "Canonicalization must be stable: UTF-8, sorted object keys, no insignificant whitespace, numbers normalized.",
-      "If request body is empty, body_hash is sha256('')"
+      "If request body is empty, body_hash is sha256('')",
+      "If content-type is not application/json, body_hash is sha256(raw_request_body_bytes) unless rejected by policy.",
+      "If body exceeds max_body_bytes_to_hash, treat as conflict by rejecting with 413 (recommended) or hash streaming bytes if supported."
     ]
   }
 }
