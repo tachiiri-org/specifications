@@ -1,0 +1,38 @@
+{
+  "bff_to_gateway": {
+    "verify": [
+      "verify signature",
+      "verify issuer",
+      "verify audience",
+      "verify expiration",
+      "verify scopes/roles as needed"
+    ],
+    "on_fail": {
+      "action": "reject",
+      "status": 401,
+      "error_code": "unauthorized"
+    },
+    "on_success": {
+      "use_only_decoded_claims": true,
+      "reject_alternative_identity_headers": true
+    }
+  },
+  "gateway_to_adapter": {
+    "verify": [
+      "verify signature",
+      "verify issuer",
+      "verify audience",
+      "verify expiration",
+      "verify scopes/roles as needed"
+    ],
+    "on_fail": {
+      "action": "reject",
+      "status": 401,
+      "error_code": "unauthorized"
+    },
+    "on_success": {
+      "use_only_decoded_claims": true,
+      "reject_alternative_identity_headers": true
+    }
+  }
+}

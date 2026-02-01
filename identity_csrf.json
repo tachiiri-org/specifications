@@ -1,0 +1,12 @@
+{
+  "strategy": "origin_check",
+  "apply_to_methods": [
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE"
+  ],
+  "allowed_origins_mode": "same_origin_only",
+  "allowed_origins": [],
+  "missing_origin": "deny"
+}

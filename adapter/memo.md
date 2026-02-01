@@ -1,4 +1,0 @@
-- アダプタは外部Service Providerのエンドポイントを写像するイメージ
-- ただし全endpointを実装すると実装が膨大になるので、外部SPの仕様を定義しつつ、実装するかどうかを設定できるようにする
-- adapter/{service}/{resource}/{property}/{operation} の形式でエンドポイントを作成する
-- 外部SP仕様定義は下記のようなイメージで行う
