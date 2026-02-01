@@ -1,0 +1,15 @@
+{
+  "front_to_bff": {
+    "mode": "cookie_session_only",
+    "session_cookie_name": "__Host-session",
+    "bearer_authorization_header": "disallowed"
+  },
+  "bff_to_internal_gateway": {
+    "mode": "bearer_only",
+    "authorization_header": "authorization"
+  },
+  "internal_gateway_to_adapter": {
+    "mode": "bearer_only",
+    "authorization_header": "authorization"
+  }
+}

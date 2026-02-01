@@ -1,0 +1,14 @@
+{
+  "front_to_bff": {
+    "mode": "origin_check",
+    "apply_to_methods": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "missing_origin": "deny"
+  },
+  "bff_to_internal_gateway": "disabled",
+  "internal_gateway_to_adapter": "disabled"
+}

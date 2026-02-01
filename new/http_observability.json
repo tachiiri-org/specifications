@@ -1,0 +1,14 @@
+{
+  "front_to_bff": {
+    "trace_header": "traceparent",
+    "request_id_header": "x-request-id"
+  },
+  "bff_to_internal_gateway": {
+    "trace_header": "traceparent",
+    "request_id_header": "x-request-id"
+  },
+  "internal_gateway_to_adapter": {
+    "trace_header": "traceparent",
+    "request_id_header": "x-request-id"
+  }
+}

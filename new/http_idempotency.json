@@ -1,0 +1,20 @@
+{
+  "front_to_bff": "disabled",
+  "bff_to_internal_gateway": {
+    "supported": true,
+    "key_header": "x-idempotency-key",
+    "required_for_operations": "defer_to_downstream"
+  },
+  "internal_gateway_to_adapter": {
+    "supported": true,
+    "key_header": "x-idempotency-key",
+    "required_for_operations": [
+      "create",
+      "update",
+      "delete",
+      "move",
+      "share",
+      "unshare"
+    ]
+  }
+}

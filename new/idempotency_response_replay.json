@@ -28,5 +28,6 @@
     "etag",
     "cache-control",
     "x-request-id"
-  ]
+  ],
+  "store_headers_subset_policy": "allowlist_only"
 }

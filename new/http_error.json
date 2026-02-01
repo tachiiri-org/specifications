@@ -1,0 +1,11 @@
+{
+  "front_to_bff": {
+    "shape_ref": "response/error.json"
+  },
+  "bff_to_internal_gateway": {
+    "shape_ref": "response/error.json"
+  },
+  "internal_gateway_to_adapter": {
+    "shape_ref": "response/error.json"
+  }
+}

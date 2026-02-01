@@ -1,0 +1,36 @@
+{
+  "front_to_bff": {
+    "allowed": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE",
+      "OPTIONS"
+    ],
+    "state_changing": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ]
+  },
+  "bff_to_internal_gateway": {
+    "allowed": [
+      "POST",
+      "OPTIONS"
+    ],
+    "state_changing": [
+      "POST"
+    ]
+  },
+  "internal_gateway_to_adapter": {
+    "allowed": [
+      "POST",
+      "OPTIONS"
+    ],
+    "state_changing": [
+      "POST"
+    ]
+  }
+}
