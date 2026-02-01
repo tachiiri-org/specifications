@@ -1,0 +1,6 @@
+{
+  "header_traceparent": "traceparent",
+  "header_tracestate_optional": "tracestate",
+  "propagation": "passthrough",
+  "generate_if_missing": false
+}

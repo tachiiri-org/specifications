@@ -1,8 +1,0 @@
-{
-  "front": "15000ms",
-  "bff": "15000ms",
-  "gateway": {
-    "connect": "2000ms",
-    "overall": "15000ms"
-  }
-}

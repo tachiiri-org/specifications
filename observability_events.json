@@ -1,0 +1,23 @@
+{
+  "bff": {
+    "events": [
+      "authn_succeeded",
+      "authn_failed",
+      "csrf_denied"
+    ]
+  },
+  "gateway": {
+    "events": [
+      "authn_verified",
+      "authn_rejected",
+      "route_not_found"
+    ]
+  },
+  "adapter": {
+    "events": [
+      "idempotency_conflict",
+      "idempotency_replayed",
+      "upstream_error"
+    ]
+  }
+}
