@@ -1,4 +1,6 @@
 [
   "content-type",
+  "x-csrf-token",
+  "authorization",
   "traceparent"
 ]

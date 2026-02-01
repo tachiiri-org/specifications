@@ -1,3 +1,1 @@
-[
-  "https://*.tachiiri.workers.dev"
-]
+"ブラウザからのAPI呼び出しはFront/BFFの同一オリジンに限定する。Gateway/内部サービスはブラウザから直接アクセスさせない。"
