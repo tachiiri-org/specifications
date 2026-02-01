@@ -1,3 +1,9 @@
-[
-  "x-request-id"
-]
+{
+  "bff": {
+    "mode": "explicit_list",
+    "headers": [
+      "x-request-id"
+    ]
+  },
+  "gateway": "disabled"
+}

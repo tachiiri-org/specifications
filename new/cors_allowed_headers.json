@@ -2,8 +2,7 @@
   "bff": [
     "content-type",
     "x-csrf-token",
-    "authorization",
     "traceparent"
   ],
-  "gateway": []
+  "gateway": "disabled"
 }
