@@ -1,0 +1,21 @@
+{
+  "x-request-id": {
+    "set_phase": "system_set",
+    "overwrite": {
+      "front": false,
+      "bff": true,
+      "gateway": false,
+      "adapter": false
+    },
+    "set_when_missing": {
+      "front": false,
+      "bff": true,
+      "gateway": false,
+      "adapter": false
+    },
+    "require_phase": {
+      "inbound": true,
+      "outbound": true
+    }
+  }
+}

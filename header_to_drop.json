@@ -19,7 +19,6 @@
     "x-real-ip",
     "cf-connecting-ip",
     "cf-ray",
-    "x-request-id",
     "x-amzn-trace-id",
     "forwarded"
   ],

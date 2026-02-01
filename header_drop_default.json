@@ -1,0 +1,4 @@
+{
+  "mode": "allowlist",
+  "if_not_in_allow_or_passthrough": "drop"
+}
