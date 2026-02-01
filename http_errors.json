@@ -1,0 +1,14 @@
+{
+  "front_to_bff": {
+    "shape_ref": "response/error.json",
+    "default_status": 400
+  },
+  "bff_to_internal_gateway": {
+    "shape_ref": "response/error.json",
+    "default_status": 502
+  },
+  "internal_gateway_to_adapter": {
+    "shape_ref": "response/error.json",
+    "default_status": 502
+  }
+}

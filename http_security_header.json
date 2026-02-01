@@ -1,0 +1,11 @@
+{
+  "front_to_bff": {
+    "set_response_headers": {
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "cache-control": "no-store"
+    }
+  },
+  "bff_to_internal_gateway": "disabled",
+  "internal_gateway_to_adapter": "disabled"
+}

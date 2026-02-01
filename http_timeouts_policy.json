@@ -1,0 +1,12 @@
+{
+  "front_to_bff": {
+    "upstream_timeout_ms": 8000,
+    "client_timeout_ms": 10000
+  },
+  "bff_to_internal_gateway": {
+    "upstream_timeout_ms": 5000
+  },
+  "internal_gateway_to_adapter": {
+    "upstream_timeout_ms": 5000
+  }
+}

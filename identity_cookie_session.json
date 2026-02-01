@@ -1,5 +1,5 @@
 {
-  "kind": "cookie_session",
+  "mode": "cookie_session",
   "session_cookie_name": "__Host-session",
   "cookie_policy": {
     "secure": true,
