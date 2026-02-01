@@ -1,6 +1,9 @@
-[
-  "content-type",
-  "x-csrf-token",
-  "authorization",
-  "traceparent"
-]
+{
+  "bff": [
+    "content-type",
+    "x-csrf-token",
+    "authorization",
+    "traceparent"
+  ],
+  "gateway": []
+}
