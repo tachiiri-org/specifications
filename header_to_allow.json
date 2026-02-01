@@ -12,7 +12,9 @@
     "content-type",
     "authorization",
     "traceparent",
-    "x-contract-version"
+    "x-contract-version",
+    "x-request-id",
+    "x-idempotency-key"
   ],
   "gateway": [
     "content-type",

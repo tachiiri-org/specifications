@@ -1,14 +1,14 @@
 {
   "front_to_bff": {
-    "max_request_body_bytes": 1048576,
+    "max_request_body_bytes": 10485760,
     "max_response_body_bytes": 1048576
   },
   "bff_to_internal_gateway": {
-    "max_request_body_bytes": 1048576,
+    "max_request_body_bytes": 10485760,
     "max_response_body_bytes": 1048576
   },
   "internal_gateway_to_adapter": {
-    "max_request_body_bytes": 1048576,
+    "max_request_body_bytes": 10485760,
     "max_response_body_bytes": 1048576
   },
   "on_exceed": {
