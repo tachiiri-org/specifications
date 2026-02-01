@@ -1,0 +1,7 @@
+{
+  "same_key_different_fingerprint": {
+    "action": "reject",
+    "status": 409,
+    "error_code": "idempotency_key_conflict"
+  }
+}

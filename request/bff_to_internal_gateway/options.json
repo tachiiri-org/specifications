@@ -1,9 +1,0 @@
-{
-  "request_limits": {
-    "max_body_bytes": 1048576,
-    "max_header_bytes": 16384
-  },
-  "timeouts_ms": {
-    "overall": 8000
-  }
-}

@@ -1,0 +1,30 @@
+  {
+    "pattern": "durable_object_sqlite_only",
+    "durable_object": {
+      "key": "idempotency_fingerprint",
+      "record": {
+        "primary_key": "idempotency_fingerprint",
+        "fields": [
+          "status",
+          "created_at",
+          "expires_at",
+          "request_body_hash",
+          "response_status",
+          "response_body_inline_optional",
+          "response_headers_subset_optional"
+        ],
+        "response_body": {
+          "mode": "inline_small_only",
+          "max_inline_bytes": 16384,
+          "on_exceed": "omit_body_and_store_status_only"
+        }
+      },
+      "garbage_collection": {
+        "mode": "lazy_delete"
+      }
+    },
+    "ttl": {
+      "days": 1,
+      "eviction": "allow re-use after expiry by treating as new"
+    }
+  }

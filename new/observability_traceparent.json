@@ -1,0 +1,17 @@
+{
+  "bff": {
+    "propagation": "passthrough",
+    "generate_if_missing": false,
+    "header": "traceparent"
+  },
+  "gateway": {
+    "propagation": "passthrough",
+    "generate_if_missing": false,
+    "header": "traceparent"
+  },
+  "adapter": {
+    "propagation": "passthrough",
+    "generate_if_missing": false,
+    "header": "traceparent"
+  }
+}
