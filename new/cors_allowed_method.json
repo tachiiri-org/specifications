@@ -7,5 +7,5 @@
     "DELETE",
     "OPTIONS"
   ],
-  "gateway": []
+  "gateway": "disabled"
 }
