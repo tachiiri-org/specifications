@@ -1,7 +1,17 @@
 {
-  "api_prefix": "/api",
-  "healthcheck_paths": [
-    "/healthz",
-    "/readyz"
-  ]
+  "front_to_bff": "disabled",
+  "bff_to_internal_gateway": {
+    "api_prefix": "/internal",
+    "rpc_endpoint": "/internal/rpc"
+  },
+  "internal_gateway_to_adapter": {
+    "base_path": "/adapter",
+    "path_template": "/adapter/{service}/{resource}/{property}/{operation}",
+    "segments": {
+      "service": "string_non_empty",
+      "resource": "string_non_empty",
+      "property": "string_non_empty",
+      "operation": "string_non_empty"
+    }
+  }
 }
