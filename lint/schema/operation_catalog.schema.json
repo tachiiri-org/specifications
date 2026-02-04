@@ -57,6 +57,23 @@
                 "type": "string",
                 "minLength": 1
               },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "required",
+                  "path"
+                ],
+                "additionalProperties": false
+              },
               "data": {
                 "type": "object",
                 "properties": {
@@ -125,6 +142,10 @@
                   "required_roles_any_of"
                 ],
                 "additionalProperties": false
+              },
+              "slo": {
+                "type": "object",
+                "additionalProperties": true
               }
             },
             "required": [
@@ -135,6 +156,7 @@
               "operation",
               "classification",
               "connector_id",
+              "schema",
               "data",
               "audit",
               "idempotency",

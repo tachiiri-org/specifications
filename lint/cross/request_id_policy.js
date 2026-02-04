@@ -36,8 +36,8 @@ export function lintRequestIdPolicy(pathSeq, boundariesByName) {
     const b = boundariesByName[pathSeq[i]]
     if (!b) continue
 
-    const req = b.headers?.requirements?.inbound_must_include ?? []
-    if (!has(req, "x-request-id")) {
+    const req = b.headers?.requirements?.inbound_must_include
+    if (Array.isArray(req) && !has(req, "x-request-id")) {
       throw new Error(`${where(b)}: headers.requirements.inbound_must_include must include "x-request-id"`)
     }
   }
