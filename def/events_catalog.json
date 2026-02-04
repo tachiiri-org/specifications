@@ -1,0 +1,43 @@
+{
+  "spec_version": 1,
+  "breaking_change": false,
+  "effective_from": "2026-02-04",
+  "catalog": {
+    "mode": "enabled",
+    "items": [
+      {
+        "event_type": "billing.invoice.created",
+        "version": 1,
+        "schema_path": "schemas/events/billing.invoice.created.v1.json",
+        "producer": "adapter",
+        "consumers": [
+          "adapter"
+        ],
+        "delivery": {
+          "mode": "at_least_once",
+          "dedupe_required_for_effectful_consumers": true
+        },
+        "retry_policy": {
+          "max_attempts": 8,
+          "backoff_ms": [
+            0,
+            200,
+            500,
+            1000,
+            2000,
+            5000
+          ],
+          "retry_on": [
+            "network",
+            "timeout",
+            "overload",
+            "upstream"
+          ]
+        },
+        "dead_letter": {
+          "mode": "enabled"
+        }
+      }
+    ]
+  }
+}

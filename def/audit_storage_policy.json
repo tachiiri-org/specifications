@@ -1,0 +1,16 @@
+{
+  "spec_version": 1,
+  "effective_from": "2026-02-04",
+  "category": "Audit",
+  "retention_days": 365,
+  "deletion_mode": "none",
+  "tamper_resistance_mode": "append_only",
+  "backup_policy": {
+    "enabled": true,
+    "restore_expectation": "tenant_isolation_preserved"
+  },
+  "pii_secret_exclusion": {
+    "mode": "required",
+    "strategy": "tokenized_reference_only"
+  }
+}
