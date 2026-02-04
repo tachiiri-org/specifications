@@ -1,4 +1,0 @@
-{
-  "days": 1,
-  "eviction": "allow re-use after expiry by treating as new"
-}

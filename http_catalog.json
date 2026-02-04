@@ -1,9 +1,0 @@
-{
-  "front_to_bff": "disabled",
-  "bff_to_internal_gateway": "disabled",
-  "internal_gateway_to_adapter": {
-    "declared_operations_ref": "adapter/operation_map.json",
-    "implemented_operations_ref": "adapter/implemented_operations.json",
-    "selection_rule": "request must match implemented_operations; otherwise not_found"
-  }
-}

@@ -1,0 +1,16 @@
+{
+  "name": "specifications-lint",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "lint:specs": "node ./lint/lint.js",
+    "ci": "npm run lint:specs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

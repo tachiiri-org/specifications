@@ -1,8 +1,0 @@
-{
-  "bff": [
-    "content-type",
-    "x-csrf-token",
-    "traceparent"
-  ],
-  "gateway": "disabled"
-}
