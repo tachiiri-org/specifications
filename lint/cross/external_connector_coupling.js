@@ -59,9 +59,11 @@ export function lintExternalConnectorCoupling(operationCatalog, connectorsSpec, 
       throw new Error(`${catFile}: ${key}: classification must be non-empty array`)
     }
 
-    // If operation uses external connector, it must declare external_effect.
-    if (!has(cls, "external_effect")) {
-      throw new Error(`${catFile}: ${key}: external connector operation must include classification "external_effect"`)
+    const isReadOnly = has(cls, "read") && !has(cls, "mutate") && !has(cls, "external_effect")
+    if (!has(cls, "external_effect") && !isReadOnly) {
+      throw new Error(
+        `${catFile}: ${key}: external connector operation must include classification "external_effect" unless read-only`
+      )
     }
   }
 
