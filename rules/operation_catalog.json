@@ -15,6 +15,10 @@
           "read"
         ],
         "connector_id": "r2",
+        "schema": {
+          "required": true,
+          "path": "schemas/operations/billing_invoice_status_get.v1.json"
+        },
         "data": {
           "classification": "none"
         },
@@ -32,6 +36,18 @@
           "required_roles_any_of": [
             "admin"
           ]
+        },
+        "slo": {
+          "classification": "read",
+          "baseline": {
+            "latency_metric": [
+              "p95"
+            ],
+            "error_budget": {
+              "count_4xx": true,
+              "count_5xx": true
+            }
+          }
         }
       },
       {
@@ -45,6 +61,10 @@
           "external_effect"
         ],
         "connector_id": "google_drive",
+        "schema": {
+          "required": true,
+          "path": "schemas/operations/billing_invoice_core_create.v1.json"
+        },
         "data": {
           "classification": "pii"
         },
@@ -62,6 +82,20 @@
           "required_roles_any_of": [
             "admin"
           ]
+        },
+        "slo": {
+          "classification": "external_effect",
+          "baseline": {
+            "latency_metric": [
+              "p95",
+              "p99"
+            ],
+            "error_budget": {
+              "strict": true,
+              "count_retryable_errors_separately": true
+            },
+            "audit_required": true
+          }
         }
       }
     ]
