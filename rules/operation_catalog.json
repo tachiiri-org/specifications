@@ -1,0 +1,69 @@
+{
+  "spec_version": 2,
+  "breaking_change": true,
+  "effective_from": "2026-02-04",
+  "catalog": {
+    "operation_key_format": "{service}/{resource}/{property}/{operation}",
+    "items": [
+      {
+        "key": "billing/invoice/status/get",
+        "service": "billing",
+        "resource": "invoice",
+        "property": "status",
+        "operation": "get",
+        "classification": [
+          "read"
+        ],
+        "connector_id": "r2",
+        "data": {
+          "classification": "none"
+        },
+        "audit": {
+          "required": false
+        },
+        "idempotency": {
+          "required": false
+        },
+        "authz": {
+          "mode": "scopes_roles",
+          "required_scopes_all_of": [
+            "invoice:read"
+          ],
+          "required_roles_any_of": [
+            "admin"
+          ]
+        }
+      },
+      {
+        "key": "billing/invoice/core/create",
+        "service": "billing",
+        "resource": "invoice",
+        "property": "core",
+        "operation": "create",
+        "classification": [
+          "mutate",
+          "external_effect"
+        ],
+        "connector_id": "google_drive",
+        "data": {
+          "classification": "pii"
+        },
+        "audit": {
+          "required": true
+        },
+        "idempotency": {
+          "required": true
+        },
+        "authz": {
+          "mode": "scopes_roles",
+          "required_scopes_all_of": [
+            "invoice:write"
+          ],
+          "required_roles_any_of": [
+            "admin"
+          ]
+        }
+      }
+    ]
+  }
+}

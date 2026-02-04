@@ -1,0 +1,234 @@
+{
+  "spec_version": 1,
+  "breaking_change": false,
+  "effective_from": "2026-02-04",
+  "boundary": "adapter_to_external",
+  "deployment": {
+    "adapter": "cloudflare_workers",
+    "external": "internet"
+  },
+  "http": {
+    "rpc_style": "connector_over_http",
+    "connector_binding": {
+      "mode": "operation_catalog",
+      "operation_catalog": "rules/operation_catalog.json",
+      "operation_connector_field": "connector_id",
+      "connectors_source": {
+        "type": "spec_file",
+        "path": "rules/connectors.json"
+      }
+    },
+    "methods": {
+      "allowed": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "state_changing": [
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ]
+    },
+    "content_types": {
+      "accepted_request": [
+        "application/json"
+      ],
+      "accepted_response": [
+        "application/json"
+      ],
+      "default_response": "application/json; charset=utf-8",
+      "json_parsing": {
+        "reject_invalid_json": true,
+        "reject_bom": true,
+        "reject_non_utf8": true
+      }
+    },
+    "cache": {
+      "response_cache_control": "no-store"
+    },
+    "retry": {
+      "mode": "enabled",
+      "apply_to_methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "max_attempts": 2,
+      "retry_on_status": [
+        502,
+        503,
+        504
+      ],
+      "retry_on_network_error": true,
+      "backoff_ms": [
+        0,
+        100
+      ],
+      "retry_gate": {
+        "require_idempotency_key_when_state_changing": true
+      }
+    },
+    "timeouts": {
+      "upstream_timeout_ms": 750
+    },
+    "errors": {
+      "defaults": {
+        "default_status": 502
+      },
+      "propagation": {
+        "always_use_error_shape": true,
+        "algorithm": "preserve_then_map_then_shape",
+        "preserve_status_for": [
+          400,
+          401,
+          403,
+          404,
+          409,
+          413,
+          415,
+          422,
+          429,
+          431,
+          503
+        ],
+        "map_4xx_to": 502,
+        "map_5xx_to": 502,
+        "network_error_to": 502
+      },
+      "external_mapping": {
+        "mode": "required",
+        "source": {
+          "type": "connectors_json",
+          "path": "rules/connectors.json"
+        }
+      }
+    }
+  },
+  "auth": {
+    "transport": "internal",
+    "note": "adapter->external auth is per-connector (oauth/apikey/jwt/signature); see rules/connectors.json"
+  },
+  "headers": {
+    "pipeline_order": [
+      "normalize",
+      "drop_hop_by_hop",
+      "explicit_drop",
+      "allow",
+      "default_drop"
+    ]
+  },
+  "observability": {
+    "mode": "enabled",
+    "events": [
+      "rate_limited"
+    ],
+    "error_classification": {
+      "mode": "enabled",
+      "log_only": true,
+      "required_fields": [
+        "error_class",
+        "fault_domain"
+      ],
+      "allowed_error_class": [
+        "validation",
+        "authn",
+        "authz",
+        "timeout",
+        "upstream",
+        "network",
+        "bug",
+        "overload"
+      ],
+      "allowed_fault_domain": [
+        "front",
+        "bff",
+        "gateway",
+        "adapter",
+        "external"
+      ]
+    },
+    "redaction": {
+      "drop_headers": [
+        "authorization",
+        "cookie",
+        "set-cookie"
+      ],
+      "redact_headers": [
+        "x-idempotency-key"
+      ],
+      "redact_fields": [
+        "email",
+        "display_name"
+      ],
+      "redact_strategy": {
+        "default": "hash",
+        "hash_algorithm": "sha256",
+        "salt_source": "deployment_secret"
+      }
+    },
+    "request_id": {
+      "header": "x-request-id",
+      "requirement_timing": "pre_processing",
+      "generation": {
+        "mode": "disabled"
+      },
+      "propagation": {
+        "passthrough": true,
+        "outbound_must_include": true
+      }
+    },
+    "trace_context": {
+      "traceparent": {
+        "header": "traceparent",
+        "propagation": "passthrough",
+        "generate_if_missing": false
+      }
+    }
+  },
+  "limits": {
+    "concurrency": {
+      "max_concurrency": 8,
+      "scope": "per_instance",
+      "queueing": {
+        "enabled": true,
+        "max_queue_length": 256,
+        "on_exceed": {
+          "action": "reject",
+          "status": 503,
+          "error_code": "server_overloaded"
+        }
+      }
+    },
+    "rate_limit": {
+      "mode": "enabled",
+      "owner": "adapter",
+      "status": 429,
+      "error_code": "rate_limited",
+      "algorithm": "token_bucket",
+      "scopes": [
+        {
+          "name": "per_tenant_connector",
+          "key_fields": [
+            "claims.tenant_id",
+            "connector_id"
+          ],
+          "bucket": {
+            "capacity": 30,
+            "refill_per_second": 0.5
+          },
+          "on_exceed": {
+            "action": "reject",
+            "retry_after_seconds": 2
+          }
+        }
+      ]
+    }
+  }
+}

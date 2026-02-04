@@ -1,9 +1,0 @@
-{
-  "front_to_bff": "disabled",
-  "bff_to_internal_gateway": {
-    "mode": "json_rpc_over_http"
-  },
-  "internal_gateway_to_adapter": {
-    "mode": "operation_catalog_over_http"
-  }
-}

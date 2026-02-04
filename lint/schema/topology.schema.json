@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "spec_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "breaking_change": {
+      "type": "boolean"
+    },
+    "effective_from": {
+      "type": "string",
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2}|release-[A-Za-z0-9._-]+)$"
+    },
+    "graph": {
+      "type": "object",
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "boundaries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "boundary": {
+                "type": "string"
+              },
+              "from_node": {
+                "type": "string"
+              },
+              "to_node": {
+                "type": "string"
+              },
+              "spec_file": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "boundary",
+              "from_node",
+              "to_node",
+              "spec_file"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path_id": {
+                "type": "string"
+              },
+              "boundaries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "path_id",
+              "boundaries"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "nodes",
+        "boundaries",
+        "paths"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "spec_version",
+    "breaking_change",
+    "effective_from",
+    "graph"
+  ],
+  "additionalProperties": false
+}
