@@ -22,6 +22,8 @@ import { lintOperationAuthzRequirements } from "./operation_authz_requirements.j
 
 import { lintForbiddenErrorCodeOrigin } from "./forbidden_error_code_origin.js"
 import { lintContractVersionRollout } from "./contract_version_rollout.js"
+import { lintRepoLayout } from "./repo_layout.js"
+import { lintSchemaPathPolicy } from "./schema_path_policy.js"
 
 // NEW (existing in your file)
 import { lintBearerAuthorizationHeaderPassage } from "./bearer_authorization_header_passage.js"
@@ -31,6 +33,7 @@ import { lintRequiredClaimsInvariants } from "./required_claims_invariants.js"
 import { lintExternalConnectorCoupling } from "./external_connector_coupling.js"
 
 export async function lintCross() {
+  lintRepoLayout()
   const topology = loadTopology()
   lintTopologyIntegrity(topology)
 
@@ -53,6 +56,7 @@ export async function lintCross() {
 
   // Operation catalog consistency (routing/idempotency/authz coupling)
   const operationCatalog = loadOperationCatalog()
+  lintSchemaPathPolicy(operationCatalog)
   lintOperationCatalogConsistency(operationCatalog, boundaries)
   lintOperationAuthzRequirements(operationCatalog)
 

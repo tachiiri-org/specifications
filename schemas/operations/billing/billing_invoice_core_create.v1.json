@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "operation_key": "billing/invoice/core/create",
+  "compatibility": {
+    "change_type": "compatible",
+    "reason": "initial schema",
+    "effective_from": "2026-02-04",
+    "requires_unknown_enum_tolerance": false
+  },
+  "request": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "input"
+    ],
+    "properties": {
+      "input": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "customer_id",
+          "currency",
+          "amount_minor"
+        ],
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "amount_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "maxProperties": 50
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "output"
+    ],
+    "properties": {
+      "output": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "invoice_id",
+          "status"
+        ],
+        "properties": {
+          "invoice_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
