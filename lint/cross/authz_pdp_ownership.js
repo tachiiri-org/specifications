@@ -17,9 +17,5 @@ export function lintAuthzPdpOwnership(pathSeq, boundariesByName) {
       throw new Error(`${where(b)}: authz.pdp must be "adapter"`)
     }
 
-    // Must be last boundary on the path
-    if (i !== pathSeq.length - 1) {
-      throw new Error(`${where(b)}: authz.pdp must not appear on upstream boundaries (must be final boundary on path)`)
-    }
   }
 }

@@ -17,7 +17,7 @@
         "connector_id": "r2",
         "schema": {
           "required": true,
-          "path": "schemas/operations/billing_invoice_status_get.v1.json"
+          "path": "schemas/operations/billing/billing_invoice_status_get.v1.json"
         },
         "data": {
           "classification": "none"
@@ -63,7 +63,7 @@
         "connector_id": "google_drive",
         "schema": {
           "required": true,
-          "path": "schemas/operations/billing_invoice_core_create.v1.json"
+          "path": "schemas/operations/billing/billing_invoice_core_create.v1.json"
         },
         "data": {
           "classification": "pii"
