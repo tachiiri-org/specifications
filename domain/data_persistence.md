@@ -44,8 +44,19 @@
 
 ## Non-goals
 
-- 法域ごとの完全対応（必要になった時点で別仕様として拡張する）。
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
 - 具体DB製品の固定。
+
+### Deferred-but-Scoped
+
+- 法域対応（residency/分類/例外運用を含む）を domain + contract-version で段階導入すること。
+
+### Out-of-Scope Implementation Details
+
+- 保持日数・暗号パラメータなどの具体数値設定。
 
 ## Failure modes
 
@@ -55,6 +66,8 @@
 
 ## Related Specifications
 
+- domain/cross_tenant_exceptions.md
+- domain/data_classification.md
 - domain/observability.md
 - rules/pii_redaction_contract.md
 - rules/audit_log_contract.md

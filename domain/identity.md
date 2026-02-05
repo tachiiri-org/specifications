@@ -53,9 +53,21 @@
 
 ## Non-goals
 
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
 - 認可（AuthZ）モデルや権限 DSL の定義（domain/authorization.md の責務）。
 - 組織・グループ・階層の標準化。
-- API key や mTLS 等、JWT 以外の恒久的な認証方式の標準化（導入時は別 domain + contract-version）。
+
+### Deferred-but-Scoped
+
+- API key や mTLS 等、JWT 以外の認証方式導入（導入時は別 domain + contract-version）。
+- claims 互換性、鍵ローテーション、assurance の運用枠。
+
+### Out-of-Scope Implementation Details
+
+- issuer/audience/TTL/鍵素材などの具体値。
 
 ## Failure modes
 
@@ -66,6 +78,9 @@
 
 ## Related Specifications
 
+- domain/authn_assurance.md
+- domain/identity_key_rotation.md
+- domain/claims_compatibility.md
 - domain/actor.md
 - domain/actor_subject_tenant_model.md
 - domain/authorization.md

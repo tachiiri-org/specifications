@@ -152,3 +152,18 @@ Renaming or aliasing (e.g. `operations`, `categories`) is forbidden without a br
 
 - Example blocks in MD are not normative by default.
 - Example JSON fragments in MD MUST be treated as illustrative only unless referenced by a Rule section.
+
+
+## Extensibility & Constitutional Boundaries
+
+- This repository defines a constitutional semantics layer and machine-checkable contracts (`rules/`, `schemas/`, `def`-style artifacts) for stable system behavior.
+- As the system scales (org/delegation/authn methods/residency/policy trace/global defaults), each area MUST first be scoped by domain and contract-version, then introduced incrementally.
+- Post-hoc mixing of new claims or AuthZ inputs into existing semantics is forbidden.
+- Exceptions (cross-tenant/global/break-glass) MUST be explicit, time-bounded, and auditable.
+
+## Non-goal Taxonomy Entry Point
+
+- Non-goal taxonomy is defined in `10_non_goals.md`.
+- Deferred-but-Scoped areas are included in the specification via defined frames; detailed implementation can follow staged promotion from `pending/` into `domain/`, `rules/`, `def/`, or `schemas/`.
+- Any promotion MUST align with contract-version, compatibility, and dual-accept rollout policy.
+- Existing prohibitions (for example, post-hoc claim mixing into AuthZ input) remain non-negotiable.
