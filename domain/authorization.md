@@ -88,6 +88,23 @@
   - boundary JSON の `http.errors.propagation` が 403 を preserve できる設定であること
   - error shape（`rules/error_shape_contract.md`）に適合すること
 
+## Non-goals
+
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
+- 認可に無関係なプロフィール属性（email/display_name等）を AuthZ 入力として扱うこと。
+
+### Deferred-but-Scoped
+
+- role/scope governance の詳細ポリシー運用。
+- policy type 拡張と decision trace の詳細標準化。
+
+### Out-of-Scope Implementation Details
+
+- 具体的なポリシー記述言語・エンジン実装の選定。
+
 ## Observability
 
 - authz failure は以下を内部ログに記録してよい:
@@ -101,6 +118,9 @@
 
 ## Related Specifications
 
+- domain/policy_types.md
+- domain/role_scope_governance.md
+- domain/claims_compatibility.md
 - domain/actor_subject_tenant_model.md
 - domain/actor.md
 - domain/identity.md

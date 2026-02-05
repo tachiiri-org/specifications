@@ -44,6 +44,23 @@
 - Audit は Logs と同一保持にしない。
 - `irreversible` / `external_effect` は audit event が必須であり、保持期間と改ざん耐性（最低限 append-only 前提）を明示する。
 
+## Non-goals
+
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
+- 人手運用による例外的な認可判定（仕様外の裁量判断）。
+
+### Deferred-but-Scoped
+
+- delegation/impersonation の詳細モデル導入（別 domain + contract-version）。
+- support contract / policy trace / global defaults と結合した運用拡張。
+
+### Out-of-Scope Implementation Details
+
+- SLO 数値・保持期間の具体値。
+
 ## Failure modes
 
 - service actor が user 扱いになり、権限が崩壊する。

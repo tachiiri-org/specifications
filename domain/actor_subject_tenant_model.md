@@ -113,9 +113,19 @@
 
 ## Non-goals
 
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
 - RBAC / ABAC の具体モデル定義。
 - 組織階層・グループ管理の標準化。
-- delegation/impersonation の導入（別 domain + contract-version）。
+
+### Deferred-but-Scoped
+
+- delegation/impersonation の導入（別 domain + contract-version で導入）。
+
+### Out-of-Scope Implementation Details
+
 - token の具体プロファイル（issuer/audience/ttl 等）の固定（boundary JSON / identity.md の責務）。
 
 ## Failure modes
@@ -128,6 +138,14 @@
 
 ## Related Specifications
 
+- domain/support_operation_contract.md
+- domain/data_classification.md
+- domain/role_scope_governance.md
+- domain/authn_assurance.md
+- domain/cross_tenant_exceptions.md
+- domain/policy_types.md
+- domain/identity_key_rotation.md
+- domain/claims_compatibility.md
 - domain/actor.md
 - domain/identity.md
 - domain/authorization.md

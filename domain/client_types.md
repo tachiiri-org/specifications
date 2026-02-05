@@ -114,8 +114,19 @@
 
 ## Non-goals
 
-- OIDC/PKCE/DPoP/mTLS の標準化（導入時は別 domain + contract-version）。
-- モバイルの端末識別や jailbreak 対策等の詳細（別仕様）。
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
+- モバイルの端末識別や jailbreak 対策等の詳細。
+
+### Deferred-but-Scoped
+
+- OIDC/PKCE/DPoP/mTLS の導入枠（導入時は別 domain + contract-version）。
+
+### Out-of-Scope Implementation Details
+
+- クライアント SDK/端末固有実装の詳細。
 
 ## Failure modes
 
