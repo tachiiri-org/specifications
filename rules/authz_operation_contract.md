@@ -9,8 +9,8 @@
 ## Applies
 
 - boundary_gateway_to_adapter.authz
-- domain/authorization.md
-- domain/policy_evaluation.md
+- domain/00_constitution/authorization.md
+- domain/00_constitution/policy_evaluation.md
 - rules/authz_error_semantics.md
 - rules/operation_catalog.json
 
