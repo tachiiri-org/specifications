@@ -76,3 +76,21 @@
 - domain/data_persistence.md
 - rules/tenant_persistence_contract.md
 - rules/audit_log_contract.md
+- domain/deletion_propagation_contract.md
+- domain/disaster_recovery.md
+- domain/data_residency.md
+- domain/global_defaults.md
+
+## Global resources (Minimal vocabulary)
+
+一部リソースは tenant 非依存（global）である場合がある。
+
+### Rules
+
+- `tenant_scoped=false` を明示する。
+- write 操作は ops/service actor に限定される。
+- read 操作は allowlist 制御される。
+- observability では:
+  - tenant_id は `"__global__"` として表現される。
+
+> global resource は例外であり、暗黙に作ってはならない。

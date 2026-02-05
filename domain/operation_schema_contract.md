@@ -12,15 +12,16 @@
 
 ## Rule (Must)
 
-### 1) Presence
+### 1) Presence via catalog
 
-- operation catalog の `catalog.items[].key` ごとに、対応する schema ファイルが存在しなければならない:
-  - `schemas/operations/{key}.json`
-- 例外を作る場合は、catalog item に `schema.required=false` を明示する（デフォルト true）。
+- operation catalog の各 item は以下を持つ:
+  - `schema.path`
+- lint は **schema.path を唯一の正**として参照する。
 
-### 2) Key match
+### 2) No path inference
 
-- schema ファイル内の `operation_key` は、ファイルパスの key と一致しなければならない。
+- operation_key から schema パスを推測してはならない。
+- ディレクトリ探索は禁止。
 
 ### 3) Minimal shape
 

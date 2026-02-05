@@ -58,3 +58,8 @@
 - domain/observability.md
 - rules/pii_redaction_contract.md
 - rules/audit_log_contract.md
+- domain/deletion_propagation_contract.md
+- domain/data_tenant_safety.md
+- domain/disaster_recovery.md
+- domain/data_residency.md
+- domain/global_defaults.md

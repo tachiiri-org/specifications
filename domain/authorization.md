@@ -49,10 +49,13 @@
 - AuthZ の入力として使用してよい claims は以下に限定する（拡張は breaking change とみなす）:
   - `tenant_id`
   - `actor_id`
+  - `actor_type`
   - `subject_id`（存在する場合）
+  - `subject_type`（存在する場合。現時点では "human" のみ）
   - `roles`（配列）
   - `scopes`（配列）
 - 上記以外（例: email, display_name, ip 相当）は AuthZ 入力に使用してはならない。
+- `initiator_*` は監査・相関用途のみであり、AuthZ 入力に使用してはならない（must-not）。
 
 ### Failure Semantics (Response)
 
@@ -71,9 +74,42 @@
 
 ## Required JSON keys (Machine-checkable, Must)
 
+- boundary JSON は以下を持つ:
+  - `authz.mode`
+  - `authz.pdp = adapter`
+  - `authz.identity_source = token_claims`
 - PDP を持つ境界（通常 gateway_to_adapter / adapter側）は:
   - operation catalog に基づくポリシ参照（`rules/operation_catalog.json`）が前提であること
-  - boundary JSON に `authz.*`（少なくとも mode/pdp/identity_source）を持つこと
-- エラー契約:
+- error propagation:
+  - 403 は preserve
+  - 401 / 429 は preserve
+  - その他は安全側に正規化
+- 境界エラー契約:
   - boundary JSON の `http.errors.propagation` が 403 を preserve できる設定であること
-  - `observability.error*classifica*
+  - error shape（`rules/error_shape_contract.md`）に適合すること
+
+## Observability
+
+- authz failure は以下を内部ログに記録してよい:
+  - actor_id
+  - actor_type
+  - tenant_id
+  - subject_id（あれば）
+  - operation_key
+  - rule_id
+  - decision（allow/deny）
+
+## Related Specifications
+
+- domain/actor_subject_tenant_model.md
+- domain/actor.md
+- domain/identity.md
+- domain/policy_evaluation.md
+- domain/operation.md
+- domain/authz_and_ops_scaling.md
+- domain/observability.md
+- domain/global_defaults.md
+- domain/policy_decision_trace.md
+- domain/org_model.md
+- domain/delegation_impersonation.md
+- domain/subject_types.md

@@ -29,7 +29,7 @@
 ### Identity Establishment
 
 - browser ⇄ BFF 間では cookie session を用いる。
-- identity を「確立する」のは BFF のみ。
+- identity を「確立」するのは BFF のみ。
 - browser から送られる `authorization` ヘッダは reject する。
 
 ### Identity Transport
@@ -55,7 +55,7 @@
 
 - 認可（AuthZ）モデルや権限 DSL の定義（domain/authorization.md の責務）。
 - 組織・グループ・階層の標準化。
-- API key や mTLS 等、JWT 以外の恒久的な認証方式の標準化（導入時は別 domain と contract-version）。
+- API key や mTLS 等、JWT 以外の恒久的な認証方式の標準化（導入時は別 domain + contract-version）。
 
 ## Failure modes
 
@@ -67,7 +67,12 @@
 ## Related Specifications
 
 - domain/actor.md
+- domain/actor_subject_tenant_model.md
 - domain/authorization.md
 - domain/headers.md
-- rules/jwt_token_profile.md
-- rules/request_id_policy.md
+- domain/session.md
+- domain/security_browser_boundary.md
+- domain/secrets_and_keys.md
+- domain/client_types.md
+- domain/authn_methods.md
+- domain/global_defaults.md
