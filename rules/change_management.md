@@ -43,6 +43,6 @@
 ## Related Specifications
 
 - rules/contract_version_rollout.md
-- domain/schema_compatibility.md
+- domain/20_operational_semantics/schema_compatibility.md
 - rules/event_version_rollout.md
 - rules/spec_package_versioning.md

@@ -7,9 +7,9 @@
 
 ## Applies
 
-- domain/observability.md
+- domain/00_constitution/observability.md
 - rules/request_id_policy.md
-- domain/async_jobs_events.md
+- domain/20_operational_semantics/async_jobs_events.md
 - rules/audit_log_contract.md
 
 ## Rule (Must)
