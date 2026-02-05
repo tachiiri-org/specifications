@@ -117,8 +117,19 @@
 
 ## Non-goals
 
+> 分類基準は `10_non_goals.md` を参照。
+
+### Permanent Non-goals
+
 - 組織のオンコール体制設計（シフト、担当表）。
-- すべての運用手順の標準化（runbookは別）。
+
+### Deferred-but-Scoped
+
+- support operation contract と policy decision trace による統制拡張。
+
+### Out-of-Scope Implementation Details
+
+- すべての運用手順（runbook）の詳細標準化。
 
 ## Failure modes
 
@@ -128,6 +139,9 @@
 
 ## Related Specifications
 
+- domain/global_defaults.md
+- domain/policy_decision_trace.md
+- domain/support_operation_contract.md
 - domain/authorization.md
 - domain/policy_evaluation.md
 - domain/idempotency.md
