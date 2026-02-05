@@ -7,10 +7,10 @@
 
 ## Applies
 
-- domain/billing.md
-- domain/data_persistence.md
+- domain/20_operational_semantics/billing.md
+- domain/20_operational_semantics/data_persistence.md
 - rules/audit_log_contract.md
-- domain/authz_and_ops_scaling.md
+- domain/_misc/authz_and_ops_scaling.md
 
 ## Rule (Must)
 

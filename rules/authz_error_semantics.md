@@ -35,7 +35,7 @@
 
 - rules/error_mapping.md
 - rules/error_observability_classification.md
-- domain/authorization.md
+- domain/00_constitution/authorization.md
 - boundary\_\* .http.errors
 - boundary\_\* .observability
 

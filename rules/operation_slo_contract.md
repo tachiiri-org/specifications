@@ -8,7 +8,7 @@
 ## Applies
 
 - rules/operation_catalog.json
-- domain/authz_and_ops_scaling.md
+- domain/_misc/authz_and_ops_scaling.md
 
 ## Rule (Must)
 
