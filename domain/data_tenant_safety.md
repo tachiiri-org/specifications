@@ -71,6 +71,8 @@
 
 ## Related Specifications
 
+- domain/cross_tenant_exceptions.md
+- domain/data_classification.md
 - domain/resource_ownership.md
 - domain/authorization.md
 - domain/data_persistence.md
