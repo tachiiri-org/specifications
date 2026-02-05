@@ -2,16 +2,8 @@
 
 ## Goal
 
-- state-changing 操作における **重複実行・二重課金・二重作成**を防ぐ。
-- retry / 再送 / ネットワーク断があっても、**意味的に一度だけ実行された**状態を保証する。
-- idempotency の責任境界と所有者（owner）を固定し、拡張時の事故を防ぐ。
-
-## Scope
-
-- Browser → BFF → Gateway → Adapter
-- state-changing operation（mutate / irreversible / external_effect）
-- retry / replay / conflict / inflight
-- idempotency key / fingerprint / storage / replay response
+- 副作用を伴う操作を「再送・重複・障害復旧」に対して安全にする。
+- idempotency を HTTP の再送制御ではなく **意味論**として固定し、境界の責務を割らない。
 
 ## Design Principles
 
@@ -31,10 +23,20 @@
 - 同一 user action は end-to-end で **同一の idempotency key** で表現される。
 - key は browser 起点で生成され、adapter まで透過される。
 
-### Scope of Uniqueness
+### Scope of Uniqueness (Normative)
 
-- idempotency は「key だけ」ではなく、**operation + identity + input** によって一意化される。
-- 異なる意味の操作が、同一 key として扱われてはならない。
+idempotency の一意性は **key だけ**ではなく、少なくとも以下の組で保証される:
+
+- service (or adapter identifier)
+- operation_key
+- contract_version
+- tenant_id
+- actor_id
+- normalized input fingerprint
+- idempotency_key
+
+> 異なる service / contract-version 間で
+> 同一 idempotency_key が衝突してはならない。
 
 ### Retry Safety
 
@@ -54,11 +56,13 @@
     - “processing” を表すレスポンス（例: 202）を返してよい
   - いずれの場合も副作用の二重実行を起こしてはならない。
 
-### Minimum retention (Recommended default)
+### Retention tiers (Recommended baseline)
 
 - idempotency 記録（key→結果）は TTL を持つ。
-- external_effect / billing 相当の operation では、TTL は短すぎてはならない。
-  - 推奨: **少なくとも 24 時間以上**（変更する場合は boundary JSON で明示し、運用理由を記録する）
+- default: 24h 以上
+- billing-grade / irreversible:
+  - **days〜weeks オーダー**
+  - TTL 短縮は明示的に宣言されなければならない
 
 ## Boundary Responsibilities (Conceptual)
 
@@ -92,6 +96,7 @@
 - adapter（または gateway_to_adapter の設定）:
   - fingerprint の入力・正規化が explicit であること（canonical_json 等）
   - replay/inflight の挙動（status方針）が設定として明示されること
+  - retention/TTL（少なくとも tier）が設定として明示されること
 
 ## Non-goals
 

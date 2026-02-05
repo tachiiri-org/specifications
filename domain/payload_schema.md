@@ -27,6 +27,12 @@
 - operation catalog の各 item（key）には request/response の schema が 1つずつ対応する。
 - schema が未定義の operation は「公開契約が未確定」とみなし、原則として production へ出してはならない（例外は明示）。
 
+### Catalog is authoritative for schema paths
+
+- schema の参照パスは **catalog（rules/operation_catalog.json の schema.path 等）が唯一の正**である。
+- 実装・lint が operation_key から schema パスを推測してはならない（探索禁止）。
+- schema の配置（ディレクトリ構造）は repo_layout の方針に従うが、最終的な正は catalog 参照である。
+
 ### Contract version coupling
 
 - schema の breaking change は必ず contract-version の変更として表現される。
@@ -56,16 +62,17 @@
 - error shape は `rules/error_shape_contract.md` に従い、operation schema の対象外とする。
 - business response schema と error schema を混在させない。
 
-## Schema Location & Format (Normative)
+## Schema Format (Normative)
 
-- schema は `schemas/operations/{operation_key}.json` に配置する。
-  - 例: `schemas/operations/billing/invoice/core/create.json`
 - format は JSON Schema（draft はリポジトリで固定）を使用する。
 - 各 schema ファイルは少なくとも以下を含む:
   - `operation_key`
   - `request` schema
   - `response` schema
   - `compatibility` metadata（optional/breaking の判定根拠を機械検査で参照できる形）
+
+> 置き場所（schemas/operations 配下の具体パス）は repo_layout の推奨に従う。
+> ただし、実装・lint が参照する正は catalog の `schema.path` であり、ディレクトリ規約は補助である。
 
 ## Pagination / Filtering / Sorting (Recommended standard)
 
@@ -80,11 +87,13 @@
 - payload が暗黙知になり、クライアントが実装に依存して壊れる。
 - “後方互換のつもり”の変更が required 化などで実質 breaking になる。
 - operation は同じでも経路・クライアントごとに shape が割れて運用不能になる。
+- schema path の推測や探索が入り、環境差分で壊れる。
 
 ## Related Specifications
 
 - domain/http.md
 - domain/operation.md
+- domain/repo_layout.md
 - rules/operation_schema_contract.md
 - rules/schema_compatibility.md
 - rules/contract_version_rollout.md

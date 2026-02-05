@@ -25,7 +25,7 @@
 
 ### Stable identifiers
 
-- ownership 判定に用いる識別子は stable な ID のみ（actor_id / subject_id / tenant_id / resource_id）。
+- ownership 判定に用いる識別子は stable な ID のみ（actor_id / actor_type / subject_id / tenant_id / resource_id）。
 - email/name 等の可変情報を ownership に使ってはならない。
 
 ## Required JSON / Catalog expectations (Must)

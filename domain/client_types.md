@@ -129,7 +129,11 @@
 - domain/session.md
 - domain/identity.md
 - domain/http.md
+- domain/idempotency.md
+- domain/authorization.md
 - rules/request_id_policy.md
 - rules/mode_dependent_fields.md
 - rules/cors_policy.md
 - rules/csrf_double_submit.md
+- domain/authn_methods.md
+- domain/global_defaults.md

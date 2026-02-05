@@ -2,33 +2,29 @@
 
 ## Goal
 
-- 同期HTTPだけでは表現できない処理（遅延、外部連携、再試行、集約）を “別世界” にせず、同じ契約哲学で統一する。
-- retry/replay/重複配信を安全に扱い、external_effect を二重実行しない。
-- 監査・可観測性・権限（tenant/actor）をイベント/ジョブでも一貫させる。
-
-## Scope
-
-- job queue / scheduled jobs / background processing
-- domain events（publish/consume）
-- delivery retry / at-least-once / dedupe
-- event schema / versioning
-- dead-letter / poison message
+- async 実行を “別世界” にせず、actor/tenant/authz/idempotency を同期と同一哲学で扱う。
 
 ## Invariants (Must Not Break)
 
 ### Identity & tenant continuity
 
-- async job / event は必ず tenant_id を持つ。
-- actor_id は可能な限り持つ（human起点の場合は必須、system起点は service actor として明示）。
-- identity は “verified claims 相当”のコンテキストとして扱い、任意注入を許さない。
+- job/event は必ず `tenant_id` を持つ。
+- `actor_id` は executor（service/ops actor）を表す。
+- human 起点の場合は `initiator_actor_id` を必須とする。
+- identity は verified claims 相当として扱い、任意注入を許さない。
+
+### Executor vs Initiator separation
+
+- executor（actor_id）:
+  - AuthZ / 実行責務の主体
+- initiator:
+  - audit / 相関 / 説明責任の主体
+- initiator を AuthZ 入力に使用してはならない。
 
 ### Exactly-once effect (Semantic)
 
-- delivery が at-least-once でも、external_effect/irreversible の意味論は “一度だけ” を保証する。
-- そのために:
-  - producer は `event_id` を付与
-  - consumer（adapter 相当の最終地点）は dedupe を行う
-  - idempotency（key/fingerprint）と接続する
+- producer は `event_id` を付与。
+- consumer は dedupe を行い、副作用を一度に限定する。
 
 ### Event schema is versioned
 

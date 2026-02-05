@@ -43,6 +43,16 @@
 
 ## Invariants (Must Not Break)
 
+### Schemas are referenced, never inferred
+
+- schema は catalog（rules/）から明示的に参照される。
+- 実装・lint が operation_key からパスを推測することは禁止。
+- path 変更は catalog 変更として扱われ、breaking になりうる。
+
+### Schema directory depth
+
+- 深さ制限は **推奨**とし、正は catalog 参照である。
+
 ### Single responsibility per directory
 
 - 各ディレクトリは 1 つの責務を持つ。

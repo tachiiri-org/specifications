@@ -1,28 +1,29 @@
 # Operation Semantics & Classification
 
-## Goal
+## Operation Categories (Sets)
 
-- operation の「性質」を明示し、retry / idempotency / authZ / CSRF 等との結合点を固定する。
-- 命名や routing だけでは表現できない意味論を安定させる。
+operation は以下の分類を **集合として** 持つ:
 
-## Scope
+- read
+- mutate
+- irreversible
+- external_effect
 
-- operation catalog
-- state-changing 判定
-- effect 特性
+### Semantic clarifications
 
-## Operation Categories
+- irreversible:
+  - 取り消し不能であること
+  - 外部/内部を問わない（例: PII purge）
+- external_effect:
+  - 外部システムとの相互作用
+  - reversible である場合もある
 
-- **read**
-  - 状態を変更しない。
-- **mutate**
-  - 内部状態を変更する。
-- **irreversible**
-  - 外部副作用を持ち、取り消し不能。
-- **external_effect**
-  - 外部 API / billing / provisioning 等を伴う。
+> operation は複数分類を同時に持ちうる。
 
-## Invariants (Must Not Break)
+## Invariants
+
+- classification は暗黙推論してはならない。
+- irreversible / external_effect は idempotency 必須。
 
 ### Explicit Classification
 
