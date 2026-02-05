@@ -29,8 +29,8 @@
 
 - rules/forbidden_status_origin.md
 - rules/error_mapping.md
-- domain/authorization.md
-- domain/security_browser_boundary.md
+- domain/00_constitution/authorization.md
+- domain/30_interaction_edges/security_browser_boundary.md
 - boundary\_\* .http.errors
 
 ## Failure modes
