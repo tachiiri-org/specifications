@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # Required for npm Trusted Publishing (OIDC)
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -22,21 +22,16 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org/"
 
-      - name: Install deps (disable husky)
-        run: npm ci
+      - run: npm ci
         env:
           HUSKY: "0"
 
-      - name: Ensure origin/main exists for diff ranges
-        run: git fetch origin main --depth=1
+      - run: git fetch origin main --depth=1
 
-      - name: Ensure manifest is up-to-date
-        run: npm run manifest:check
+      - run: npm run manifest:check
 
-      - name: Breaking change heuristic (fail on hits)
-        run: npm run breaking:check
+      - run: npm run breaking:check
 
-      - name: Publish to npm (Trusted Publishing)
-        run: npm publish --access public
+      - run: npm publish --access public
         env:
           HUSKY: "0"
