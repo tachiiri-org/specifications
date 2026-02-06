@@ -1,5 +1,5 @@
 {
-  "name": "@tachiiri-library/service-specifications",
+  "name": "@tachiiri-library/specifications",
   "version": "0.1.4",
   "description": "Constitutional and operational specifications for large-scale SaaS systems",
   "license": "MIT",
