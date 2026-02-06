@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # required for OIDC
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -22,19 +22,15 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org/"
 
-      - name: Install deps
-        run: npm ci
+      - run: npm ci
         env:
           HUSKY: "0"
 
-      - name: Ensure origin/main exists for diff ranges
-        run: git fetch origin main --depth=1
+      - run: git fetch origin main --depth=1
 
-      - name: Ensure manifest is up-to-date
-        run: npm run manifest:check
+      - run: npm run manifest:check
 
-      - name: Breaking change heuristic (fail on hits)
-        run: npm run breaking:check
+      - run: npm run breaking:check
 
       - name: Remove any leftover npm auth config
         run: rm -f ~/.npmrc
