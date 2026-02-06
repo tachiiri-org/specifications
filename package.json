@@ -1,0 +1,45 @@
+{
+  "name": "@your-scope/service-specifications",
+  "version": "0.1.0",
+  "description": "Constitutional and operational specifications for large-scale SaaS systems",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "files": [
+    "specs/**",
+    "spec.manifest.json",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "default": "./spec.manifest.json"
+    },
+    "./manifest": {
+      "default": "./spec.manifest.json"
+    },
+    "./specs/*": {
+      "default": "./specs/*"
+    }
+  },
+  "scripts": {
+    "manifest:gen": "node tools/generate-manifest.mjs",
+    "manifest:check": "node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json",
+    "breaking:warn": "node tools/detect-breaking.mjs",
+    "prepare": "husky install",
+    "prepack": "npm run manifest:gen && npm run manifest:check"
+  },
+  "lint-staged": {
+    "specs/**/*.md": [
+      "npm run manifest:gen",
+      "git add spec.manifest.json"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

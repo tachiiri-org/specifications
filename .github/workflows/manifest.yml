@@ -1,0 +1,28 @@
+name: spec-checks
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Ensure origin/main exists for diff ranges in PR
+      - run: git fetch origin main --depth=1
+
+      - run: npm ci
+
+      - name: Manifest must be up-to-date
+        run: npm run manifest:check
+
+      - name: Breaking change heuristic (fail on hits)
+        run: npm run breaking:check
