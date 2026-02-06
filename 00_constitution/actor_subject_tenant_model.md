@@ -48,7 +48,7 @@
 - `subject_type` は存在する場合、必ず `"human"` とする（現時点の語彙は human のみ）。
 
 > subject_type の拡張は breaking とみなし、versioned にのみ導入できる。
-> 将来拡張は `10_extension_frames/subject_types.md` を起点に行う。
+> 将来拡張は `00_constitution/subject_types.md` を起点に行う。
 
 ### Initiator (Origin / Triggering Actor)
 
@@ -98,7 +98,7 @@
 
 - delegation/impersonation は **既存の意味論へ後付け混入してはならない**。
 - “後付けで claims を増やして既存 AuthZ に混ぜる” のは禁止。
-- 将来導入は `10_extension_frames/delegation_impersonation.md` を起点とし、domain + contract-version で行う。
+- 将来導入は `00_constitution/delegation_impersonation.md` を起点とし、domain + contract-version で行う。
 
 ### 6) Async / Job / Event Context Consistency
 
@@ -136,9 +136,9 @@
 - 20_operational_semantics/async_jobs_events.md
 - 20_operational_semantics/data_tenant_safety.md
 
-- 10_extension_frames/authn_assurance.md
-- 10_extension_frames/claims_compatibility.md
-- 10_extension_frames/org_model.md
-- 10_extension_frames/delegation_impersonation.md
-- 10_extension_frames/subject_types.md
-- 10_extension_frames/identity_key_rotation.md
+- 00_constitution/authn_assurance.md
+- 00_constitution/claims_compatibility.md
+- 20_operational_semantics/org_model.md
+- 00_constitution/delegation_impersonation.md
+- 00_constitution/subject_types.md
+- 00_constitution/identity_key_rotation.md

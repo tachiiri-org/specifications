@@ -54,7 +54,7 @@
 
 ## Related Specifications
 
-- domain/00_constitution/actor.md
-- domain/00_constitution/authorization.md
-- domain/00_constitution/policy_evaluation.md
-- domain/00_constitution/claims_compatibility.md
+- 00_constitution/actor.md
+- 00_constitution/authorization.md
+- 00_constitution/policy_evaluation.md
+- 00_constitution/claims_compatibility.md

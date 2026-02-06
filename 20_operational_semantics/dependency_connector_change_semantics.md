@@ -51,5 +51,4 @@
 
 ## Related Specifications
 
-- rules/connectors.json
-- domain/20_operational_semantics/billing.md
+- 20_operational_semantics/billing.md

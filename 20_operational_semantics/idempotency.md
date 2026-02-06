@@ -87,7 +87,7 @@ idempotency の一意性は **key だけ**ではなく、少なくとも以下�
 
 ## Machine-enforced contracts (Moved out of this file)
 
-- 具体のヘッダ名・境界JSONキー・lint項目など、machine-checkable な契約は rules および L1（各ツール仕様定義）に置く。
+- 具体のヘッダ名・境界JSONキー・lint項目など、machine-checkable な契約は 機械契約（schema/lint/contract）は L1（各ツール仕様定義）に置く。
 - 本ファイルは「意味論（owner/uniqueness/replay）」を正とし、機械契約は参照で統一する。
 
 ## Non-goals
@@ -106,8 +106,5 @@ idempotency の一意性は **key だけ**ではなく、少なくとも以下�
 
 ## Related Specifications
 
-- rules/idempotency_end_to_end.md
-- rules/idempotency_validate_only_retry_safety.md
-- rules/canonical_json_number.md
-- domain/30_interaction_edges/http.md
-- domain/20_operational_semantics/limits.md
+- 30_interaction_edges/http.md
+- 20_operational_semantics/limits.md

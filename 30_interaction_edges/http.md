@@ -66,7 +66,7 @@
 ### Idempotency key generation responsibility
 
 - state-changing operation の idempotency key は「ユーザー操作単位」で client 側が生成する。
-- browser/native/desktop の違いがあっても、end-to-end で同一 key が透過される（domain/20_operational_semantics/idempotency.md）。
+- browser/native/desktop の違いがあっても、end-to-end で同一 key が透過される（20_operational_semantics/idempotency.md）。
 
 ## Client Type Profiles (Normative)
 

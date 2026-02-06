@@ -75,5 +75,5 @@
 - 00_constitution/authorization.md
 - 00_constitution/claims_compatibility.md
 - 00_constitution/observability.md
-- 20_operational_semantics/delegation_impersonation.md
-- 30_interaction_edges/delegation_context_transport.md
+- 00_constitution/delegation_impersonation.md
+- 00_constitution/delegation_context_transport.md

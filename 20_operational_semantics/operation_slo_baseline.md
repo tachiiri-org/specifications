@@ -52,7 +52,6 @@
 
 ## Related Specifications
 
-- domain/00_constitution/operation.md
-- domain/00_constitution/observability.md
-- domain/00_constitution/global_defaults.md
-- rules/operation_catalog_governance.md
+- 00_constitution/operation.md
+- 00_constitution/observability.md
+- 00_constitution/global_defaults.md
