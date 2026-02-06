@@ -86,5 +86,4 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/async_jobs_events.md
-- rules/async_event_contract.md
+- 20_operational_semantics/async_jobs_events.md

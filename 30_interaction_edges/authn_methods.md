@@ -1,4 +1,4 @@
-c:/work/specifications/domain/30_interaction_edges/authn_methods.md
+c:30_interaction_edges/authn_methods.md
 
 ```md
 # Authentication Establishment Methods (Cookie / Bearer JWT / API Key / mTLS / Device Context)
@@ -47,7 +47,7 @@ c:/work/specifications/domain/30_interaction_edges/authn_methods.md
 
 - internal boundaries（BFF→Gateway→Adapter）の identity source は常に verified claims のみ。
 - api_key / mtls / device_context は establishment point で claims に正規化される。
-- header/query/body による identity 注入は禁止（domain/00_constitution/headers.md, domain/00_constitution/identity.md）。
+- header/query/body による identity 注入は禁止（00_constitution/headers.md, 00_constitution/identity.md）。
 
 ### 3) Actor type unambiguous (Must)
 
@@ -69,7 +69,7 @@ c:/work/specifications/domain/30_interaction_edges/authn_methods.md
 ### Cookie session (Browser ⇄ BFF)
 
 - browser は identity を主張できない。BFF が session を検証して identity を確立する。
-- browser 由来の `authorization` は reject される（domain/00_constitution/identity.md）。
+- browser 由来の `authorization` は reject される（00_constitution/identity.md）。
 - BFF は internal 用の bearer token（JWT）を発行し、以降は token claims のみを伝播する。
 
 ### Bearer JWT (Internal boundaries)
@@ -97,7 +97,7 @@ c:/work/specifications/domain/30_interaction_edges/authn_methods.md
 
 - OIDC/PKCE/DPoP の詳細標準化。
 - 端末改竄対策（jailbreak 等）の詳細。
-- secrets の置き場（domain/00_constitution/secrets_and_keys.md を正とする）。
+- secrets の置き場（00_constitution/secrets_and_keys.md を正とする）。
 
 ## Failure modes
 
@@ -107,18 +107,18 @@ c:/work/specifications/domain/30_interaction_edges/authn_methods.md
 
 ## Related Specifications
 
-- domain/00_constitution/identity.md
-- domain/00_constitution/headers.md
-- domain/00_constitution/authorization.md
-- domain/00_constitution/secrets_and_keys.md
-- domain/00_constitution/global_defaults.md
-- domain/00_constitution/claims_compatibility.md
-- domain/00_constitution/subject_types.md
-- domain/30_interaction_edges/session.md
-- domain/30_interaction_edges/client_types.md
+- 00_constitution/identity.md
+- 00_constitution/headers.md
+- 00_constitution/authorization.md
+- 00_constitution/secrets_and_keys.md
+- 00_constitution/global_defaults.md
+- 00_constitution/claims_compatibility.md
+- 00_constitution/subject_types.md
+- 30_interaction_edges/session.md
+- 30_interaction_edges/client_types.md
 ```
 
-c:/work/specifications/domain/30_interaction_edges/browser_response_security_headers.md
+c:30_interaction_edges/browser_response_security_headers.md
 
 ```md
 # Browser Response Security Headers (Browser Boundary)
@@ -171,12 +171,10 @@ c:/work/specifications/domain/30_interaction_edges/browser_response_security_hea
 
 ## Related Specifications
 
-- domain/30_interaction_edges/security_browser_boundary.md
-- rules/cors_policy.md
-- rules/csrf_double_submit.md
+- 30_interaction_edges/security_browser_boundary.md
 ```
 
-c:/work/specifications/domain/30_interaction_edges/client_types.md
+c:30_interaction_edges/client_types.md
 
 ```md
 # Client Types & Client Boundary Semantics
@@ -317,21 +315,17 @@ c:/work/specifications/domain/30_interaction_edges/client_types.md
 
 ## Related Specifications
 
-- domain/30_interaction_edges/security_browser_boundary.md
-- domain/30_interaction_edges/session.md
-- domain/00_constitution/identity.md
-- domain/30_interaction_edges/http.md
-- domain/20_operational_semantics/idempotency.md
-- domain/00_constitution/authorization.md
-- rules/request_id_policy.md
-- rules/mode_dependent_fields.md
-- rules/cors_policy.md
-- rules/csrf_double_submit.md
-- domain/10_extension_frames/authn_methods.md
-- domain/00_constitution/global_defaults.md
+- 30_interaction_edges/security_browser_boundary.md
+- 30_interaction_edges/session.md
+- 00_constitution/identity.md
+- 30_interaction_edges/http.md
+- 20_operational_semantics/idempotency.md
+- 00_constitution/authorization.md
+- 30_interaction_edges/authn_methods.md
+- 00_constitution/global_defaults.md
 ```
 
-c:/work/specifications/domain/30_interaction_edges/http.md
+c:30_interaction_edges/http.md
 
 ```md
 # HTTP Contracts & RPC Boundary
@@ -389,7 +383,7 @@ c:/work/specifications/domain/30_interaction_edges/http.md
 - adapter のエラー詳細を、BFF まで透過させない。
 - gateway / BFF は「境界エラー」に正規化する（preserve list 以外は安全側）。
 - 利用者に返す status は **契約として固定**し、内部の詳細は observability にのみ残す。
-- error mapping の評価順序は rules/error_mapping.md に従い、boundary JSON で algorithm を明示する。
+- error mapping の評価順序は L1（各ツール仕様定義） に従い、boundary JSON で algorithm を明示する。
 
 ### Error Shape (Contract)
 
@@ -466,7 +460,7 @@ c:/work/specifications/domain/30_interaction_edges/http.md
   - accepted 範囲と両対応期間、ロールアウト順序は定義されているか
 ```
 
-c:/work/specifications/domain/30_interaction_edges/security_browser_boundary.md
+c:30_interaction_edges/security_browser_boundary.md
 
 ```md
 # Security Browser Boundary
@@ -543,7 +537,7 @@ c:/work/specifications/domain/30_interaction_edges/security_browser_boundary.md
   - gateway/adapter に cookie が到達しないことを確認したか
 ```
 
-c:/work/specifications/domain/30_interaction_edges/session.md
+c:30_interaction_edges/session.md
 
 ```md
 # Session Semantics (Browser Boundary)
@@ -579,8 +573,8 @@ c:/work/specifications/domain/30_interaction_edges/session.md
 
 ## Required rules
 
-- cookie 発行点: `rules/cookie_emitter.md`
-- CSRF: `rules/csrf_double_submit.md`
+- cookie 発行点: L1（各ツール仕様定義）
+- CSRF: L1（各ツール仕様定義）
 
 ## Failure modes
 
@@ -590,13 +584,11 @@ c:/work/specifications/domain/30_interaction_edges/session.md
 
 ## Related Specifications
 
-- domain/30_interaction_edges/security_browser_boundary.md
-- domain/00_constitution/identity.md
-- rules/cookie_emitter.md
-- rules/csrf_double_submit.md
+- 30_interaction_edges/security_browser_boundary.md
+- 00_constitution/identity.md
 ```
 
-c:/work/specifications/domain/30_interaction_edges/webhook.md
+c:30_interaction_edges/webhook.md
 
 ```md
 # Webhook Security & Idempotency
@@ -637,7 +629,7 @@ c:/work/specifications/domain/30_interaction_edges/webhook.md
 
 ## Required rules
 
-- 署名検証・リプレイ防止の最低要件は `rules/webhook_signature_contract.md` を正とする。
+- 署名検証・リプレイ防止の最低要件は L1（各ツール仕様定義） を正とする。
 
 ## Failure modes
 
@@ -647,8 +639,6 @@ c:/work/specifications/domain/30_interaction_edges/webhook.md
 
 ## Related Specifications
 
-- domain/20_operational_semantics/billing.md
-- domain/20_operational_semantics/idempotency.md
-- rules/webhook_signature_contract.md
-- rules/audit_log_contract.md
+- 20_operational_semantics/billing.md
+- 20_operational_semantics/idempotency.md
 ```

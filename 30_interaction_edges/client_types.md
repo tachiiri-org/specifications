@@ -44,7 +44,7 @@
 
 - internal boundaries（BFF→Gateway→Adapter）の identity source は常に verified claims のみ。
 - api_key / mtls / device_context は establishment point で **verified claims に正規化**される。
-- header/query/body による identity 注入は禁止（domain/00_constitution/headers.md, domain/00_constitution/identity.md）。
+- header/query/body による identity 注入は禁止（00_constitution/headers.md, 00_constitution/identity.md）。
 
 ### 3) Actor type unambiguous (Must)
 
@@ -66,17 +66,17 @@
 ### Cookie session (Browser ⇄ BFF)
 
 - browser は identity を主張できない。BFF が session を検証して identity を確立する。
-- browser 由来の `authorization` は reject される（domain/00_constitution/identity.md）。
+- browser 由来の `authorization` は reject される（00_constitution/identity.md）。
 - BFF は internal 用の bearer token（JWT）を発行し、以降は token claims のみを伝播する。
 
 ### Bearer JWT (Internal boundaries)
 
 - internal boundaries（gateway / adapter）は inbound で JWT を必ず検証する。
 - 検証要件（issuer allowlist / key rotation / cache）は **別仕様**を正とする：
-  - domain/20_operational_semantics/identity_key_rotation.md（issuer / JWKS / rotation）
-  - rules/jwt_token_profile.md（token profile）
+  - 00_constitution/identity_key_rotation.md（issuer / JWKS / rotation）
+  - L1（各ツール仕様定義）の機械契約（token profile）
 
-> 注: 本ファイルは “edge の責務” を固定する。検証詳細は 20 / rules が一次情報。
+> 注: 本ファイルは “edge の責務” を固定する。検証詳細は 20 と L1（各ツール仕様定義）が一次情報。
 
 ### API Key (Server-to-server)
 
@@ -98,7 +98,7 @@
 
 - OIDC/PKCE/DPoP の詳細標準化。
 - 端末改竄対策（jailbreak 等）の詳細。
-- secrets の置き場（domain/00_constitution/secrets_and_keys.md を正とする）。
+- secrets の置き場（00_constitution/secrets_and_keys.md を正とする）。
 
 ## Failure modes
 
@@ -108,14 +108,13 @@
 
 ## Related Specifications
 
-- domain/00_constitution/identity.md
-- domain/00_constitution/headers.md
-- domain/00_constitution/authorization.md
-- domain/00_constitution/secrets_and_keys.md
-- domain/00_constitution/global_defaults.md
-- domain/20_operational_semantics/identity_key_rotation.md
-- domain/20_operational_semantics/claims_compatibility.md
-- domain/20_operational_semantics/schema_compatibility.md
-- domain/30_interaction_edges/session.md
-- domain/30_interaction_edges/client_types.md
-- rules/jwt_token_profile.md
+- 00_constitution/identity.md
+- 00_constitution/headers.md
+- 00_constitution/authorization.md
+- 00_constitution/secrets_and_keys.md
+- 00_constitution/global_defaults.md
+- 00_constitution/identity_key_rotation.md
+- 00_constitution/claims_compatibility.md
+- 20_operational_semantics/release_compatibility_governance.md
+- 30_interaction_edges/session.md
+- 30_interaction_edges/client_types.md

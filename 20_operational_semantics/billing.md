@@ -37,13 +37,13 @@
 ### Auditability (Must)
 
 - irreversible / external_effect の billing operations は audit event を必ず生成する。
-- audit event は `rules/audit_log_contract.md` に従う。
+- audit event は L1（各ツール仕様定義） に従う。
 
 ### Data classification alignment (Must)
 
 - billing の入力/出力/永続化はデータ分類（例: confidential/restricted）と整合して扱われなければならない。
 - billing 由来の識別子・参照（payment_method_token 等）をログへ出す場合は redaction/hash を適用し、PII/secret を含めない。
-- 分類と保持は `domain/20_operational_semantics/data_classification.md` と `domain/20_operational_semantics/data_persistence.md` に従う。
+- 分類と保持は `20_operational_semantics/data_classification.md` と `20_operational_semantics/data_persistence.md` に従う。
 
 ### PCI / secrets
 
@@ -51,11 +51,11 @@
   - ログに出さない
   - 永続化しない
   - adapter はトークン化済みの参照（payment_method_token 等）を扱う前提とする。
-- secret（鍵・APIキー等）の参照方法は `domain/00_constitution/secrets_and_keys.md` に従う（値は仕様リポジトリへ書かない）。
+- secret（鍵・APIキー等）の参照方法は `00_constitution/secrets_and_keys.md` に従う（値は仕様リポジトリへ書かない）。
 
 ## Machine-enforced contracts (Moved out of this file)
 
-- operation catalog / boundary / schema の具体キーや形（machine-checkable）は L1（各ツール仕様定義）と rules に置く。
+- operation catalog / boundary / schema の具体キーや形（machine-checkable）は L1（各ツール仕様定義）に置く。
 - 本ファイルは「意味論と不変条件」を正とし、機械契約は参照で統一する。
 
 ## Non-goals
@@ -72,10 +72,7 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/idempotency.md
-- domain/20_operational_semantics/data_classification.md
-- domain/20_operational_semantics/data_persistence.md
-- domain/00_constitution/observability.md
-- rules/audit_log_contract.md
-- rules/payment_idempotency.md
-- rules/pii_redaction_contract.md
+- 20_operational_semantics/idempotency.md
+- 20_operational_semantics/data_classification.md
+- 20_operational_semantics/data_persistence.md
+- 00_constitution/observability.md

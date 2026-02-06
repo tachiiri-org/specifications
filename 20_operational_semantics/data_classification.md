@@ -38,11 +38,11 @@
 ## Interaction with Other Domains
 
 - deletion:
-  - `domain/20_operational_semantics/deletion_propagation_contract.md` に従う
+  - `20_operational_semantics/deletion_propagation_contract.md` に従う
 - residency:
-  - 法域・リージョン制約と整合する（domain/20_operational_semantics/data_residency.md）
+  - 法域・リージョン制約と整合する（20_operational_semantics/data_residency.md）
 - audit:
-  - restricted / confidential は audit 強度を引き上げうる（domain/00_constitution/observability.md）
+  - restricted / confidential は audit 強度を引き上げうる（00_constitution/observability.md）
 
 ## Failure modes
 
@@ -52,7 +52,7 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/deletion_propagation_contract.md
-- domain/20_operational_semantics/data_residency.md
-- domain/00_constitution/observability.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/deletion_propagation_contract.md
+- 20_operational_semantics/data_residency.md
+- 00_constitution/observability.md

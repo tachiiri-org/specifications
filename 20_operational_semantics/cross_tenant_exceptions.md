@@ -74,9 +74,8 @@ cross-tenant 例外を導入する場合、以下を満たさなければなら�
 
 ## Related Specifications
 
-- domain/00_constitution/actor_subject_tenant_model.md
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/billing.md
-- domain/20_operational_semantics/support_and_ops.md
-- domain/00_constitution/observability.md
-- rules/audit_log_contract.md
+- 00_constitution/actor_subject_tenant_model.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/billing.md
+- 20_operational_semantics/support_and_ops.md
+- 00_constitution/observability.md
