@@ -1,6 +1,6 @@
 {
   "name": "@your-scope/service-specifications",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Constitutional and operational specifications for large-scale SaaS systems",
   "license": "MIT",
   "private": false,
