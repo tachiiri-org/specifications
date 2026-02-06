@@ -32,6 +32,19 @@ jobs:
 
       - run: npm run breaking:check
 
+      - name: Check OIDC availability
+        shell: bash
+        run: |
+          if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then
+            echo "OIDC request URL is missing (id-token: write is not granted)"
+            exit 1
+          fi
+          if [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ]; then
+            echo "OIDC request token is missing (id-token: write is not granted)"
+            exit 1
+          fi
+          echo "OIDC env vars are present"
+
       - name: Remove any leftover npm auth config
         run: rm -f ~/.npmrc
 
