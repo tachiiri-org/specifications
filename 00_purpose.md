@@ -121,11 +121,11 @@ Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is for
 
 - MD is the source of invariants; JSON is the source of concrete decisions.
 - When an invariant exists in MD, all relevant boundary JSON must reflect it.
-- Rules in `rules/` define cross-file invariants as deterministic checks.
+- L1（各ツール仕様定義）は cross-file invariants を deterministic checks として定義する。
 
 ## Mandatory machine-only metadata (Must)
 
-- Every boundary JSON and every rule JSON must include:
+- Every boundary JSON and every machine-contract JSON must include:
   - `spec_version: integer (>=1)`
   - `breaking_change: boolean`
   - `effective_from: string (release-id or YYYY-MM-DD)`
@@ -133,13 +133,13 @@ Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is for
 ## Drift prevention (Must)
 
 - Drift prevention must be enforceable:
-  - `rules/` directory defines cross-file invariants as deterministic checks.
-  - changes that violate rules must fail CI.
+  - L1（各ツール仕様定義）は cross-file invariants を deterministic checks として定義する。
+  - changes that violate machine contracts must fail CI.
 
 ## Deterministic algorithms (Must)
 
 - When a field implies algorithmic behavior, the algorithm MUST be made explicit
-  in boundary JSON or rules (and checked by lint), to prevent implementation drift.
+  in boundary JSON or L1 machine contracts (and checked by lint), to prevent implementation drift.
   - Example: error mapping evaluation order
   - Example: canonical JSON number normalization
 
@@ -148,9 +148,9 @@ Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is for
 - Any breaking change MUST be expressed as one (or more) of:
   - boundary JSON `breaking_change: true` + contract-version update strategy, or
   - introducing a new operation key (preferred for semantic breaks), or
-  - introducing a new domain/rule with a new contract-version.
+  - introducing a new domain contract with a new contract-version.
 - Backward-compatible changes SHOULD be dual-accepted during a rollout window
-  (see `rules/contract_version_rollout.md`).
+  (see L1（各ツール仕様定義）).
 
 ## Examples (Informative)
 
@@ -159,7 +159,7 @@ Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is for
 
 ## Extensibility & Constitutional Boundaries
 
-- This repository defines a constitutional semantics layer and machine-checkable contracts (`rules/`, `schemas/`, `def`-style artifacts) for stable system behavior.
+- This repository defines a constitutional semantics layer and machine-checkable contracts (`L1/`, `schemas/`, `def/` artifacts) for stable system behavior.
 - As the system scales (org/delegation/authn methods/residency/policy trace/global defaults), each area MUST first be scoped by domain and contract-version, then introduced incrementally.
 - Post-hoc mixing of new claims or AuthZ inputs into existing semantics is forbidden.
 - Exceptions (cross-tenant/global/break-glass) MUST be explicit, time-bounded, and auditable.
@@ -167,6 +167,6 @@ Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is for
 ## Non-goal Taxonomy Entry Point
 
 - Non-goal taxonomy is defined in `10_non_goals.md`.
-- Deferred-but-Scoped areas are included in the specification via defined frames under `domain/10_extension_frames/`.
+- Deferred-but-Scoped areas are included in the specification via defined frames under `10_staging_frames/`.
 - Any promotion MUST align with contract-version, compatibility, and dual-accept rollout policy.
 - Existing prohibitions (for example, post-hoc claim mixing into AuthZ input) remain non-negotiable.

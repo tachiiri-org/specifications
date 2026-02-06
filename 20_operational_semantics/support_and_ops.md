@@ -96,7 +96,7 @@
 
 ## Machine-enforced contracts (Moved out of this file)
 
-- catalog metadata / audit shape / incident binding 等の具体キーや機械検査は、rules および L1（各ツール仕様定義）で定義する。
+- catalog metadata / audit shape / incident binding 等の具体キーや機械検査は、機械契約（schema/lint/contract）は L1（各ツール仕様定義）で定義する。
 - 本ファイルは「運用意味論（裏口禁止・監査必須・期限必須・PDP固定）」を正とする。
 
 ## Non-goals
@@ -112,13 +112,12 @@
 
 ## Related Specifications
 
-- domain/00_constitution/global_defaults.md
-- domain/00_constitution/policy_decision_trace.md
-- domain/00_constitution/authorization.md
-- domain/00_constitution/policy_evaluation.md
-- domain/00_constitution/actor_subject_tenant_model.md
-- domain/20_operational_semantics/operational_access_break_glass.md
-- domain/20_operational_semantics/idempotency.md
-- domain/20_operational_semantics/async_jobs_events.md
-- domain/20_operational_semantics/data_tenant_safety.md
-- rules/audit_log_contract.md
+- 00_constitution/global_defaults.md
+- 00_constitution/policy_decision_trace.md
+- 00_constitution/authorization.md
+- 00_constitution/policy_evaluation.md
+- 00_constitution/actor_subject_tenant_model.md
+- 20_operational_semantics/operational_access_break_glass.md
+- 20_operational_semantics/idempotency.md
+- 20_operational_semantics/async_jobs_events.md
+- 20_operational_semantics/data_tenant_safety.md

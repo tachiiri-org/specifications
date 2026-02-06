@@ -31,7 +31,7 @@
 
 - bff → gateway / gateway → adapter の operation 呼び出しは POST に統一する。
 - browser-facing の GET は「ナビゲーション/表示」に限定し、内部境界には持ち込まない。
-- state-changing は operation の classification により判定される（domain/00_constitution/operation.md）。
+- state-changing は operation の classification により判定される（00_constitution/operation.md）。
 
 ### Content-Type
 
@@ -46,25 +46,25 @@
 - gateway→adapter:
   - routing は operation catalog を唯一の正とし、catalog 外は 404（implemented-only routing）。
 
-> 注: operation schema の参照パスは catalog が唯一の正であり推測してはならない（domain/20_operational_semantics/payload_schema.md, rules/operation_schema_contract.md）。
+> 注: operation schema の参照パスは catalog が唯一の正であり推測してはならない（20_operational_semantics/payload_schema.md, L1（各ツール仕様定義））。
 
 ### Error Semantics
 
 - adapter の内部エラー詳細を、BFF まで透過させない。
 - gateway / BFF は「境界エラー」に正規化する（preserve list 以外は安全側）。
-- error mapping の評価順序と shape は rules を正とする：
-  - rules/error_mapping.md
-  - rules/error_shape_contract.md
+- error mapping の評価順序と shape は L1（各ツール仕様定義）を正とする：
+  - L1（各ツール仕様定義）
+  - L1（各ツール仕様定義）
 
-> 注: 本 domain は “HTTP境界でどう扱うか” を固定し、error shape の一次情報は rules に置く。
+> 注: 本 domain は “HTTP境界でどう扱うか” を固定し、error shape の一次情報は L1（各ツール仕様定義）に置く。
 
 ### Compatibility & Versioning (Transport)
 
 - internal boundaries（BFF ⇄ Gateway / Gateway ⇄ Adapter）は `x-contract-version` を扱う。
 - boundary JSON は「必須 여부」だけでなく「受理する version 範囲」を明示できなければならない。
-- payload/schema の互換性（breaking/compatible）は rules と 20 を正とする（本 domain では再定義しない）:
-  - domain/20_operational_semantics/schema_compatibility.md
-  - rules/contract_version_rollout.md
+- payload/schema の互換性（breaking/compatible）は L1（各ツール仕様定義）と 20 を正とする（本 domain では再定義しない）:
+  - 20_operational_semantics/release_compatibility_governance.md
+  - L1（各ツール仕様定義）
 
 ### Contract Version Requirement (Must)
 
@@ -75,7 +75,7 @@
   - reject
   - status: 400
   - error_code: "contract_version_required"
-  - error shape は rules/error_shape_contract.md に従う
+  - error shape は L1（各ツール仕様定義） に従う
 
 ## Required JSON keys (Machine-checkable, Must)
 
@@ -110,15 +110,10 @@
 - 新しい error code / status を追加したか
   - error mapping / preserve list / error shape に矛盾しないか
 - contract-version を変更したか
-  - accepted 範囲と両対応期間、ロールアウト順序は rules/contract_version_rollout.md と整合するか
+  - accepted 範囲と両対応期間、ロールアウト順序は L1（各ツール仕様定義） と整合するか
 
 ## Related Specifications
 
-- domain/00_constitution/operation.md
-- domain/20_operational_semantics/payload_schema.md
-- domain/20_operational_semantics/schema_compatibility.md
-- rules/operation_schema_contract.md
-- rules/schema_compatibility.md
-- rules/contract_version_rollout.md
-- rules/error_shape_contract.md
-- rules/error_mapping.md
+- 00_constitution/operation.md
+- 20_operational_semantics/payload_schema.md
+- 20_operational_semantics/release_compatibility_governance.md

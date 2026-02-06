@@ -44,7 +44,7 @@
 
 ### 2) Do not pollute AuthZ input claims (Must)
 
-- internal boundaries の AuthZ 入力は `domain/00_constitution/authorization.md` の allowed claims に限定する。
+- internal boundaries の AuthZ 入力は `00_constitution/authorization.md` の allowed claims に限定する。
 - `org_path` / `group_ids` 等の org 構造を AuthZ 入力 claims として直接追加してはならない。
 - org 構造を使って認可する場合は、以下いずれかに畳み込む:
   - A) roles/scopes の発行元（IdP/Directory）側で解決し、roles/scopes に反映する
@@ -71,8 +71,8 @@
 
 ## Related Specifications
 
-- domain/00_constitution/actor_subject_tenant_model.md
-- domain/00_constitution/authorization.md
-- domain/00_constitution/identity.md
-- domain/00_constitution/observability.md
-- domain/20_operational_semantics/dependency_connector_change_semantics.md
+- 00_constitution/actor_subject_tenant_model.md
+- 00_constitution/authorization.md
+- 00_constitution/identity.md
+- 00_constitution/observability.md
+- 20_operational_semantics/dependency_connector_change_semantics.md

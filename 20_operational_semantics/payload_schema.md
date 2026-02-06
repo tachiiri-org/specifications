@@ -17,7 +17,7 @@
 
 - schema は「利用者が依存してよい契約」を表現し、内部実装を露出しない。
 - schema は operation 単位であり、transport（path/method）に依存しない。
-- 互換性判断は機械的（rules）で行い、人の解釈に依存しない。
+- 互換性判断は機械契約（schema/lint/contract）により行い、人の解釈に依存しない。
 - schema は “共有共通化” より “契約境界の安定” を優先する（ただし再利用のための $ref は許可）。
 
 ## Invariants (Must Not Break)
@@ -29,7 +29,7 @@
 
 ### Catalog is authoritative for schema paths
 
-- schema の参照パスは **catalog（rules/operation_catalog.json の schema.path 等）が唯一の正**である。
+- schema の参照パスは **catalog（L1（各ツール仕様定義） の schema.path 等）が唯一の正**である。
 - 実装・lint が operation_key から schema パスを推測してはならない（探索禁止）。
 - schema の配置は repo_layout の方針に従うが、最終的な正は catalog 参照である。
 
@@ -59,17 +59,17 @@
 
 ### Error payload independence
 
-- error shape は `rules/error_shape_contract.md` に従い、operation schema の対象外とする。
+- error shape は L1（各ツール仕様定義） に従い、operation schema の対象外とする。
 - business response schema と error schema を混在させない。
 
 ## Schema Format (Normative intent)
 
-- format は JSON Schema を使用する（draft 等の固定は rules/L1 側で定義する）。
-- schema が表現すべき最小要素（operation_key, request/response, versioning metadata 等）は rules/L1 の機械契約に従う。
+- format は JSON Schema を使用する（draft 等の固定は L1（各ツール仕様定義） 側で定義する）。
+- schema が表現すべき最小要素（operation_key, request/response, versioning metadata 等）は L1（各ツール仕様定義） の機械契約に従う。
 
 ## Machine-enforced contracts (Defined elsewhere)
 
-- JSON Schema の draft、ファイル構造、必須フィールド、互換性判定ロジックは rules および L1（各ツール仕様定義）で定義する。
+- JSON Schema の draft、ファイル構造、必須フィールド、互換性判定ロジックは 機械契約（schema/lint/contract）は L1（各ツール仕様定義）で定義する。
 - 本ファイルは「catalogが正」「互換性の意味論」を正とする。
 
 ## Pagination / Filtering / Sorting (Recommended standard)
@@ -89,10 +89,6 @@
 
 ## Related Specifications
 
-- domain/30_interaction_edges/http.md
-- domain/00_constitution/operation.md
-- domain/00_constitution/repo_layout.md
-- rules/operation_schema_contract.md
-- rules/schema_compatibility.md
-- rules/contract_version_rollout.md
-- rules/error_shape_contract.md
+- 30_interaction_edges/http.md
+- 00_constitution/operation.md
+- 00_constitution/repo_layout.md

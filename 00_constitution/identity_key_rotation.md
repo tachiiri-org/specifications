@@ -66,6 +66,5 @@
 
 ## Related Specifications
 
-- domain/00_constitution/identity.md
-- domain/00_constitution/secrets_and_keys.md
-- rules/jwt_token_profile.md
+- 00_constitution/identity.md
+- 00_constitution/secrets_and_keys.md

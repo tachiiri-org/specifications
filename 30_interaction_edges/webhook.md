@@ -19,7 +19,7 @@
 
 - webhook は必ず署名検証する。
 - 未署名、検証失敗は reject（詳細は返さない）。
-- 返す status / error shape は境界の rules に従う（固定値を本仕様で持たない）。
+- 返す status / error shape は境界の機械契約（schema/lint/contract）に従う（固定値を本仕様で持たない）。
 
 ### Replay protection
 
@@ -29,7 +29,7 @@
 ### Idempotency
 
 - provider の event_id（または同等）で重複配信を抑止する。
-- 重複は “同一結果の再生” として扱い、副作用を二重実行しない（domain/20_operational_semantics/idempotency.md）。
+- 重複は “同一結果の再生” として扱い、副作用を二重実行しない（20_operational_semantics/idempotency.md）。
 
 ### Observability / Audit
 
@@ -38,7 +38,7 @@
 
 ## Required rules
 
-- 署名検証・リプレイ防止の最低要件は `rules/webhook_signature_contract.md` を正とする。
+- 署名検証・リプレイ防止の最低要件は L1（各ツール仕様定義） を正とする。
 
 ## Failure modes
 
@@ -48,8 +48,5 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/billing.md
-- domain/20_operational_semantics/idempotency.md
-- rules/webhook_signature_contract.md
-- rules/audit_log_contract.md
-- rules/error_shape_contract.md
+- 20_operational_semantics/billing.md
+- 20_operational_semantics/idempotency.md

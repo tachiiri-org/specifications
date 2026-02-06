@@ -48,6 +48,4 @@
 
 ## Related Specifications
 
-- domain/30_interaction_edges/security_browser_boundary.md
-- rules/cors_policy.md
-- rules/csrf_double_submit.md
+- 30_interaction_edges/security_browser_boundary.md

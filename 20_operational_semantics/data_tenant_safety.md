@@ -25,7 +25,7 @@
 ### 2) Cross-tenant is forbidden by default
 
 - tenant を跨ぐ read/write は原則禁止。
-- 禁止を破る唯一の方法は、`domain/20_operational_semantics/cross_tenant_exceptions.md` に従った明示的例外である。
+- 禁止を破る唯一の方法は、`20_operational_semantics/cross_tenant_exceptions.md` に従った明示的例外である。
 - “運用都合” “環境差分” “内部だから” による暗黙許可は禁止。
 
 ### 3) Global resource is explicitly typed (Exception)
@@ -55,12 +55,12 @@
 
 ## Related Specifications
 
-- domain/00_constitution/actor_subject_tenant_model.md
-- domain/00_constitution/global_defaults.md
-- domain/20_operational_semantics/cross_tenant_exceptions.md
-- domain/20_operational_semantics/deletion_propagation_contract.md
-- domain/20_operational_semantics/disaster_recovery.md
-- domain/20_operational_semantics/data_residency.md
-- domain/20_operational_semantics/data_persistence.md
-- domain/20_operational_semantics/data_classification.md
-- domain/20_operational_semantics/data_migration_backfill_reconciliation.md
+- 00_constitution/actor_subject_tenant_model.md
+- 00_constitution/global_defaults.md
+- 20_operational_semantics/cross_tenant_exceptions.md
+- 20_operational_semantics/deletion_propagation_contract.md
+- 20_operational_semantics/disaster_recovery.md
+- 20_operational_semantics/data_residency.md
+- 20_operational_semantics/data_persistence.md
+- 20_operational_semantics/data_classification.md
+- 20_operational_semantics/data_migration_backfill_reconciliation.md

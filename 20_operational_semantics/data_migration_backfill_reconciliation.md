@@ -51,5 +51,5 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/async_jobs_events.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/async_jobs_events.md

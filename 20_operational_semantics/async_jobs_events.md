@@ -30,7 +30,7 @@
 
 - event は `event_type` と `event_version` により識別され、schema version を持つ。
 - version skew / dual accept / sunset / breaking change の扱いは
-  `domain/20_operational_semantics/event_version_rollout.md` を正とする。
+  `20_operational_semantics/event_version_rollout.md` を正とする。
 
 ### Retry & backoff are explicit
 
@@ -51,9 +51,7 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/idempotency.md
-- domain/20_operational_semantics/billing.md
-- domain/20_operational_semantics/event_version_rollout.md
-- domain/00_constitution/observability.md
-- rules/async_event_contract.md
-- rules/audit_log_contract.md
+- 20_operational_semantics/idempotency.md
+- 20_operational_semantics/billing.md
+- 20_operational_semantics/event_version_rollout.md
+- 00_constitution/observability.md

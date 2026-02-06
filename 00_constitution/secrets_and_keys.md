@@ -56,4 +56,4 @@
 ## Related Specifications
 
 - 00_constitution/identity.md
-- 10_extension_frames/identity_key_rotation.md
+- 00_constitution/identity_key_rotation.md

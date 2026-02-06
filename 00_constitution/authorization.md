@@ -102,6 +102,6 @@
 
 - 00_constitution/role_scope_governance.md
 - 00_constitution/claims_compatibility.md
-- 10_extension_frames/policy_types.md
-- 10_extension_frames/delegation_impersonation.md
-- 10_extension_frames/subject_types.md
+- 00_constitution/policy_types.md
+- 00_constitution/delegation_impersonation.md
+- 00_constitution/subject_types.md
