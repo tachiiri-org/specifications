@@ -26,11 +26,31 @@ jobs:
         env:
           HUSKY: "0"
 
+      - name: Ensure origin/main exists for diff ranges
+        run: git fetch origin main --depth=1
+
       - name: Ensure manifest is up-to-date
         run: npm run manifest:check
+
+      - name: Breaking change heuristic (fail on hits)
+        run: npm run breaking:check
+
+      - name: Configure npm auth (sanitize token)
+        shell: bash
+        run: |
+          TOKEN="$(printf '%s' "${NPM_TOKEN}" | tr -d '\r\n')"
+          if [ -z "$TOKEN" ]; then
+            echo "NPM_TOKEN is empty"
+            exit 1
+          fi
+          echo "//registry.npmjs.org/:_authToken=${TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify npm auth
+        run: npm whoami
 
       - name: Publish to npm
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           HUSKY: "0"
