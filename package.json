@@ -26,6 +26,7 @@
     "manifest:gen": "node tools/generate-manifest.mjs",
     "manifest:check": "node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json",
     "breaking:warn": "node tools/detect-breaking.mjs",
+    "breaking:check": "node tools/detect-breaking.mjs --fail --range=origin/main...HEAD",
     "prepare": "husky install",
     "prepack": "npm run manifest:gen && npm run manifest:check"
   },
