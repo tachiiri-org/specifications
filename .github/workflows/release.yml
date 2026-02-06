@@ -40,10 +40,11 @@ jobs:
         run: |
           TOKEN="$(printf '%s' "${NPM_TOKEN}" | tr -d '\r\n')"
           if [ -z "$TOKEN" ]; then
-            echo "NPM_TOKEN is empty"
+            echo "NPM_TOKEN is empty (check GitHub Secrets name and value)"
             exit 1
           fi
-          echo "//registry.npmjs.org/:_authToken=${TOKEN}" > ~/.npmrc
+          printf "//registry.npmjs.org/:_authToken=%s\n" "$TOKEN" > ~/.npmrc
+          npm config get registry
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
