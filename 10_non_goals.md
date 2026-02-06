@@ -3,6 +3,9 @@
 ## Purpose
 
 - This file defines a shared taxonomy for describing non-goals consistently across domains.
+- This repository distinguishes:
+  - **Defined specifications** (normative, enforceable), and
+  - **Staged work** (planned / under discussion), which must not leak into runtime/lint inputs.
 
 ## Taxonomy
 
@@ -10,23 +13,56 @@
 
 - Areas that this specification set intentionally does not cover on a permanent basis.
 
-### Deferred-but-Scoped
+### Deferred-but-Scoped (Planned, Framed)
 
-- Areas where the frame is already part of the specification (vocabulary, invariants, and introduction conditions are defined), while detailed models and implementations are staged later.
-- Deferred-but-Scoped is **not** treated as “excluded non-goal”; it is treated as “included by scoped frame.”
-- Introduction MUST occur through explicit domain + contract-version evolution; silent mixing is forbidden.
+- Areas that are intentionally planned and framed, but are not yet defined as enforceable specifications.
+- “Deferred-but-Scoped” is **not** excluded; it is included as a roadmap with constraints.
+- The constraints (how it must be introduced, what it must not break) MUST be declared in the staging frame.
+- Detailed models, concrete rules, and machine-checkable artifacts are introduced later through promotion.
 
 ### Out-of-Scope Implementation Details
 
-- Vendor selections, concrete numeric thresholds, and protocol-level implementation choices excluded from semantic contracts.
+- Vendor selections, concrete numeric thresholds, protocol-level choices, and other implementation details excluded from semantic contracts.
 
-## Operational Rules for Deferred-but-Scoped Areas
+## Operational Rules for Deferred-but-Scoped Areas (Must)
 
-- Deferred-but-Scoped domains are considered “in specification” once a domain frame exists.
-- Detailed implementation may be explored under `pending/` and promoted to `domain/`, `rules/`, `def/`, or `schemas/`.
-- Promotion MUST remain compatible with contract-version governance, compatibility policy, and dual-accept rollout strategy.
-- Existing prohibitions (including post-hoc claim injection into AuthZ inputs) MUST NOT be violated.
+### 1) Staging is discoverable but non-normative
 
-## Usage in Domain Documents
+- Deferred-but-Scoped content MUST be placed under the repository’s staging area
+  (see `domain/10_extension_frames/` in `domain/00_constitution/repo_layout.md`).
+- Staging documents exist to make upcoming scope explicit, but MUST NOT be treated as normative inputs.
 
-- Domain-level `Non-goals` sections SHOULD classify entries as: `Permanent Non-goals`, `Deferred-but-Scoped`, and `Out-of-Scope Implementation Details`.
+### 2) No silent mixing into defined semantics
+
+- Post-hoc mixing of new authorization inputs, claims, actor/subject semantics, or exception paths
+  into existing defined domains MUST NOT occur silently.
+- Any such evolution MUST be introduced via explicit promotion (domain/rules/def/schemas) and versioning.
+
+### 3) Promotion rule (Staged → Defined)
+
+Promotion from Deferred-but-Scoped staging into defined specifications MUST:
+
+- Declare a contract-version or equivalent compatibility strategy when semantics change
+- Follow compatibility and breaking-change policy
+- Respect dual-accept rollout rules where applicable
+- Preserve all existing prohibitions and invariants
+- Add machine-checkable enforcement where applicable (rules/ and/or schemas/)
+
+### 4) Reference boundary
+
+- Defined specifications (in `domain/00_constitution/`, `domain/20_operational_semantics/`, `domain/30_interaction_edges/`,
+  `rules/`, `def/`, `schemas/`) MUST NOT depend on staging documents.
+- Staging documents MAY reference defined specs as prerequisites.
+- Cross-staging references are allowed, but MUST remain non-normative.
+
+## Usage in Domain Documents (Recommended)
+
+- Domain-level `Non-goals` sections SHOULD classify entries as:
+  - `Permanent Non-goals`
+  - `Deferred-but-Scoped`
+  - `Out-of-Scope Implementation Details`
+
+- When a `Deferred-but-Scoped` entry is listed, it SHOULD include:
+  - the staging frame reference (file path),
+  - what invariants it must not break,
+  - and the intended promotion target(s) (domain/rules/def/schemas).

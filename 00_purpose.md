@@ -92,11 +92,15 @@ Each operation item MUST have:
 - `operation`
 - `classification`
 
+`classification` MUST be an array (set) of strings.
+
 Operation classification vocabulary is fixed to:
 
 - `read | mutate | irreversible | external_effect`
 
-Renaming or aliasing (e.g. `operations`, `categories`) is forbidden without a breaking change.
+An operation MAY have multiple classifications simultaneously.
+
+Renaming or aliasing (e.g. `operations`, `categories`, `classifications`) is forbidden without a breaking change.
 
 #### Boundary JSON vocabulary stability (canonical envelope)
 
@@ -153,7 +157,6 @@ Renaming or aliasing (e.g. `operations`, `categories`) is forbidden without a br
 - Example blocks in MD are not normative by default.
 - Example JSON fragments in MD MUST be treated as illustrative only unless referenced by a Rule section.
 
-
 ## Extensibility & Constitutional Boundaries
 
 - This repository defines a constitutional semantics layer and machine-checkable contracts (`rules/`, `schemas/`, `def`-style artifacts) for stable system behavior.
@@ -164,6 +167,6 @@ Renaming or aliasing (e.g. `operations`, `categories`) is forbidden without a br
 ## Non-goal Taxonomy Entry Point
 
 - Non-goal taxonomy is defined in `10_non_goals.md`.
-- Deferred-but-Scoped areas are included in the specification via defined frames; detailed implementation can follow staged promotion from `pending/` into `domain/`, `rules/`, `def/`, or `schemas/`.
+- Deferred-but-Scoped areas are included in the specification via defined frames under `domain/10_extension_frames/`.
 - Any promotion MUST align with contract-version, compatibility, and dual-accept rollout policy.
 - Existing prohibitions (for example, post-hoc claim mixing into AuthZ input) remain non-negotiable.
