@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "root_dir": "specs",
+  "specs": [
+    {
+      "id": "l00.actor",
+      "title": "Actor Semantics (Entry Point)",
+      "layer": "00",
+      "path": "specs/00_constitution/actor.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.actor_subject_tenant_model",
+      "title": "Actor, Subject, Tenant, and Initiator Model",
+      "layer": "00",
+      "path": "specs/00_constitution/actor_subject_tenant_model.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.authn_assurance",
+      "title": "Authentication Assurance & Step-up Semantics",
+      "layer": "00",
+      "path": "specs/00_constitution/authn_assurance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.authorization",
+      "title": "Authorization (AuthZ) Semantics",
+      "layer": "00",
+      "path": "specs/00_constitution/authorization.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.authz_input_resolution",
+      "title": "Authorization Input Resolution (Constitution)",
+      "layer": "00",
+      "path": "specs/00_constitution/authz_input_resolution.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.automation_human_boundary",
+      "title": "Automation vs Human Operations Boundary (Constitution)",
+      "layer": "00",
+      "path": "specs/00_constitution/automation_human_boundary.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.business_override_and_exception_control",
+      "title": "Business Override & Exception Control (Constitution)",
+      "layer": "00",
+      "path": "specs/00_constitution/business_override_and_exception_control.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.claims_compatibility",
+      "title": "Identity Claims Compatibility & Governance",
+      "layer": "00",
+      "path": "specs/00_constitution/claims_compatibility.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.delegation_context_transport",
+      "title": "Delegation Context Transport (Constitution)",
+      "layer": "00",
+      "path": "specs/00_constitution/delegation_context_transport.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.delegation_impersonation",
+      "title": "Delegation & Impersonation (Constitutional Semantics)",
+      "layer": "00",
+      "path": "specs/00_constitution/delegation_impersonation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.feature_enablement_and_flag_governance",
+      "title": "Feature Enablement & Flag Governance (Constitution)",
+      "layer": "00",
+      "path": "specs/00_constitution/feature_enablement_and_flag_governance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.global_defaults",
+      "title": "Global Defaults (Cross-domain Baseline)",
+      "layer": "00",
+      "path": "specs/00_constitution/global_defaults.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.headers",
+      "title": "Header Processing & Trust Boundary",
+      "layer": "00",
+      "path": "specs/00_constitution/headers.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.identity",
+      "title": "Identity & Authentication Boundary",
+      "layer": "00",
+      "path": "specs/00_constitution/identity.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.identity_key_rotation",
+      "title": "Identity Key Rotation & Issuer Governance",
+      "layer": "00",
+      "path": "specs/00_constitution/identity_key_rotation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.observability",
+      "title": "Observability Design",
+      "layer": "00",
+      "path": "specs/00_constitution/observability.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.operation",
+      "title": "Operation Semantics & Classification",
+      "layer": "00",
+      "path": "specs/00_constitution/operation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.policy_decision_trace",
+      "title": "Policy Explanation & Decision Trace (Internal Observability)",
+      "layer": "00",
+      "path": "specs/00_constitution/policy_decision_trace.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.policy_evaluation",
+      "title": "Policy Evaluation & Enforcement",
+      "layer": "00",
+      "path": "specs/00_constitution/policy_evaluation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.policy_types",
+      "title": "Policy Types, PDP & PEP Semantics",
+      "layer": "00",
+      "path": "specs/00_constitution/policy_types.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.repo_layout",
+      "title": "Repository Layout & Responsibility Boundaries",
+      "layer": "00",
+      "path": "specs/00_constitution/repo_layout.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.role_scope_governance",
+      "title": "Role & Scope Governance (Lifecycle & Compatibility)",
+      "layer": "00",
+      "path": "specs/00_constitution/role_scope_governance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.secrets_and_keys",
+      "title": "Secrets & Key Management",
+      "layer": "00",
+      "path": "specs/00_constitution/secrets_and_keys.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l00.subject_types",
+      "title": "Subject Types (Human vs Non-human) - Versioned Extension",
+      "layer": "00",
+      "path": "specs/00_constitution/subject_types.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.async_jobs_events",
+      "title": "Async Jobs & Eventing Semantics (Large-scale Baseline)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/async_jobs_events.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.audit_retention_storage_policy",
+      "title": "Audit Retention & Storage Policy (Value-free Baseline)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/audit_retention_storage_policy.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.authz_input_resolution",
+      "title": "Authorization Input Resolution (Operational Semantics)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/authz_input_resolution.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.automation_operations",
+      "title": "Automation Operations (Operational Semantics)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/automation_operations.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.billing",
+      "title": "Billing / Payment Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/billing.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.business_override_and_exception_control",
+      "title": "Business Override & Exception Control (Operational Semantics)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/business_override_and_exception_control.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.cost_abuse_resource_exhaustion_protection",
+      "title": "Cost, Abuse & Resource Exhaustion Protection",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/cost_abuse_resource_exhaustion_protection.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.cross_tenant_exceptions",
+      "title": "Cross-tenant Access & Exception Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/cross_tenant_exceptions.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.data_classification",
+      "title": "Data Classification & Propagation Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/data_classification.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.data_migration_backfill_reconciliation",
+      "title": "Data Migration, Backfill & Reconciliation",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/data_migration_backfill_reconciliation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.data_persistence",
+      "title": "Data Persistence & Retention",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/data_persistence.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.data_residency",
+      "title": "Data Residency, Sovereignty & Jurisdiction (Tenant-level Policy)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/data_residency.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.data_tenant_safety",
+      "title": "Data Tenant Safety (Isolation, Containment & Restore Safety)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/data_tenant_safety.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.deletion_propagation_contract",
+      "title": "Deletion Propagation Contract",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/deletion_propagation_contract.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.dependency_connector_change_semantics",
+      "title": "Dependency & Connector Change Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/dependency_connector_change_semantics.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.disaster_recovery",
+      "title": "Disaster Recovery (DR) Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/disaster_recovery.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.event_version_rollout",
+      "title": "Event Version Rollout & Compatibility Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/event_version_rollout.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.feature_enablement_and_flag_governance",
+      "title": "Feature Enablement & Flag Governance (Operational Semantics)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/feature_enablement_and_flag_governance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.idempotency",
+      "title": "Idempotency Semantics & Responsibility",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/idempotency.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.limits",
+      "title": "Limits & Resource Protection",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/limits.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.operation_slo_baseline",
+      "title": "Operation SLO Baseline (Classification-based)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/operation_slo_baseline.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.operational_access_break_glass",
+      "title": "Operational Access & Break-glass Operations",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/operational_access_break_glass.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.org_model",
+      "title": "Organization Hierarchy, Groups & Teams (Tenant-scoped Directory Model)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/org_model.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.payload_schema",
+      "title": "Payload Schema Contract (Request/Response) & Compatibility",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/payload_schema.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.release_compatibility_governance",
+      "title": "Release & Compatibility Governance",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/release_compatibility_governance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.resource_ownership",
+      "title": "Resource Ownership & Tenant Data Access",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/resource_ownership.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.support_and_ops",
+      "title": "Support & Operations Semantics (Incidents / Break-glass / Support Tooling)",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/support_and_ops.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l20.tenant_lifecycle",
+      "title": "Tenant Lifecycle Semantics",
+      "layer": "20",
+      "path": "specs/20_operational_semantics/tenant_lifecycle.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.authn_methods",
+      "title": "Authentication Establishment Methods (Cookie / Bearer JWT / API Key / mTLS / Device Context)",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/authn_methods.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.browser_response_security_headers",
+      "title": "Browser Response Security Headers (Browser Boundary)",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/browser_response_security_headers.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.client_types",
+      "title": "Client Types & Client Boundary Semantics",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/client_types.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.http",
+      "title": "HTTP Contracts & RPC Boundary",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/http.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.identity_key_rotation",
+      "title": "Identity Key Rotation & Issuer Governance (Interaction Edge)",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/identity_key_rotation.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.security_browser_boundary",
+      "title": "Security Browser Boundary",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/security_browser_boundary.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.session",
+      "title": "Session Semantics (Browser Boundary)",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/session.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.step_up",
+      "title": "Step-up Authentication (Interaction Edge)",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/step_up.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l30.webhook",
+      "title": "Webhook Security & Idempotency",
+      "layer": "30",
+      "path": "specs/30_interaction_edges/webhook.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.change_and_release_lifecycle",
+      "title": "Change & Release Lifecycle Governance",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/change_and_release_lifecycle.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.configuration_and_environment_governance",
+      "title": "Configuration & Environment Governance Semantics",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/configuration_and_environment_governance.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.incident_lifecycle_and_emergency_controls",
+      "title": "Incident Lifecycle & Emergency Controls",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/incident_lifecycle_and_emergency_controls.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.runtime_configuration_and_emergency_controls",
+      "title": "Runtime Configuration & Emergency Controls",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/runtime_configuration_and_emergency_controls.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.security_operations_and_vulnerability_response",
+      "title": "Security & Dependency Incident Response",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/security_operations_and_vulnerability_response.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "l40.service_operations_governance.readme",
+      "title": "Service Operations Governance (L40)",
+      "layer": "40",
+      "path": "specs/40_service_operations_governance/README.md",
+      "normative_default": false,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "root.constitution_scope",
+      "title": "Constitution Scope (What belongs here / What does not)",
+      "layer": "root",
+      "path": "specs/00_constitution_scope.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "root.non_goals",
+      "title": "Non-goal Taxonomy (Repository-wide)",
+      "layer": "root",
+      "path": "specs/10_non_goals.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    },
+    {
+      "id": "root.purpose",
+      "title": "Specifications: Purpose & Principles",
+      "layer": "root",
+      "path": "specs/00_purpose.md",
+      "normative_default": true,
+      "status": "stable",
+      "related_ids": []
+    }
+  ]
+}
