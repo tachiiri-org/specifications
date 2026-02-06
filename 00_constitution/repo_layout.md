@@ -15,16 +15,15 @@
 
 ## Canonical Layout (Normative)
 
-This repository is organized under `specifications/` as:
+This repository is organized at top-level as:
 
 - `00_constitution/`
-- `10_extension_frames/`
+- `10_staging_frames/`
 - `20_operational_semantics/`
 - `30_interaction_edges/`
-
-> Note:
->
-> - 旧名称 `10_staging_frames/` は使用しない。staging は `10_extension_frames/` に統一する。
+- `def/`
+- `schemas/`
+- `lint/`
 
 ## Definitions
 
@@ -37,10 +36,13 @@ This repository is organized under `specifications/` as:
 - **Interaction Edges (30_interaction_edges/)**
   - 境界（browser/session/http/webhook 等）と相互作用の意味論。
 
-- **Staging Frames (10_extension_frames/)**
-  - Deferred-but-Scoped（検討中 / TODO）を “枠（frame）” として置く場所。
+- **Staging Frames (10_staging_frames/)**
+  - next_todos / Deferred-but-Scoped（検討中）を “枠（frame）” として置く場所。
   - ここに置かれる文書は **non-normative**。
   - ただし「導入時に何を壊してはいけないか」「どう昇格するか」の制約は強く書く。
+
+- **Machine-contract artifacts (`def/`, `schemas/`, `lint/`)**
+  - L1（各ツール仕様定義）における機械契約（schema/lint/contract）を保持する領域。
 
 ## Invariants (Must Not Break)
 
@@ -52,8 +54,8 @@ This repository is organized under `specifications/` as:
 ### Staging does not leak (Must)
 
 - `00_constitution/`, `20_operational_semantics/`, `30_interaction_edges/` は
-  `10_extension_frames/` を参照してはならない。
-- `10_extension_frames/` は定義済み仕様を参照してよい（前提・制約の記述のため）。
+  `10_staging_frames/` を参照してはならない。
+- `10_staging_frames/` は定義済み仕様を参照してよい（前提・制約の記述のため）。
 
 ### Promotion is explicit (Must)
 
@@ -66,14 +68,14 @@ This repository is organized under `specifications/` as:
 ## Boundary & Machine-contract note (Non-normative but important)
 
 - 本リポジトリは憲法/意味論を中心に置く。
-- 実際の境界JSON・機械検査（lint/schema/rules）は L1（各ツール仕様定義リポジトリ）で保持する。
+- 実際の機械契約（schema/lint/contract）は L1（各ツール仕様定義）で保持する。
 - したがって 00_constitution は JSONキー形や required keys を固定しない（語彙と禁止のみを固定する）。
 
 ## Change Checklist
 
 - 新しい仕様ファイルを追加したか
   - 置き場がこの規約に合っているか（00/20/30 or 10）
-- staging（10_extension_frames）に置くべきものを 00/20/30 に置いていないか
+- staging（10_staging_frames）に置くべきものを 00/20/30 に置いていないか
 - 00/20/30 が staging を参照していないか
 - staging を昇格したか
   - 昇格先（00/20/30）が明示され、参照が差し替えられているか

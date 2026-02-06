@@ -33,20 +33,20 @@
 
 ### 2) Category-aware constraints
 
-- データは少なくとも以下のカテゴリに分類される（domain/20_operational_semantics/data_persistence.md）:
+- データは少なくとも以下のカテゴリに分類される（20_operational_semantics/data_persistence.md）:
   - PII / Billing / Logs / Audit
 - 越境（cross-region）可否はカテゴリごとに明示できる必要がある。
 - “全部同じ扱い”を暗黙にしない。
 
 ### 3) Propagation is explicit
 
-- 派生保存先（cache/search/warehouse/backup/logs）への波及は明示する（domain/20_operational_semantics/deletion_propagation_contract.md）。
+- 派生保存先（cache/search/warehouse/backup/logs）への波及は明示する（20_operational_semantics/deletion_propagation_contract.md）。
 - analytics/warehouse が residency 制約を破る設計は禁止（導入するなら別 policy として明示）。
 
 ### 4) Restore safety
 
-- backup/restore は residency と tenant isolation を破壊してはならない（domain/20_operational_semantics/disaster_recovery.md, domain/20_operational_semantics/data_tenant_safety.md）。
-- purge 済み PII を restore で復活させない（domain/20_operational_semantics/deletion_propagation_contract.md）。
+- backup/restore は residency と tenant isolation を破壊してはならない（20_operational_semantics/disaster_recovery.md, 20_operational_semantics/data_tenant_safety.md）。
+- purge 済み PII を restore で復活させない（20_operational_semantics/deletion_propagation_contract.md）。
 
 ## Recommended minimal config surface (Informative)
 
@@ -72,8 +72,8 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/data_persistence.md
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/deletion_propagation_contract.md
-- domain/20_operational_semantics/disaster_recovery.md
-- domain/00_constitution/observability.md
+- 20_operational_semantics/data_persistence.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/deletion_propagation_contract.md
+- 20_operational_semantics/disaster_recovery.md
+- 00_constitution/observability.md

@@ -44,5 +44,4 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/limits.md
-- rules/rate_limit_policy.md
+- 20_operational_semantics/limits.md

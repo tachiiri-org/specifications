@@ -29,14 +29,14 @@
 ### 1) Staging is discoverable but non-normative
 
 - Deferred-but-Scoped content MUST be placed under the repository’s staging area
-  (see `domain/10_extension_frames/` in `domain/00_constitution/repo_layout.md`).
+  (see `10_staging_frames/` in `00_constitution/repo_layout.md`).
 - Staging documents exist to make upcoming scope explicit, but MUST NOT be treated as normative inputs.
 
 ### 2) No silent mixing into defined semantics
 
 - Post-hoc mixing of new authorization inputs, claims, actor/subject semantics, or exception paths
   into existing defined domains MUST NOT occur silently.
-- Any such evolution MUST be introduced via explicit promotion (domain/rules/def/schemas) and versioning.
+- Any such evolution MUST be introduced via explicit promotion (L1/def/schemas) and versioning.
 
 ### 3) Promotion rule (Staged → Defined)
 
@@ -46,12 +46,12 @@ Promotion from Deferred-but-Scoped staging into defined specifications MUST:
 - Follow compatibility and breaking-change policy
 - Respect dual-accept rollout rules where applicable
 - Preserve all existing prohibitions and invariants
-- Add machine-checkable enforcement where applicable (rules/ and/or schemas/)
+- Add machine-checkable enforcement where applicable (L1 and/or schemas/)
 
 ### 4) Reference boundary
 
-- Defined specifications (in `domain/00_constitution/`, `domain/20_operational_semantics/`, `domain/30_interaction_edges/`,
-  `rules/`, `def/`, `schemas/`) MUST NOT depend on staging documents.
+- Defined specifications (in `00_constitution/`, `20_operational_semantics/`, `30_interaction_edges/`,
+  `L1/`, `def/`, `schemas/`) MUST NOT depend on staging documents.
 - Staging documents MAY reference defined specs as prerequisites.
 - Cross-staging references are allowed, but MUST remain non-normative.
 
@@ -65,4 +65,4 @@ Promotion from Deferred-but-Scoped staging into defined specifications MUST:
 - When a `Deferred-but-Scoped` entry is listed, it SHOULD include:
   - the staging frame reference (file path),
   - what invariants it must not break,
-  - and the intended promotion target(s) (domain/rules/def/schemas).
+  - and the intended promotion target(s) (L1/def/schemas).

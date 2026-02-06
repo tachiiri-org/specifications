@@ -108,7 +108,6 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/data_persistence.md
-- domain/00_constitution/authorization.md
-- rules/audit_log_contract.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/data_persistence.md
+- 00_constitution/authorization.md

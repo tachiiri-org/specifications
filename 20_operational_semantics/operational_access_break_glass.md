@@ -67,9 +67,8 @@
 
 ## Related Specifications
 
-- domain/00_constitution/authorization.md
-- domain/00_constitution/actor_subject_tenant_model.md
-- domain/20_operational_semantics/support_and_ops.md
-- domain/20_operational_semantics/cross_tenant_exceptions.md
-- domain/00_constitution/observability.md
-- rules/audit_log_contract.md
+- 00_constitution/authorization.md
+- 00_constitution/actor_subject_tenant_model.md
+- 20_operational_semantics/support_and_ops.md
+- 20_operational_semantics/cross_tenant_exceptions.md
+- 00_constitution/observability.md

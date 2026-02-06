@@ -85,7 +85,6 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/idempotency.md
-- domain/20_operational_semantics/billing.md
-- domain/20_operational_semantics/data_tenant_safety.md
-- rules/audit_log_contract.md
+- 20_operational_semantics/idempotency.md
+- 20_operational_semantics/billing.md
+- 20_operational_semantics/data_tenant_safety.md

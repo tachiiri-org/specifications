@@ -22,7 +22,7 @@
 ### 2) Audit is required for specific operations (Must)
 
 - `irreversible` / `external_effect` を持つ operation は audit event を必須とする。
-- audit event の shape と必須フィールドは `rules/audit_log_contract.md` を正とする。
+- audit event の shape と必須フィールドは L1（各ツール仕様定義） を正とする。
 
 ### 3) Retention policy is explicit (Must)
 
@@ -49,7 +49,6 @@
 
 ## Related Specifications
 
-- domain/00_constitution/observability.md
-- domain/00_constitution/operation.md
-- domain/00_constitution/global_defaults.md
-- rules/audit_log_contract.md
+- 00_constitution/observability.md
+- 00_constitution/operation.md
+- 00_constitution/global_defaults.md

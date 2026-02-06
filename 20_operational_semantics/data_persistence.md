@@ -66,13 +66,11 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/cross_tenant_exceptions.md
-- domain/20_operational_semantics/data_classification.md
-- domain/00_constitution/observability.md
-- rules/pii_redaction_contract.md
-- rules/audit_log_contract.md
-- domain/20_operational_semantics/deletion_propagation_contract.md
-- domain/20_operational_semantics/data_tenant_safety.md
-- domain/20_operational_semantics/disaster_recovery.md
-- domain/20_operational_semantics/data_residency.md
-- domain/00_constitution/global_defaults.md
+- 20_operational_semantics/cross_tenant_exceptions.md
+- 20_operational_semantics/data_classification.md
+- 00_constitution/observability.md
+- 20_operational_semantics/deletion_propagation_contract.md
+- 20_operational_semantics/data_tenant_safety.md
+- 20_operational_semantics/disaster_recovery.md
+- 20_operational_semantics/data_residency.md
+- 00_constitution/global_defaults.md

@@ -91,4 +91,4 @@
 - 00_constitution/identity.md
 - 00_constitution/authorization.md
 - 00_constitution/global_defaults.md
-- 10_extension_frames/delegation_impersonation.md
+- 00_constitution/delegation_impersonation.md

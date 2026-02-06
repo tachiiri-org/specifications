@@ -31,8 +31,8 @@
 
 ## Required rules
 
-- cookie 発行点: `rules/cookie_emitter.md`
-- CSRF: `rules/csrf_double_submit.md`
+- cookie 発行点: L1（各ツール仕様定義）
+- CSRF: L1（各ツール仕様定義）
 
 ## Failure modes
 
@@ -42,7 +42,5 @@
 
 ## Related Specifications
 
-- domain/30_interaction_edges/security_browser_boundary.md
-- domain/00_constitution/identity.md
-- rules/cookie_emitter.md
-- rules/csrf_double_submit.md
+- 30_interaction_edges/security_browser_boundary.md
+- 00_constitution/identity.md

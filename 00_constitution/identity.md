@@ -53,8 +53,8 @@
 
 ## Deferred-but-Scoped (Staging)
 
-- assurance / step-up の意味論拡張: `10_extension_frames/authn_assurance.md`
-- key rotation / issuer governance: `10_extension_frames/identity_key_rotation.md`
+- assurance / step-up の意味論拡張: `00_constitution/authn_assurance.md`
+- key rotation / issuer governance: `00_constitution/identity_key_rotation.md`
 - claims set の拡張ガバナンス: `00_constitution/claims_compatibility.md`（憲法）＋ L1の実装
 - 非JWT方式や追加authn手段: `30_interaction_edges/authn_methods.md`（境界）＋必要なら10で拡張
 
@@ -78,5 +78,5 @@
 - 30_interaction_edges/client_types.md
 - 30_interaction_edges/authn_methods.md
 
-- 10_extension_frames/authn_assurance.md
-- 10_extension_frames/identity_key_rotation.md
+- 00_constitution/authn_assurance.md
+- 00_constitution/identity_key_rotation.md

@@ -65,5 +65,4 @@
 
 ## Related Specifications
 
-- domain/20_operational_semantics/schema_compatibility.md
-- rules/contract_version_rollout.md
+- 20_operational_semantics/release_compatibility_governance.md
