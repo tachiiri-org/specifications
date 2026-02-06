@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write  # Required for npm Trusted Publishing (OIDC)
 
     steps:
       - uses: actions/checkout@v4
@@ -35,23 +36,7 @@ jobs:
       - name: Breaking change heuristic (fail on hits)
         run: npm run breaking:check
 
-      - name: Configure npm auth (sanitize token)
-        shell: bash
-        run: |
-          TOKEN="$(printf '%s' "${NPM_TOKEN}" | tr -d '\r\n')"
-          if [ -z "$TOKEN" ]; then
-            echo "NPM_TOKEN is empty (check GitHub Secrets name and value)"
-            exit 1
-          fi
-          printf "//registry.npmjs.org/:_authToken=%s\n" "$TOKEN" > ~/.npmrc
-          npm config get registry
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Verify npm auth
-        run: npm whoami
-
-      - name: Publish to npm
+      - name: Publish to npm (Trusted Publishing)
         run: npm publish --access public
         env:
           HUSKY: "0"
