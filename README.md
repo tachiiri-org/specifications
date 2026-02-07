@@ -6,12 +6,18 @@ This package distributes layered specification documents (MD) as a stable, versi
 - The documents define vocabulary, responsibility boundaries, invariants/prohibitions, and compatibility principles.
 - Concrete runtime values, catalogs, and tool-specific implementation details belong outside this repository.
 
+## Layer definitions
+
+- **L0**: This specification repository (`specs/` and its documents).
+- **L1**: Tool-spec repos (separate repositories that hold machine contracts such as `def/`, `schemas/`, and `lint/`).
+- The directory names under `specs/` are semantic domains, not layers.
+
 ## Repository / Package Layout
 
-- `specs/00_constitution/` — constitutional vocabulary, responsibility boundaries, invariants, prohibitions (L0)
-- `specs/20_operational_semantics/` — operational semantics, safety, migration, compatibility governance
-- `specs/30_interaction_edges/` — external interaction edges (HTTP, browser boundary, session, webhook, etc.)
-- `specs/40_service_operations_governance/` — operational governance (change/release/incident/security ops)
+- `specs/constitution/` — constitutional vocabulary, responsibility boundaries, invariants, prohibitions (L0)
+- `specs/operational_semantics/` — operational semantics, safety, migration, compatibility governance
+- `specs/interaction_edges/` — external interaction edges (HTTP, browser boundary, session, webhook, etc.)
+- `specs/service_ops_governance/` — operational governance (change/release/incident/security ops)
 
 Machine-friendly index:
 
@@ -19,14 +25,14 @@ Machine-friendly index:
 
 ## Canonical entry points
 
-- `specs/00_constitution/actor_subject_tenant_model.md`
-- `specs/00_constitution/authorization.md`
-- `specs/00_constitution/identity.md`
-- `specs/00_constitution/global_defaults.md`
-- `specs/00_constitution/claims_compatibility.md`
-- `specs/20_operational_semantics/data_tenant_safety.md`
-- `specs/30_interaction_edges/http.md`
-- `specs/40_service_operations_governance/README.md`
+- `specs/constitution/actor_subject_tenant_model.md`
+- `specs/constitution/authorization.md`
+- `specs/constitution/identity.md`
+- `specs/constitution/global_defaults.md`
+- `specs/constitution/claims_compatibility.md`
+- `specs/operational_semantics/data_tenant_safety.md`
+- `specs/interaction_edges/http.md`
+- `specs/service_ops_governance/README.md`
 
 ## Consumption
 

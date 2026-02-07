@@ -1,0 +1,77 @@
+# Data Persistence & Retention
+
+## Goal
+
+- データの保存・暗号化・保持期間・削除を仕様として固定し、運用と実装差分を防ぐ。
+- PII / billing データを安全に扱い、監査・復旧に耐える。
+
+## Scope
+
+- persistence categories（PII / billing / logs / audit）
+- encryption at rest / in transit
+- retention / deletion
+- backup / restore expectations（高レベル）
+
+## Invariants (Must Not Break)
+
+### Categorization (Must)
+
+- 保存データは少なくとも以下に分類される:
+  - PII（個人情報）
+  - Billing（請求/決済関連）
+  - Logs（運用ログ）
+  - Audit（監査イベント）
+
+### Retention is explicit (Must)
+
+- retention は “暗黙の無期限” にしない。
+- category ごとの retention 期間は設定として明示される（boundary JSON / def / 環境設定）。
+- deletion（論理削除/物理削除）の方針は category ごとに固定する。
+
+### Encryption (Must)
+
+- PII / Billing は at rest で暗号化される。
+- secrets（鍵・トークン）は永続化しない（必要なら専用 secret store を使う）。
+
+## Required config (Recommended minimum)
+
+- Logs:
+  - 低 retention（短期）＋ redaction
+- Audit:
+  - 長 retention（要件に応じて）＋改ざん耐性（少なくとも append-only 前提）
+- Billing:
+  - 監査と整合する retention と restore 方針
+
+## Non-goals (Repository taxonomy alignment)
+
+本ファイルの非対象領域は、リポジトリ全体の分類規約に従う（00_constitution_scope.md / 10_non_goals.md）。
+
+### Permanent Non-goals
+
+- 具体DB製品の固定。
+
+### Deferred-but-Scoped
+
+- 法域対応（residency/分類/例外運用を含む）を domain + contract-version で段階導入すること。
+
+### Out-of-Scope Implementation Details
+
+- 保持日数・暗号パラメータなどの具体数値設定（値は def/ または環境で決める）。
+
+## Failure modes
+
+- 無期限保持で漏洩時の被害が最大化する。
+- audit が短期で消えて説明不能になる。
+- secrets がDBに混入して横展開事故になる。
+
+## Related Specifications
+
+- operational_semantics/cross_tenant_exceptions.md
+- operational_semantics/data_classification.md
+- constitution/observability.md
+- operational_semantics/deletion_propagation_contract.md
+- operational_semantics/data_tenant_safety.md
+- operational_semantics/disaster_recovery.md
+- operational_semantics/data_residency.md
+- constitution/global_defaults.md
+- 00_constitution_scope.md
