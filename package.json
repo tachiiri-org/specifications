@@ -37,6 +37,7 @@
   "lint-staged": {
     "specs/**/*.md": [
       "npm run manifest:gen",
+      "npm run manifest:check",
       "git add spec.manifest.json"
     ]
   },
