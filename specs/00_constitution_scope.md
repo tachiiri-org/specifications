@@ -31,7 +31,7 @@ Constitution は次を目的としない。
 - **人間運用の手順・判断・状態遷移（release / incident / emergency）の定義**
 
 ※ 人間運用に関わる状態遷移は
-`40_service_operations_governance/` に分離して定義される。
+`service_ops_governance/` に分離して定義される。
 
 ## Definition: Tool Specification Repository
 

@@ -26,6 +26,15 @@ jobs:
         env:
           HUSKY: "0"
 
+      - name: Lint (if present)
+        run: npm run lint --if-present
+
+      - name: Unit tests (if present)
+        run: npm run test --if-present
+
+      - name: Build (if present)
+        run: npm run build --if-present
+
       - name: Check OIDC availability
         shell: bash
         run: |
@@ -46,3 +55,8 @@ jobs:
         run: npm publish --access public --provenance
         env:
           HUSKY: "0"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
