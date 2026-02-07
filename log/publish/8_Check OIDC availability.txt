@@ -1,0 +1,16 @@
+﻿2026-02-06T23:24:53.1376231Z ##[group]Run if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then
+2026-02-06T23:24:53.1376688Z [36;1mif [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then[0m
+2026-02-06T23:24:53.1377122Z [36;1m  echo "OIDC request URL is missing (id-token: write is not granted)"[0m
+2026-02-06T23:24:53.1377469Z [36;1m  exit 1[0m
+2026-02-06T23:24:53.1377649Z [36;1mfi[0m
+2026-02-06T23:24:53.1377882Z [36;1mif [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ]; then[0m
+2026-02-06T23:24:53.1378295Z [36;1m  echo "OIDC request token is missing (id-token: write is not granted)"[0m
+2026-02-06T23:24:53.1378997Z [36;1m  exit 1[0m
+2026-02-06T23:24:53.1379179Z [36;1mfi[0m
+2026-02-06T23:24:53.1379372Z [36;1mecho "OIDC env vars are present"[0m
+2026-02-06T23:24:53.1412994Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-02-06T23:24:53.1413319Z env:
+2026-02-06T23:24:53.1413559Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:53.1413888Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:53.1414173Z ##[endgroup]
+2026-02-06T23:24:53.1468362Z OIDC env vars are present

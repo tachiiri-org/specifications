@@ -1,0 +1,12 @@
+﻿2026-02-06T23:24:52.9346215Z ##[group]Run npm run breaking:check
+2026-02-06T23:24:52.9346538Z [36;1mnpm run breaking:check[0m
+2026-02-06T23:24:52.9378376Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.9378968Z env:
+2026-02-06T23:24:52.9379206Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.9379539Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.9379792Z ##[endgroup]
+2026-02-06T23:24:53.0685266Z 
+2026-02-06T23:24:53.0686041Z > @tachiiri-library/specifications@0.1.10 breaking:check
+2026-02-06T23:24:53.0687015Z > node tools/detect-breaking.mjs --fail --range=origin/main...HEAD
+2026-02-06T23:24:53.0687518Z 
+2026-02-06T23:24:53.1230318Z [breaking-check] No changes in specs/**/*.md

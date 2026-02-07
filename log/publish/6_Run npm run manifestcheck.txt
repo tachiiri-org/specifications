@@ -1,0 +1,12 @@
+﻿2026-02-06T23:24:52.7342909Z ##[group]Run npm run manifest:check
+2026-02-06T23:24:52.7343282Z [36;1mnpm run manifest:check[0m
+2026-02-06T23:24:52.7375239Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.7375494Z env:
+2026-02-06T23:24:52.7375726Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.7376069Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.7376329Z ##[endgroup]
+2026-02-06T23:24:52.8583263Z 
+2026-02-06T23:24:52.8585429Z > @tachiiri-library/specifications@0.1.10 manifest:check
+2026-02-06T23:24:52.8586597Z > node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json
+2026-02-06T23:24:52.8587241Z 
+2026-02-06T23:24:52.9196435Z Wrote spec.manifest.json (70 specs)

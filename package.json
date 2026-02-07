@@ -5,6 +5,10 @@
   "license": "MIT",
   "private": false,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tachiiri-org/specifications.git"
+  },
   "files": [
     "specs/**",
     "spec.manifest.json",

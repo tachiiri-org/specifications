@@ -1,0 +1,106 @@
+﻿2026-02-06T23:24:49.3897302Z ##[group]Run actions/checkout@v4
+2026-02-06T23:24:49.3898127Z with:
+2026-02-06T23:24:49.3898930Z   fetch-depth: 0
+2026-02-06T23:24:49.3899430Z   repository: tachiiri-org/specifications
+2026-02-06T23:24:49.3900089Z   token: ***
+2026-02-06T23:24:49.3900453Z   ssh-strict: true
+2026-02-06T23:24:49.3900833Z   ssh-user: git
+2026-02-06T23:24:49.3901209Z   persist-credentials: true
+2026-02-06T23:24:49.3901646Z   clean: true
+2026-02-06T23:24:49.3902027Z   sparse-checkout-cone-mode: true
+2026-02-06T23:24:49.3902493Z   fetch-tags: false
+2026-02-06T23:24:49.3902869Z   show-progress: true
+2026-02-06T23:24:49.3903262Z   lfs: false
+2026-02-06T23:24:49.3903622Z   submodules: false
+2026-02-06T23:24:49.3904024Z   set-safe-directory: true
+2026-02-06T23:24:49.3904785Z ##[endgroup]
+2026-02-06T23:24:49.5172064Z Syncing repository: tachiiri-org/specifications
+2026-02-06T23:24:49.5174771Z ##[group]Getting Git version info
+2026-02-06T23:24:49.5176091Z Working directory is '/home/runner/work/specifications/specifications'
+2026-02-06T23:24:49.5177955Z [command]/usr/bin/git version
+2026-02-06T23:24:49.5180201Z git version 2.52.0
+2026-02-06T23:24:49.5183103Z ##[endgroup]
+2026-02-06T23:24:49.5198362Z Temporarily overriding HOME='/home/runner/work/_temp/bd367338-116f-4aad-a0eb-5e4e02605638' before making global git config changes
+2026-02-06T23:24:49.5202177Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-06T23:24:49.5216745Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/specifications/specifications
+2026-02-06T23:24:49.5257722Z Deleting the contents of '/home/runner/work/specifications/specifications'
+2026-02-06T23:24:49.5262514Z ##[group]Initializing the repository
+2026-02-06T23:24:49.5268938Z [command]/usr/bin/git init /home/runner/work/specifications/specifications
+2026-02-06T23:24:49.6143638Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-06T23:24:49.6147153Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-06T23:24:49.6149279Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-06T23:24:49.6150915Z hint: call:
+2026-02-06T23:24:49.6151530Z hint:
+2026-02-06T23:24:49.6152317Z hint: 	git config --global init.defaultBranch <name>
+2026-02-06T23:24:49.6153267Z hint:
+2026-02-06T23:24:49.6154152Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-06T23:24:49.6155665Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-06T23:24:49.6156851Z hint:
+2026-02-06T23:24:49.6157485Z hint: 	git branch -m <name>
+2026-02-06T23:24:49.6158180Z hint:
+2026-02-06T23:24:49.6159297Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-06T23:24:49.6161034Z Initialized empty Git repository in /home/runner/work/specifications/specifications/.git/
+2026-02-06T23:24:49.6163980Z [command]/usr/bin/git remote add origin https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:49.6166584Z ##[endgroup]
+2026-02-06T23:24:49.6168039Z ##[group]Disabling automatic garbage collection
+2026-02-06T23:24:49.6169614Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-06T23:24:49.6171883Z ##[endgroup]
+2026-02-06T23:24:49.6172963Z ##[group]Setting up auth
+2026-02-06T23:24:49.6174119Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-06T23:24:49.6177503Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-06T23:24:49.6181743Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-06T23:24:49.6186248Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-06T23:24:49.6362748Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-06T23:24:49.6402405Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-06T23:24:49.6646259Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-06T23:24:49.6683469Z ##[endgroup]
+2026-02-06T23:24:49.6685776Z ##[group]Fetching the repository
+2026-02-06T23:24:49.6694091Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-02-06T23:24:50.1951690Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:50.1956683Z  * [new branch]      codex/reorganize-specifications/domain-into-layers -> origin/codex/reorganize-specifications/domain-into-layers
+2026-02-06T23:24:50.1959754Z  * [new branch]      main       -> origin/main
+2026-02-06T23:24:50.1961220Z  * [new tag]         v0.1.1     -> v0.1.1
+2026-02-06T23:24:50.1962607Z  * [new tag]         v0.1.10    -> v0.1.10
+2026-02-06T23:24:50.1964762Z  * [new tag]         v0.1.2     -> v0.1.2
+2026-02-06T23:24:50.1966203Z  * [new tag]         v0.1.3     -> v0.1.3
+2026-02-06T23:24:50.1967488Z  * [new tag]         v0.1.4     -> v0.1.4
+2026-02-06T23:24:50.1969425Z  * [new tag]         v0.1.5     -> v0.1.5
+2026-02-06T23:24:50.1970971Z  * [new tag]         v0.1.6     -> v0.1.6
+2026-02-06T23:24:50.1972405Z  * [new tag]         v0.1.7     -> v0.1.7
+2026-02-06T23:24:50.1973802Z  * [new tag]         v0.1.8     -> v0.1.8
+2026-02-06T23:24:50.1975197Z  * [new tag]         v0.1.9     -> v0.1.9
+2026-02-06T23:24:50.2004385Z [command]/usr/bin/git tag --list v0.1.10
+2026-02-06T23:24:50.2034710Z v0.1.10
+2026-02-06T23:24:50.2045551Z [command]/usr/bin/git rev-parse refs/tags/v0.1.10
+2026-02-06T23:24:50.2066788Z 412811184bb1ab60713f7fe12fdf0e0535f4f5c1
+2026-02-06T23:24:50.2082449Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +7921f7834d3d2811668b650eb5f0a4e686c8d739:refs/tags/v0.1.10
+2026-02-06T23:24:50.2129887Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:50.2134636Z  t [tag update]      7921f7834d3d2811668b650eb5f0a4e686c8d739 -> v0.1.10
+2026-02-06T23:24:50.2159947Z ##[endgroup]
+2026-02-06T23:24:50.2162327Z ##[group]Determining the checkout info
+2026-02-06T23:24:50.2165323Z ##[endgroup]
+2026-02-06T23:24:50.2168448Z [command]/usr/bin/git sparse-checkout disable
+2026-02-06T23:24:50.2209315Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-06T23:24:50.2241410Z ##[group]Checking out the ref
+2026-02-06T23:24:50.2244383Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.1.10
+2026-02-06T23:24:50.2322471Z Note: switching to 'refs/tags/v0.1.10'.
+2026-02-06T23:24:50.2327111Z 
+2026-02-06T23:24:50.2328816Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-02-06T23:24:50.2332522Z changes and commit them, and you can discard any commits you make in this
+2026-02-06T23:24:50.2336199Z state without impacting any branches by switching back to a branch.
+2026-02-06T23:24:50.2338280Z 
+2026-02-06T23:24:50.2339834Z If you want to create a new branch to retain commits you create, you may
+2026-02-06T23:24:50.2342957Z do so (now or later) by using -c with the switch command. Example:
+2026-02-06T23:24:50.2344897Z 
+2026-02-06T23:24:50.2345626Z   git switch -c <new-branch-name>
+2026-02-06T23:24:50.2346834Z 
+2026-02-06T23:24:50.2347514Z Or undo this operation with:
+2026-02-06T23:24:50.2348809Z 
+2026-02-06T23:24:50.2349441Z   git switch -
+2026-02-06T23:24:50.2350265Z 
+2026-02-06T23:24:50.2351669Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-02-06T23:24:50.2353938Z 
+2026-02-06T23:24:50.2354662Z HEAD is now at 7921f78 0.1.10
+2026-02-06T23:24:50.2359709Z ##[endgroup]
+2026-02-06T23:24:50.2390822Z [command]/usr/bin/git log -1 --format=%H
+2026-02-06T23:24:50.2414269Z 7921f7834d3d2811668b650eb5f0a4e686c8d739
