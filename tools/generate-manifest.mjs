@@ -5,10 +5,10 @@ const ROOT_DIR = "specs";
 const OUT_FILE = "spec.manifest.json";
 
 const LAYER_RULES = [
-  { prefix: "00_constitution/", layer: "00", idPrefix: "l00." },
-  { prefix: "20_operational_semantics/", layer: "20", idPrefix: "l20." },
-  { prefix: "30_interaction_edges/", layer: "30", idPrefix: "l30." },
-  { prefix: "40_service_operations_governance/", layer: "40", idPrefix: "l40." },
+  { prefix: "constitution/", layer: "00", idPrefix: "l00." },
+  { prefix: "operational_semantics/", layer: "20", idPrefix: "l20." },
+  { prefix: "interaction_edges/", layer: "30", idPrefix: "l30." },
+  { prefix: "service_ops_governance/", layer: "40", idPrefix: "l40." },
 ];
 
 const ROOT_FILE_IDS = new Map([
@@ -139,7 +139,7 @@ function classify(relPathFromRootDir) {
 
 function defaultNormative(layer, relPathFromRootDir) {
   if (layer === "root") return relPathFromRootDir !== "README.md";
-  if (layer === "40") return relPathFromRootDir !== "40_service_operations_governance/README.md";
+  if (layer === "40") return relPathFromRootDir !== "service_ops_governance/README.md";
   return true;
 }
 
