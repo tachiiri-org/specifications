@@ -1,0 +1,370 @@
+﻿2026-02-06T23:24:48.5255911Z Current runner version: '2.331.0'
+2026-02-06T23:24:48.5290980Z ##[group]Runner Image Provisioner
+2026-02-06T23:24:48.5292275Z Hosted Compute Agent
+2026-02-06T23:24:48.5293120Z Version: 20260123.484
+2026-02-06T23:24:48.5294159Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-06T23:24:48.5295255Z Build Date: 2026-01-23T19:41:17Z
+2026-02-06T23:24:48.5296315Z Worker ID: {cce89f19-8875-4849-afa9-95a1cbec1ccd}
+2026-02-06T23:24:48.5297487Z Azure Region: centralus
+2026-02-06T23:24:48.5329435Z ##[endgroup]
+2026-02-06T23:24:48.5331901Z ##[group]Operating System
+2026-02-06T23:24:48.5332853Z Ubuntu
+2026-02-06T23:24:48.5333832Z 24.04.3
+2026-02-06T23:24:48.5334583Z LTS
+2026-02-06T23:24:48.5335456Z ##[endgroup]
+2026-02-06T23:24:48.5336434Z ##[group]Runner Image
+2026-02-06T23:24:48.5337399Z Image: ubuntu-24.04
+2026-02-06T23:24:48.5338178Z Version: 20260201.15.1
+2026-02-06T23:24:48.5340515Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-06T23:24:48.5343087Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-06T23:24:48.5344850Z ##[endgroup]
+2026-02-06T23:24:48.5346434Z ##[group]GITHUB_TOKEN Permissions
+2026-02-06T23:24:48.5369754Z Contents: read
+2026-02-06T23:24:48.5370796Z Metadata: read
+2026-02-06T23:24:48.5371617Z ##[endgroup]
+2026-02-06T23:24:48.5374478Z Secret source: Actions
+2026-02-06T23:24:48.5375883Z Prepare workflow directory
+2026-02-06T23:24:48.6115384Z Prepare all required actions
+2026-02-06T23:24:48.6233352Z Getting action download info
+2026-02-06T23:24:48.9777893Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-02-06T23:24:49.1221954Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-02-06T23:24:49.3213983Z Complete job name: publish
+2026-02-06T23:24:49.3897329Z ##[group]Run actions/checkout@v4
+2026-02-06T23:24:49.3898135Z with:
+2026-02-06T23:24:49.3898943Z   fetch-depth: 0
+2026-02-06T23:24:49.3899434Z   repository: tachiiri-org/specifications
+2026-02-06T23:24:49.3900093Z   token: ***
+2026-02-06T23:24:49.3900456Z   ssh-strict: true
+2026-02-06T23:24:49.3900836Z   ssh-user: git
+2026-02-06T23:24:49.3901212Z   persist-credentials: true
+2026-02-06T23:24:49.3901649Z   clean: true
+2026-02-06T23:24:49.3902030Z   sparse-checkout-cone-mode: true
+2026-02-06T23:24:49.3902496Z   fetch-tags: false
+2026-02-06T23:24:49.3902872Z   show-progress: true
+2026-02-06T23:24:49.3903265Z   lfs: false
+2026-02-06T23:24:49.3903625Z   submodules: false
+2026-02-06T23:24:49.3904027Z   set-safe-directory: true
+2026-02-06T23:24:49.3904791Z ##[endgroup]
+2026-02-06T23:24:49.5172109Z Syncing repository: tachiiri-org/specifications
+2026-02-06T23:24:49.5174797Z ##[group]Getting Git version info
+2026-02-06T23:24:49.5176172Z Working directory is '/home/runner/work/specifications/specifications'
+2026-02-06T23:24:49.5177975Z [command]/usr/bin/git version
+2026-02-06T23:24:49.5180222Z git version 2.52.0
+2026-02-06T23:24:49.5183125Z ##[endgroup]
+2026-02-06T23:24:49.5198390Z Temporarily overriding HOME='/home/runner/work/_temp/bd367338-116f-4aad-a0eb-5e4e02605638' before making global git config changes
+2026-02-06T23:24:49.5202199Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-06T23:24:49.5216772Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/specifications/specifications
+2026-02-06T23:24:49.5257749Z Deleting the contents of '/home/runner/work/specifications/specifications'
+2026-02-06T23:24:49.5262536Z ##[group]Initializing the repository
+2026-02-06T23:24:49.5268967Z [command]/usr/bin/git init /home/runner/work/specifications/specifications
+2026-02-06T23:24:49.6143687Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-06T23:24:49.6147210Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-06T23:24:49.6149297Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-06T23:24:49.6150930Z hint: call:
+2026-02-06T23:24:49.6151541Z hint:
+2026-02-06T23:24:49.6152328Z hint: 	git config --global init.defaultBranch <name>
+2026-02-06T23:24:49.6153275Z hint:
+2026-02-06T23:24:49.6154164Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-06T23:24:49.6155677Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-06T23:24:49.6156864Z hint:
+2026-02-06T23:24:49.6157491Z hint: 	git branch -m <name>
+2026-02-06T23:24:49.6158189Z hint:
+2026-02-06T23:24:49.6159306Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-06T23:24:49.6161047Z Initialized empty Git repository in /home/runner/work/specifications/specifications/.git/
+2026-02-06T23:24:49.6164000Z [command]/usr/bin/git remote add origin https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:49.6166618Z ##[endgroup]
+2026-02-06T23:24:49.6168057Z ##[group]Disabling automatic garbage collection
+2026-02-06T23:24:49.6169633Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-06T23:24:49.6171902Z ##[endgroup]
+2026-02-06T23:24:49.6172974Z ##[group]Setting up auth
+2026-02-06T23:24:49.6174130Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-06T23:24:49.6177524Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-06T23:24:49.6181764Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-06T23:24:49.6186270Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-06T23:24:49.6363117Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-06T23:24:49.6402431Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-06T23:24:49.6646290Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-06T23:24:49.6683492Z ##[endgroup]
+2026-02-06T23:24:49.6685800Z ##[group]Fetching the repository
+2026-02-06T23:24:49.6694119Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-02-06T23:24:50.1951793Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:50.1956730Z  * [new branch]      codex/reorganize-specifications/domain-into-layers -> origin/codex/reorganize-specifications/domain-into-layers
+2026-02-06T23:24:50.1959782Z  * [new branch]      main       -> origin/main
+2026-02-06T23:24:50.1961293Z  * [new tag]         v0.1.1     -> v0.1.1
+2026-02-06T23:24:50.1962631Z  * [new tag]         v0.1.10    -> v0.1.10
+2026-02-06T23:24:50.1964789Z  * [new tag]         v0.1.2     -> v0.1.2
+2026-02-06T23:24:50.1966218Z  * [new tag]         v0.1.3     -> v0.1.3
+2026-02-06T23:24:50.1967507Z  * [new tag]         v0.1.4     -> v0.1.4
+2026-02-06T23:24:50.1969472Z  * [new tag]         v0.1.5     -> v0.1.5
+2026-02-06T23:24:50.1970992Z  * [new tag]         v0.1.6     -> v0.1.6
+2026-02-06T23:24:50.1972423Z  * [new tag]         v0.1.7     -> v0.1.7
+2026-02-06T23:24:50.1973812Z  * [new tag]         v0.1.8     -> v0.1.8
+2026-02-06T23:24:50.1975218Z  * [new tag]         v0.1.9     -> v0.1.9
+2026-02-06T23:24:50.2004443Z [command]/usr/bin/git tag --list v0.1.10
+2026-02-06T23:24:50.2034754Z v0.1.10
+2026-02-06T23:24:50.2045584Z [command]/usr/bin/git rev-parse refs/tags/v0.1.10
+2026-02-06T23:24:50.2066818Z 412811184bb1ab60713f7fe12fdf0e0535f4f5c1
+2026-02-06T23:24:50.2082510Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +7921f7834d3d2811668b650eb5f0a4e686c8d739:refs/tags/v0.1.10
+2026-02-06T23:24:50.2129924Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:50.2134668Z  t [tag update]      7921f7834d3d2811668b650eb5f0a4e686c8d739 -> v0.1.10
+2026-02-06T23:24:50.2159975Z ##[endgroup]
+2026-02-06T23:24:50.2162360Z ##[group]Determining the checkout info
+2026-02-06T23:24:50.2165351Z ##[endgroup]
+2026-02-06T23:24:50.2168470Z [command]/usr/bin/git sparse-checkout disable
+2026-02-06T23:24:50.2209352Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-06T23:24:50.2241443Z ##[group]Checking out the ref
+2026-02-06T23:24:50.2244413Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.1.10
+2026-02-06T23:24:50.2322503Z Note: switching to 'refs/tags/v0.1.10'.
+2026-02-06T23:24:50.2327147Z 
+2026-02-06T23:24:50.2328846Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-02-06T23:24:50.2332588Z changes and commit them, and you can discard any commits you make in this
+2026-02-06T23:24:50.2336224Z state without impacting any branches by switching back to a branch.
+2026-02-06T23:24:50.2338310Z 
+2026-02-06T23:24:50.2339844Z If you want to create a new branch to retain commits you create, you may
+2026-02-06T23:24:50.2342986Z do so (now or later) by using -c with the switch command. Example:
+2026-02-06T23:24:50.2344912Z 
+2026-02-06T23:24:50.2345641Z   git switch -c <new-branch-name>
+2026-02-06T23:24:50.2346844Z 
+2026-02-06T23:24:50.2347522Z Or undo this operation with:
+2026-02-06T23:24:50.2348820Z 
+2026-02-06T23:24:50.2349450Z   git switch -
+2026-02-06T23:24:50.2350272Z 
+2026-02-06T23:24:50.2351687Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-02-06T23:24:50.2353963Z 
+2026-02-06T23:24:50.2354672Z HEAD is now at 7921f78 0.1.10
+2026-02-06T23:24:50.2359734Z ##[endgroup]
+2026-02-06T23:24:50.2390866Z [command]/usr/bin/git log -1 --format=%H
+2026-02-06T23:24:50.2414303Z 7921f7834d3d2811668b650eb5f0a4e686c8d739
+2026-02-06T23:24:50.2727907Z ##[group]Run actions/setup-node@v4
+2026-02-06T23:24:50.2729191Z with:
+2026-02-06T23:24:50.2729950Z   node-version: 20
+2026-02-06T23:24:50.2730937Z   registry-url: https://registry.npmjs.org/
+2026-02-06T23:24:50.2732154Z   always-auth: false
+2026-02-06T23:24:50.2733013Z   check-latest: false
+2026-02-06T23:24:50.2734139Z   token: ***
+2026-02-06T23:24:50.2734896Z ##[endgroup]
+2026-02-06T23:24:50.4857607Z Found in cache @ /opt/hostedtoolcache/node/20.20.0/x64
+2026-02-06T23:24:50.4864430Z ##[group]Environment details
+2026-02-06T23:24:50.8585173Z node: v20.20.0
+2026-02-06T23:24:50.8590078Z npm: 10.8.2
+2026-02-06T23:24:50.8590551Z yarn: 1.22.22
+2026-02-06T23:24:50.8591520Z ##[endgroup]
+2026-02-06T23:24:50.8729199Z ##[group]Run npm ci
+2026-02-06T23:24:50.8729539Z [36;1mnpm ci[0m
+2026-02-06T23:24:50.8772032Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:50.8772333Z env:
+2026-02-06T23:24:50.8772621Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:50.8772995Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:50.8773290Z   HUSKY: 0
+2026-02-06T23:24:50.8773501Z ##[endgroup]
+2026-02-06T23:24:52.3505093Z 
+2026-02-06T23:24:52.3515711Z > @tachiiri-library/specifications@0.1.10 prepare
+2026-02-06T23:24:52.3518151Z > husky install
+2026-02-06T23:24:52.3518421Z 
+2026-02-06T23:24:52.3848927Z husky - install command is DEPRECATED
+2026-02-06T23:24:52.3920517Z HUSKY=0 skip install
+2026-02-06T23:24:52.3923265Z added 56 packages, and audited 57 packages in 1s
+2026-02-06T23:24:52.3925681Z 
+2026-02-06T23:24:52.3927872Z 33 packages are looking for funding
+2026-02-06T23:24:52.3930640Z   run `npm fund` for details
+2026-02-06T23:24:52.3933757Z 
+2026-02-06T23:24:52.3934372Z found 0 vulnerabilities
+2026-02-06T23:24:52.4087421Z ##[group]Run git fetch origin main --depth=1
+2026-02-06T23:24:52.4087793Z [36;1mgit fetch origin main --depth=1[0m
+2026-02-06T23:24:52.4121913Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.4122166Z env:
+2026-02-06T23:24:52.4122406Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.4122740Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.4122997Z ##[endgroup]
+2026-02-06T23:24:52.7282416Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:52.7311036Z  * branch            main       -> FETCH_HEAD
+2026-02-06T23:24:52.7342918Z ##[group]Run npm run manifest:check
+2026-02-06T23:24:52.7343285Z [36;1mnpm run manifest:check[0m
+2026-02-06T23:24:52.7375246Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.7375497Z env:
+2026-02-06T23:24:52.7375729Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.7376072Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.7376331Z ##[endgroup]
+2026-02-06T23:24:52.8583286Z 
+2026-02-06T23:24:52.8585441Z > @tachiiri-library/specifications@0.1.10 manifest:check
+2026-02-06T23:24:52.8586609Z > node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json
+2026-02-06T23:24:52.8587248Z 
+2026-02-06T23:24:52.9196468Z Wrote spec.manifest.json (70 specs)
+2026-02-06T23:24:52.9346228Z ##[group]Run npm run breaking:check
+2026-02-06T23:24:52.9346540Z [36;1mnpm run breaking:check[0m
+2026-02-06T23:24:52.9378387Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.9378973Z env:
+2026-02-06T23:24:52.9379209Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.9379541Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.9379795Z ##[endgroup]
+2026-02-06T23:24:53.0685303Z 
+2026-02-06T23:24:53.0686048Z > @tachiiri-library/specifications@0.1.10 breaking:check
+2026-02-06T23:24:53.0687020Z > node tools/detect-breaking.mjs --fail --range=origin/main...HEAD
+2026-02-06T23:24:53.0687524Z 
+2026-02-06T23:24:53.1230364Z [breaking-check] No changes in specs/**/*.md
+2026-02-06T23:24:53.1376242Z ##[group]Run if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then
+2026-02-06T23:24:53.1376690Z [36;1mif [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then[0m
+2026-02-06T23:24:53.1377125Z [36;1m  echo "OIDC request URL is missing (id-token: write is not granted)"[0m
+2026-02-06T23:24:53.1377471Z [36;1m  exit 1[0m
+2026-02-06T23:24:53.1377651Z [36;1mfi[0m
+2026-02-06T23:24:53.1377885Z [36;1mif [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ]; then[0m
+2026-02-06T23:24:53.1378298Z [36;1m  echo "OIDC request token is missing (id-token: write is not granted)"[0m
+2026-02-06T23:24:53.1379003Z [36;1m  exit 1[0m
+2026-02-06T23:24:53.1379181Z [36;1mfi[0m
+2026-02-06T23:24:53.1379375Z [36;1mecho "OIDC env vars are present"[0m
+2026-02-06T23:24:53.1413001Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-02-06T23:24:53.1413322Z env:
+2026-02-06T23:24:53.1413562Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:53.1413924Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:53.1414176Z ##[endgroup]
+2026-02-06T23:24:53.1468375Z OIDC env vars are present
+2026-02-06T23:24:53.1493572Z ##[group]Run rm -f ~/.npmrc
+2026-02-06T23:24:53.1493819Z [36;1mrm -f ~/.npmrc[0m
+2026-02-06T23:24:53.1522372Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:53.1522622Z env:
+2026-02-06T23:24:53.1522855Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:53.1523189Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:53.1523463Z ##[endgroup]
+2026-02-06T23:24:53.1608066Z ##[group]Run npm publish --access public --provenance
+2026-02-06T23:24:53.1608454Z [36;1mnpm publish --access public --provenance[0m
+2026-02-06T23:24:53.1637302Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:53.1637540Z env:
+2026-02-06T23:24:53.1637773Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:53.1638109Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:53.1638356Z   HUSKY: 0
+2026-02-06T23:24:53.1638743Z ##[endgroup]
+2026-02-06T23:24:53.5599566Z 
+2026-02-06T23:24:53.5602223Z > @tachiiri-library/specifications@0.1.10 prepack
+2026-02-06T23:24:53.5603640Z > npm run manifest:gen && npm run manifest:check
+2026-02-06T23:24:53.5605460Z 
+2026-02-06T23:24:53.6986186Z 
+2026-02-06T23:24:53.6991141Z > @tachiiri-library/specifications@0.1.10 manifest:gen
+2026-02-06T23:24:53.6995810Z > node tools/generate-manifest.mjs
+2026-02-06T23:24:53.6999179Z 
+2026-02-06T23:24:53.7940205Z Wrote spec.manifest.json (70 specs)
+2026-02-06T23:24:53.9555390Z 
+2026-02-06T23:24:53.9556186Z > @tachiiri-library/specifications@0.1.10 manifest:check
+2026-02-06T23:24:53.9557190Z > node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json
+2026-02-06T23:24:53.9557761Z 
+2026-02-06T23:24:54.0165282Z Wrote spec.manifest.json (70 specs)
+2026-02-06T23:24:54.0318196Z 
+2026-02-06T23:24:54.0319444Z > @tachiiri-library/specifications@0.1.10 prepare
+2026-02-06T23:24:54.0321620Z > husky install
+2026-02-06T23:24:54.0323959Z 
+2026-02-06T23:24:54.0620863Z husky - install command is DEPRECATED
+2026-02-06T23:24:54.2356594Z npm notice
+2026-02-06T23:24:54.2365498Z npm notice 📦  @tachiiri-library/specifications@0.1.10
+2026-02-06T23:24:54.2366182Z npm notice Tarball Contents
+2026-02-06T23:24:54.2373756Z npm notice 365B CHANGELOG.md
+2026-02-06T23:24:54.2374276Z npm notice 1.7kB README.md
+2026-02-06T23:24:54.2374758Z npm notice 1.2kB package.json
+2026-02-06T23:24:54.2375301Z npm notice 20.3kB spec.manifest.json
+2026-02-06T23:24:54.2375996Z npm notice 7.0kB specs/00_constitution_scope.md
+2026-02-06T23:24:54.2376810Z npm notice 7.7kB specs/00_constitution/actor_subject_tenant_model.md
+2026-02-06T23:24:54.2377670Z npm notice 672B specs/00_constitution/actor.md
+2026-02-06T23:24:54.2378414Z npm notice 1.6kB specs/00_constitution/authn_assurance.md
+2026-02-06T23:24:54.2379435Z npm notice 4.0kB specs/00_constitution/authorization.md
+2026-02-06T23:24:54.2380297Z npm notice 1.4kB specs/00_constitution/authz_input_resolution.md
+2026-02-06T23:24:54.2381217Z npm notice 986B specs/00_constitution/automation_human_boundary.md
+2026-02-06T23:24:54.2382271Z npm notice 788B specs/00_constitution/business_override_and_exception_control.md
+2026-02-06T23:24:54.2383289Z npm notice 3.1kB specs/00_constitution/claims_compatibility.md
+2026-02-06T23:24:54.2384225Z npm notice 1.4kB specs/00_constitution/delegation_context_transport.md
+2026-02-06T23:24:54.2385219Z npm notice 3.0kB specs/00_constitution/delegation_impersonation.md
+2026-02-06T23:24:54.2386339Z npm notice 891B specs/00_constitution/feature_enablement_and_flag_governance.md
+2026-02-06T23:24:54.2387332Z npm notice 5.6kB specs/00_constitution/global_defaults.md
+2026-02-06T23:24:54.2388107Z npm notice 3.5kB specs/00_constitution/headers.md
+2026-02-06T23:24:54.2389707Z npm notice 1.8kB specs/00_constitution/identity_key_rotation.md
+2026-02-06T23:24:54.2390497Z npm notice 3.5kB specs/00_constitution/identity.md
+2026-02-06T23:24:54.2391299Z npm notice 4.1kB specs/00_constitution/observability.md
+2026-02-06T23:24:54.2392066Z npm notice 1.8kB specs/00_constitution/operation.md
+2026-02-06T23:24:54.2392846Z npm notice 2.7kB specs/00_constitution/policy_decision_trace.md
+2026-02-06T23:24:54.2393710Z npm notice 1.1kB specs/00_constitution/policy_evaluation.md
+2026-02-06T23:24:54.2394522Z npm notice 2.9kB specs/00_constitution/policy_types.md
+2026-02-06T23:24:54.2395298Z npm notice 3.8kB specs/00_constitution/repo_layout.md
+2026-02-06T23:24:54.2396160Z npm notice 1.8kB specs/00_constitution/role_scope_governance.md
+2026-02-06T23:24:54.2397354Z npm notice 2.1kB specs/00_constitution/secrets_and_keys.md
+2026-02-06T23:24:54.2398139Z npm notice 893B specs/00_constitution/subject_types.md
+2026-02-06T23:24:54.2398968Z npm notice 6.8kB specs/00_purpose.md
+2026-02-06T23:24:54.2399484Z npm notice 3.2kB specs/10_non_goals.md
+2026-02-06T23:24:54.2400203Z npm notice 3.4kB specs/20_operational_semantics/async_jobs_events.md
+2026-02-06T23:24:54.2401305Z npm notice 2.1kB specs/20_operational_semantics/audit_retention_storage_policy.md
+2026-02-06T23:24:54.2402436Z npm notice 2.8kB specs/20_operational_semantics/authz_input_resolution.md
+2026-02-06T23:24:54.2403493Z npm notice 2.1kB specs/20_operational_semantics/automation_operations.md
+2026-02-06T23:24:54.2404381Z npm notice 3.5kB specs/20_operational_semantics/billing.md
+2026-02-06T23:24:54.2405403Z npm notice 1.1kB specs/20_operational_semantics/business_override_and_exception_control.md
+2026-02-06T23:24:54.2406715Z npm notice 1.0kB specs/20_operational_semantics/cost_abuse_resource_exhaustion_protection.md
+2026-02-06T23:24:54.2408219Z npm notice 2.4kB specs/20_operational_semantics/cross_tenant_exceptions.md
+2026-02-06T23:24:54.2409505Z npm notice 1.8kB specs/20_operational_semantics/data_classification.md
+2026-02-06T23:24:54.2410686Z npm notice 1.3kB specs/20_operational_semantics/data_migration_backfill_reconciliation.md
+2026-02-06T23:24:54.2411754Z npm notice 2.6kB specs/20_operational_semantics/data_persistence.md
+2026-02-06T23:24:54.2412688Z npm notice 3.0kB specs/20_operational_semantics/data_residency.md
+2026-02-06T23:24:54.2413584Z npm notice 3.4kB specs/20_operational_semantics/data_tenant_safety.md
+2026-02-06T23:24:54.2414690Z npm notice 3.2kB specs/20_operational_semantics/deletion_propagation_contract.md
+2026-02-06T23:24:54.2415826Z npm notice 1.4kB specs/20_operational_semantics/dependency_connector_change_semantics.md
+2026-02-06T23:24:54.2416957Z npm notice 3.0kB specs/20_operational_semantics/disaster_recovery.md
+2026-02-06T23:24:54.2417966Z npm notice 2.5kB specs/20_operational_semantics/event_version_rollout.md
+2026-02-06T23:24:54.2420628Z npm notice 1.0kB specs/20_operational_semantics/feature_enablement_and_flag_governance.md
+2026-02-06T23:24:54.2421532Z npm notice 5.5kB specs/20_operational_semantics/idempotency.md
+2026-02-06T23:24:54.2422326Z npm notice 1.9kB specs/20_operational_semantics/limits.md
+2026-02-06T23:24:54.2423229Z npm notice 2.3kB specs/20_operational_semantics/operation_slo_baseline.md
+2026-02-06T23:24:54.2424444Z npm notice 2.0kB specs/20_operational_semantics/operational_access_break_glass.md
+2026-02-06T23:24:54.2425475Z npm notice 3.2kB specs/20_operational_semantics/org_model.md
+2026-02-06T23:24:54.2426398Z npm notice 5.2kB specs/20_operational_semantics/payload_schema.md
+2026-02-06T23:24:54.2427494Z npm notice 2.1kB specs/20_operational_semantics/release_compatibility_governance.md
+2026-02-06T23:24:54.2428824Z npm notice 2.1kB specs/20_operational_semantics/resource_ownership.md
+2026-02-06T23:24:54.2429827Z npm notice 4.7kB specs/20_operational_semantics/support_and_ops.md
+2026-02-06T23:24:54.2430817Z npm notice 3.9kB specs/20_operational_semantics/tenant_lifecycle.md
+2026-02-06T23:24:54.2431709Z npm notice 5.2kB specs/30_interaction_edges/authn_methods.md
+2026-02-06T23:24:54.2432717Z npm notice 1.9kB specs/30_interaction_edges/browser_response_security_headers.md
+2026-02-06T23:24:54.2433706Z npm notice 5.4kB specs/30_interaction_edges/client_types.md
+2026-02-06T23:24:54.2434513Z npm notice 5.1kB specs/30_interaction_edges/http.md
+2026-02-06T23:24:54.2435479Z npm notice 1.6kB specs/30_interaction_edges/identity_key_rotation.md
+2026-02-06T23:24:54.2436461Z npm notice 2.7kB specs/30_interaction_edges/security_browser_boundary.md
+2026-02-06T23:24:54.2437357Z npm notice 1.4kB specs/30_interaction_edges/session.md
+2026-02-06T23:24:54.2438142Z npm notice 932B specs/30_interaction_edges/step_up.md
+2026-02-06T23:24:54.2439106Z npm notice 1.8kB specs/30_interaction_edges/webhook.md
+2026-02-06T23:24:54.2440135Z npm notice 1.8kB specs/40_service_operations_governance/change_and_release_lifecycle.md
+2026-02-06T23:24:54.2441771Z npm notice 1.4kB specs/40_service_operations_governance/configuration_and_environment_governance.md
+2026-02-06T23:24:54.2443304Z npm notice 1.4kB specs/40_service_operations_governance/incident_lifecycle_and_emergency_controls.md
+2026-02-06T23:24:54.2444544Z npm notice 1.5kB specs/40_service_operations_governance/README.md
+2026-02-06T23:24:54.2445810Z npm notice 1.0kB specs/40_service_operations_governance/runtime_configuration_and_emergency_controls.md
+2026-02-06T23:24:54.2447359Z npm notice 1.1kB specs/40_service_operations_governance/security_operations_and_vulnerability_response.md
+2026-02-06T23:24:54.2448371Z npm notice Tarball Details
+2026-02-06T23:24:54.2449218Z npm notice name: @tachiiri-library/specifications
+2026-02-06T23:24:54.2449840Z npm notice version: 0.1.10
+2026-02-06T23:24:54.2450581Z npm notice filename: tachiiri-library-specifications-0.1.10.tgz
+2026-02-06T23:24:54.2451341Z npm notice package size: 67.0 kB
+2026-02-06T23:24:54.2452153Z npm notice unpacked size: 210.2 kB
+2026-02-06T23:24:54.2452884Z npm notice shasum: ef0b693eb5d067bd5ee1b2a4b233d7782dd0a70c
+2026-02-06T23:24:54.2453789Z npm notice integrity: sha512-aDdJQIhY7TRLr[...]l2e+ChSC/nbpA==
+2026-02-06T23:24:54.2454477Z npm notice total files: 74
+2026-02-06T23:24:54.2454883Z npm notice
+2026-02-06T23:24:54.2455960Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+2026-02-06T23:24:55.0131595Z npm notice publish Signed provenance statement with source and build information from GitHub Actions
+2026-02-06T23:24:55.0134326Z npm notice publish Provenance statement published to transparency log: https://search.sigstore.dev/?logIndex=925558481
+2026-02-06T23:24:55.2761194Z npm notice Access token expired or revoked. Please try logging in again.
+2026-02-06T23:24:55.2795937Z npm error code E404
+2026-02-06T23:24:55.2797895Z npm error 404 Not Found - PUT https://registry.npmjs.org/@tachiiri-library%2fspecifications - Not found
+2026-02-06T23:24:55.2800253Z npm error 404
+2026-02-06T23:24:55.2801087Z npm error 404  '@tachiiri-library/specifications@0.1.10' is not in this registry.
+2026-02-06T23:24:55.2801840Z npm error 404
+2026-02-06T23:24:55.2802386Z npm error 404 Note that you can also install from a
+2026-02-06T23:24:55.2803149Z npm error 404 tarball, folder, http url, or git url.
+2026-02-06T23:24:55.2811154Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-02-06T23_24_53_229Z-debug-0.log
+2026-02-06T23:24:55.2883571Z HUSKY=0 skip install
+2026-02-06T23:24:55.2943841Z ##[error]Process completed with exit code 1.
+2026-02-06T23:24:55.3058024Z Post job cleanup.
+2026-02-06T23:24:55.4040783Z [command]/usr/bin/git version
+2026-02-06T23:24:55.4080601Z git version 2.52.0
+2026-02-06T23:24:55.4128157Z Temporarily overriding HOME='/home/runner/work/_temp/b081846c-3b70-4545-808f-06190af49092' before making global git config changes
+2026-02-06T23:24:55.4130930Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-06T23:24:55.4137023Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/specifications/specifications
+2026-02-06T23:24:55.4181489Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-06T23:24:55.4218350Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-06T23:24:55.5018052Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-06T23:24:55.5042656Z http.https://github.com/.extraheader
+2026-02-06T23:24:55.5060469Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-06T23:24:55.7586777Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-06T23:24:55.7845345Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-06T23:24:55.7894065Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-06T23:24:55.8255117Z Cleaning up orphan processes

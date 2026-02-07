@@ -1,0 +1,9 @@
+﻿2026-02-06T23:24:52.4087403Z ##[group]Run git fetch origin main --depth=1
+2026-02-06T23:24:52.4087787Z [36;1mgit fetch origin main --depth=1[0m
+2026-02-06T23:24:52.4121903Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:52.4122161Z env:
+2026-02-06T23:24:52.4122401Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:52.4122736Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:52.4122993Z ##[endgroup]
+2026-02-06T23:24:52.7282390Z From https://github.com/tachiiri-org/specifications
+2026-02-06T23:24:52.7311024Z  * branch            main       -> FETCH_HEAD

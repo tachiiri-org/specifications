@@ -1,0 +1,128 @@
+﻿2026-02-06T23:24:53.1608055Z ##[group]Run npm publish --access public --provenance
+2026-02-06T23:24:53.1608451Z [36;1mnpm publish --access public --provenance[0m
+2026-02-06T23:24:53.1637296Z shell: /usr/bin/bash -e {0}
+2026-02-06T23:24:53.1637538Z env:
+2026-02-06T23:24:53.1637771Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+2026-02-06T23:24:53.1638106Z   NODE_AUTH_TOKEN: XXXXX-XXXXX-XXXXX-XXXXX
+2026-02-06T23:24:53.1638353Z   HUSKY: 0
+2026-02-06T23:24:53.1638737Z ##[endgroup]
+2026-02-06T23:24:53.5599513Z 
+2026-02-06T23:24:53.5602208Z > @tachiiri-library/specifications@0.1.10 prepack
+2026-02-06T23:24:53.5603629Z > npm run manifest:gen && npm run manifest:check
+2026-02-06T23:24:53.5605451Z 
+2026-02-06T23:24:53.6986153Z 
+2026-02-06T23:24:53.6991126Z > @tachiiri-library/specifications@0.1.10 manifest:gen
+2026-02-06T23:24:53.6995802Z > node tools/generate-manifest.mjs
+2026-02-06T23:24:53.6999166Z 
+2026-02-06T23:24:53.7940162Z Wrote spec.manifest.json (70 specs)
+2026-02-06T23:24:53.9555337Z 
+2026-02-06T23:24:53.9556116Z > @tachiiri-library/specifications@0.1.10 manifest:check
+2026-02-06T23:24:53.9557185Z > node tools/generate-manifest.mjs && git diff --exit-code spec.manifest.json
+2026-02-06T23:24:53.9557756Z 
+2026-02-06T23:24:54.0165244Z Wrote spec.manifest.json (70 specs)
+2026-02-06T23:24:54.0318167Z 
+2026-02-06T23:24:54.0319436Z > @tachiiri-library/specifications@0.1.10 prepare
+2026-02-06T23:24:54.0321613Z > husky install
+2026-02-06T23:24:54.0323947Z 
+2026-02-06T23:24:54.0620829Z husky - install command is DEPRECATED
+2026-02-06T23:24:54.2356548Z npm notice
+2026-02-06T23:24:54.2365481Z npm notice 📦  @tachiiri-library/specifications@0.1.10
+2026-02-06T23:24:54.2366172Z npm notice Tarball Contents
+2026-02-06T23:24:54.2373742Z npm notice 365B CHANGELOG.md
+2026-02-06T23:24:54.2374269Z npm notice 1.7kB README.md
+2026-02-06T23:24:54.2374752Z npm notice 1.2kB package.json
+2026-02-06T23:24:54.2375296Z npm notice 20.3kB spec.manifest.json
+2026-02-06T23:24:54.2375969Z npm notice 7.0kB specs/00_constitution_scope.md
+2026-02-06T23:24:54.2376806Z npm notice 7.7kB specs/00_constitution/actor_subject_tenant_model.md
+2026-02-06T23:24:54.2377666Z npm notice 672B specs/00_constitution/actor.md
+2026-02-06T23:24:54.2378405Z npm notice 1.6kB specs/00_constitution/authn_assurance.md
+2026-02-06T23:24:54.2379424Z npm notice 4.0kB specs/00_constitution/authorization.md
+2026-02-06T23:24:54.2380291Z npm notice 1.4kB specs/00_constitution/authz_input_resolution.md
+2026-02-06T23:24:54.2381212Z npm notice 986B specs/00_constitution/automation_human_boundary.md
+2026-02-06T23:24:54.2382261Z npm notice 788B specs/00_constitution/business_override_and_exception_control.md
+2026-02-06T23:24:54.2383281Z npm notice 3.1kB specs/00_constitution/claims_compatibility.md
+2026-02-06T23:24:54.2384216Z npm notice 1.4kB specs/00_constitution/delegation_context_transport.md
+2026-02-06T23:24:54.2385208Z npm notice 3.0kB specs/00_constitution/delegation_impersonation.md
+2026-02-06T23:24:54.2386317Z npm notice 891B specs/00_constitution/feature_enablement_and_flag_governance.md
+2026-02-06T23:24:54.2387325Z npm notice 5.6kB specs/00_constitution/global_defaults.md
+2026-02-06T23:24:54.2388099Z npm notice 3.5kB specs/00_constitution/headers.md
+2026-02-06T23:24:54.2389697Z npm notice 1.8kB specs/00_constitution/identity_key_rotation.md
+2026-02-06T23:24:54.2390487Z npm notice 3.5kB specs/00_constitution/identity.md
+2026-02-06T23:24:54.2391292Z npm notice 4.1kB specs/00_constitution/observability.md
+2026-02-06T23:24:54.2392060Z npm notice 1.8kB specs/00_constitution/operation.md
+2026-02-06T23:24:54.2392842Z npm notice 2.7kB specs/00_constitution/policy_decision_trace.md
+2026-02-06T23:24:54.2393702Z npm notice 1.1kB specs/00_constitution/policy_evaluation.md
+2026-02-06T23:24:54.2394514Z npm notice 2.9kB specs/00_constitution/policy_types.md
+2026-02-06T23:24:54.2395290Z npm notice 3.8kB specs/00_constitution/repo_layout.md
+2026-02-06T23:24:54.2396154Z npm notice 1.8kB specs/00_constitution/role_scope_governance.md
+2026-02-06T23:24:54.2397000Z npm notice 2.1kB specs/00_constitution/secrets_and_keys.md
+2026-02-06T23:24:54.2398131Z npm notice 893B specs/00_constitution/subject_types.md
+2026-02-06T23:24:54.2398963Z npm notice 6.8kB specs/00_purpose.md
+2026-02-06T23:24:54.2399481Z npm notice 3.2kB specs/10_non_goals.md
+2026-02-06T23:24:54.2400199Z npm notice 3.4kB specs/20_operational_semantics/async_jobs_events.md
+2026-02-06T23:24:54.2401292Z npm notice 2.1kB specs/20_operational_semantics/audit_retention_storage_policy.md
+2026-02-06T23:24:54.2402426Z npm notice 2.8kB specs/20_operational_semantics/authz_input_resolution.md
+2026-02-06T23:24:54.2403484Z npm notice 2.1kB specs/20_operational_semantics/automation_operations.md
+2026-02-06T23:24:54.2404377Z npm notice 3.5kB specs/20_operational_semantics/billing.md
+2026-02-06T23:24:54.2405398Z npm notice 1.1kB specs/20_operational_semantics/business_override_and_exception_control.md
+2026-02-06T23:24:54.2406706Z npm notice 1.0kB specs/20_operational_semantics/cost_abuse_resource_exhaustion_protection.md
+2026-02-06T23:24:54.2408192Z npm notice 2.4kB specs/20_operational_semantics/cross_tenant_exceptions.md
+2026-02-06T23:24:54.2409494Z npm notice 1.8kB specs/20_operational_semantics/data_classification.md
+2026-02-06T23:24:54.2410679Z npm notice 1.3kB specs/20_operational_semantics/data_migration_backfill_reconciliation.md
+2026-02-06T23:24:54.2411749Z npm notice 2.6kB specs/20_operational_semantics/data_persistence.md
+2026-02-06T23:24:54.2412681Z npm notice 3.0kB specs/20_operational_semantics/data_residency.md
+2026-02-06T23:24:54.2413578Z npm notice 3.4kB specs/20_operational_semantics/data_tenant_safety.md
+2026-02-06T23:24:54.2414684Z npm notice 3.2kB specs/20_operational_semantics/deletion_propagation_contract.md
+2026-02-06T23:24:54.2415819Z npm notice 1.4kB specs/20_operational_semantics/dependency_connector_change_semantics.md
+2026-02-06T23:24:54.2416947Z npm notice 3.0kB specs/20_operational_semantics/disaster_recovery.md
+2026-02-06T23:24:54.2417957Z npm notice 2.5kB specs/20_operational_semantics/event_version_rollout.md
+2026-02-06T23:24:54.2420606Z npm notice 1.0kB specs/20_operational_semantics/feature_enablement_and_flag_governance.md
+2026-02-06T23:24:54.2421526Z npm notice 5.5kB specs/20_operational_semantics/idempotency.md
+2026-02-06T23:24:54.2422320Z npm notice 1.9kB specs/20_operational_semantics/limits.md
+2026-02-06T23:24:54.2423225Z npm notice 2.3kB specs/20_operational_semantics/operation_slo_baseline.md
+2026-02-06T23:24:54.2424433Z npm notice 2.0kB specs/20_operational_semantics/operational_access_break_glass.md
+2026-02-06T23:24:54.2425465Z npm notice 3.2kB specs/20_operational_semantics/org_model.md
+2026-02-06T23:24:54.2426390Z npm notice 5.2kB specs/20_operational_semantics/payload_schema.md
+2026-02-06T23:24:54.2427483Z npm notice 2.1kB specs/20_operational_semantics/release_compatibility_governance.md
+2026-02-06T23:24:54.2428813Z npm notice 2.1kB specs/20_operational_semantics/resource_ownership.md
+2026-02-06T23:24:54.2429820Z npm notice 4.7kB specs/20_operational_semantics/support_and_ops.md
+2026-02-06T23:24:54.2430799Z npm notice 3.9kB specs/20_operational_semantics/tenant_lifecycle.md
+2026-02-06T23:24:54.2431703Z npm notice 5.2kB specs/30_interaction_edges/authn_methods.md
+2026-02-06T23:24:54.2432709Z npm notice 1.9kB specs/30_interaction_edges/browser_response_security_headers.md
+2026-02-06T23:24:54.2433697Z npm notice 5.4kB specs/30_interaction_edges/client_types.md
+2026-02-06T23:24:54.2434504Z npm notice 5.1kB specs/30_interaction_edges/http.md
+2026-02-06T23:24:54.2435471Z npm notice 1.6kB specs/30_interaction_edges/identity_key_rotation.md
+2026-02-06T23:24:54.2436452Z npm notice 2.7kB specs/30_interaction_edges/security_browser_boundary.md
+2026-02-06T23:24:54.2437351Z npm notice 1.4kB specs/30_interaction_edges/session.md
+2026-02-06T23:24:54.2438133Z npm notice 932B specs/30_interaction_edges/step_up.md
+2026-02-06T23:24:54.2439100Z npm notice 1.8kB specs/30_interaction_edges/webhook.md
+2026-02-06T23:24:54.2440126Z npm notice 1.8kB specs/40_service_operations_governance/change_and_release_lifecycle.md
+2026-02-06T23:24:54.2441519Z npm notice 1.4kB specs/40_service_operations_governance/configuration_and_environment_governance.md
+2026-02-06T23:24:54.2443294Z npm notice 1.4kB specs/40_service_operations_governance/incident_lifecycle_and_emergency_controls.md
+2026-02-06T23:24:54.2444534Z npm notice 1.5kB specs/40_service_operations_governance/README.md
+2026-02-06T23:24:54.2445800Z npm notice 1.0kB specs/40_service_operations_governance/runtime_configuration_and_emergency_controls.md
+2026-02-06T23:24:54.2447350Z npm notice 1.1kB specs/40_service_operations_governance/security_operations_and_vulnerability_response.md
+2026-02-06T23:24:54.2448361Z npm notice Tarball Details
+2026-02-06T23:24:54.2449209Z npm notice name: @tachiiri-library/specifications
+2026-02-06T23:24:54.2449831Z npm notice version: 0.1.10
+2026-02-06T23:24:54.2450573Z npm notice filename: tachiiri-library-specifications-0.1.10.tgz
+2026-02-06T23:24:54.2451334Z npm notice package size: 67.0 kB
+2026-02-06T23:24:54.2452145Z npm notice unpacked size: 210.2 kB
+2026-02-06T23:24:54.2452863Z npm notice shasum: ef0b693eb5d067bd5ee1b2a4b233d7782dd0a70c
+2026-02-06T23:24:54.2453783Z npm notice integrity: sha512-aDdJQIhY7TRLr[...]l2e+ChSC/nbpA==
+2026-02-06T23:24:54.2454471Z npm notice total files: 74
+2026-02-06T23:24:54.2454875Z npm notice
+2026-02-06T23:24:54.2455949Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+2026-02-06T23:24:55.0131553Z npm notice publish Signed provenance statement with source and build information from GitHub Actions
+2026-02-06T23:24:55.0134312Z npm notice publish Provenance statement published to transparency log: https://search.sigstore.dev/?logIndex=925558481
+2026-02-06T23:24:55.2761170Z npm notice Access token expired or revoked. Please try logging in again.
+2026-02-06T23:24:55.2795921Z npm error code E404
+2026-02-06T23:24:55.2797880Z npm error 404 Not Found - PUT https://registry.npmjs.org/@tachiiri-library%2fspecifications - Not found
+2026-02-06T23:24:55.2800242Z npm error 404
+2026-02-06T23:24:55.2801056Z npm error 404  '@tachiiri-library/specifications@0.1.10' is not in this registry.
+2026-02-06T23:24:55.2801832Z npm error 404
+2026-02-06T23:24:55.2802377Z npm error 404 Note that you can also install from a
+2026-02-06T23:24:55.2803142Z npm error 404 tarball, folder, http url, or git url.
+2026-02-06T23:24:55.2811141Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-02-06T23_24_53_229Z-debug-0.log
+2026-02-06T23:24:55.2883555Z HUSKY=0 skip install
+2026-02-06T23:24:55.2943828Z ##[error]Process completed with exit code 1.
